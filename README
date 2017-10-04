@@ -14,3 +14,15 @@ npm start
 3. Run angular app
 cd llb-poc
 ng build --watch
+
+
+Dev guidelines:
+1. Use angular-cli to generate classes:
+Component: ng generate component [name]
+Service: ng generate service [name]
+etc.
+Read: https://github.com/angular/angular-cli#usage
+
+2. Use correct directory structure
+-Components should be in their own directory, under "component" -root directory
+-Services should be under "service" -directory
