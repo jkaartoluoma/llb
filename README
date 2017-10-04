@@ -16,6 +16,14 @@ cd llb-poc
 ng build --watch
 
 
+Circumventing CORS:
+-On firefox, install "Cors everywhere" -plugin
+-On chrome, run chrome with following command (note: kill all open chrome processes first): 
+Windows: chromium-browser --disable-web-security --user-data-dir
+Os.X: open -a Google\ Chrome --args --disable-web-security --user-data-dir
+Linux: google-chrome --disable-web-security
+
+
 Dev guidelines:
 1. Use angular-cli to generate classes:
 Component: ng generate component [name]
