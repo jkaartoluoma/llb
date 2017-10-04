@@ -5,6 +5,6 @@
 <p>
   <button (click)="test()">Test REST api</button>
   <span *ngIf="loader.isLoading()">Testing...</span>
-  <span *ngIf="testOk==true" style="color: green">Ok</span>
-  <span *ngIf="testOk==false" style="color: red">Failed!</span>
+  <span *ngIf="testOk==true && !loader.isLoading()" style="color: green">Ok</span>
+  <span *ngIf="testOk==false && !loader.isLoading()" style="color: red">Failed!</span>
 </p>
