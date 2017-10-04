@@ -40,4 +40,4 @@ jspm_packages
 /*.zip
 
 # Dont push compiled js app
-/app
+/app/**
