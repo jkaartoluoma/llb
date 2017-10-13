@@ -1,0 +1,179 @@
+{
+  "BusId": 1612,
+  "GwId": 10,
+  "tsl": "2017-10-04T09:56:34.000Z",
+  "lat": 60.193051375,
+  "lon": 24.934153639,
+  "alt": 13.299,
+  "spd": 4.376,
+  "eps": 0.42,
+  "epx": 0.005,
+  "epv": 32.66,
+  "ept": 20.174,
+  "clm": -0.277,
+  "trc": 184.0313,
+  "mod": 3.0,
+  "tsp": "2017-10-04T09:56:33.000Z",
+  "dro": [
+    {
+      "in_rot_quaternion": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "acc": [
+    {
+      "in_accel_z": -1078,
+      "in_accel_y": -111,
+      "in_accel_x": -318
+    }
+  ],
+  "inc": [
+    {
+      "in_incli_x": 232,
+      "in_incli_y": -666,
+      "in_incli_z": 27923
+    }
+  ],
+  "mgn": [
+    {
+      "in_rot_from_north_magnetic_tilt_comp": 8049,
+      "in_magn_z": -180480,
+      "in_magn_x": 34880,
+      "in_magn_y": 227840
+    }
+  ],
+  "gyr": [
+    {
+      "in_anglvel_y": 1890,
+      "in_anglvel_x": 70,
+      "in_anglvel_z": 13440
+    }
+  ],
+  "tsc": "2017/10/04 09:56:35z",
+  "fi/llb/bus/1612/10/can/": {
+    "timestamp": "2017-10-04T12:56:34.936Z",
+    "AIR1_AirCompressorStatus": "1",
+    "AIR1_AirSuspensionSupplyPress": "824",
+    "AIR1_ParkingAnd_OrTrailerAirPress": "824",
+    "AIR1_PneumaticSupplyPress": "320",
+    "AIR1_ServiceBrakeAirPressCircuit1": "824",
+    "AIR1_ServiceBrakeAirPressCircuit2": "824",
+    "AMB_AmbientAirTemp": "12.00",
+    "AMB_CabInteriorTemp": "19.00",
+    "AS_Alt1Status": "1",
+    "BATTERY_AverageCellTemp": "25",
+    "BATTERY_BatteryCurrent": "8.60",
+    "BATTERY_BatteryPower": "6.10",
+    "BATTERY_BatteryVoltage": "708.30",
+    "BATTERY_SOC": "73.00",
+    "CCVS_BrakeSwitch": "1",
+    "CCVS_ParkingBrakeSwitch": "0",
+    "CCVS_WheelBasedVehicleSpeed": "12.83",
+    "CVW_GrossCombinationVehicleWeight": "13690",
+    "DC1_Ramp_WheelChairLiftPos": "0",
+    "DC1_PosOfDoors": "2",
+    "DD_BatteryLevel": "72.80",
+    "DRIVER_AcceleratorPosition": "0",
+    "DRIVER_BrakePedalPosition": "37",
+    "DRIVER_DriverTorqueRequest": "-15",
+    "DRIVER_RegenControlPosition": "0",
+    "DRIVER_SteeringWheelAngle": "0.00",
+    "EEC1_DriversDemandMotorPercentTorque": "-14",
+    "EEC1_MotorSpeed": "380",
+    "EEC2_AccelPedalPos1": "0",
+    "EEC2_RoadSpeedLimitStatus": "0",
+    "EEC2_VhclAccelerationRateLimitStatus": "0",
+    "EFFICIENCY_Efficiency": "476",
+    "EFFICIENCY_EfficiencyAverage": "-1305",
+    "ENE_AUX1_AirCompressor": "1607",
+    "ENE_AUX1_DCDC": "5560",
+    "ENE_AUX2_HeatPump": "2363",
+    "ENE_AUX2_PowerSteering": "442",
+    "ENE_MOT_DriveMotor": "22738",
+    "ENERGY_TotalChargedEnergy": "49454",
+    "ENERGY_TotalDischargedEnergy": "45613",
+    "ENERGY2_TotalExternalCharge": "35457",
+    "ENERGY2_TotalProcessedAmpHours": "133602",
+    "ET1_MotorCoolantTemp": "60",
+    "ETC2_TransCurrentGear": "126",
+    "HOURS_MotorTotalHoursOfOperation": "1465.45",
+    "MOTOR_AccelerationLimit": "0",
+    "MOTOR_MotorTorque": "-255",
+    "MOTOR_MotorTorqueReference": "-294",
+    "MOTOR_SlipLimit": "0",
+    "MOTOR_Power": "-10.20",
+    "MOTOR_SlipPercentage": "-14",
+    "PWR_AUX_HeatPump": "0.00",
+    "PWR_AUX_AirCompressor": "0.90",
+    "PWR_AUX_PowerSteering": "0.67",
+    "PWR_AUX_DCDC": "1.34",
+    "STATUS_ChargingType": "0",
+    "TCO1_DirectionIndicator": "0",
+    "TCO1_TachographVehicleSpeed": "12.83",
+    "TCO1_VehicleMotion": "1",
+    "TEMPERATURE_DriveInverter": "42",
+    "TEMPERATURE_DriveMotor": "68",
+    "VDHR_HghRslutionTotalVehicleDistance": "33701560",
+    "VI_VehicleIdentificationNumber": "3258126732303937837",
+    "VW_AxleLocation": "0",
+    "VW_AxleWeight": "5449"
+  },
+  "1612_2": {
+    "sts_2": "2017/10/04 09:55:51z",
+    "gid_2": "10",
+    "sep_2": 991.2,
+    "set_2": 18.3,
+    "seb_2": 2.6,
+    "srs_2": 69.0,
+    "seh_2": 73.7
+  },
+  "1612_3": {
+    "sts_3": "2017/10/04 09:53:20z",
+    "gid_3": "10",
+    "sep_3": 990.8,
+    "set_3": 19.0,
+    "seb_3": 2.6,
+    "srs_3": 70.6,
+    "seh_3": 69.8
+  },
+  "1612_4": {
+    "sts_4": "2017/10/04 09:56:27z",
+    "gid_4": "10",
+    "sep_4": 992.3,
+    "set_4": 19.5,
+    "seb_4": 2.7,
+    "srs_4": 76.5,
+    "seh_4": 67.1
+  },
+  "1612_4490": {
+    "sts_4490": "2017/06/15 12:48:30z",
+    "gid_4490": "10",
+    "sep_4490": 1016.6,
+    "set_4490": 29.75,
+    "seb_4490": 0.0,
+    "srs_4490": -41.0,
+    "seh_4490": 19.1
+  },
+  "1612_4491": {
+    "sts_4491": "2017/06/15 12:48:22z",
+    "gid_4491": "10",
+    "sep_4491": 1015.3,
+    "set_4491": 30.44,
+    "seb_4491": 0.0,
+    "srs_4491": -47.0,
+    "seh_4491": 17.44
+  },
+  "1612_4492": {
+    "sts_4492": "2017/06/15 12:48:06z",
+    "gid_4492": "10",
+    "sep_4492": 1013.5,
+    "set_4492": 29.11,
+    "seb_4492": 0.0,
+    "srs_4492": -45.0,
+    "seh_4492": 20.34
+  }
+}

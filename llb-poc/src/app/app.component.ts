@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {LlbService} from './service/llb.service';
+import {LoaderService} from './service/loader.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+
+  constructor(public llbService: LlbService, public loader: LoaderService) {}
+
+  test(): void {
+    this.llbService.start();
+    this.llbService.vehicleId = 1612;
+  }
 }

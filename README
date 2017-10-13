@@ -1,16 +1,44 @@
-Running application in development environment:
-0. Required tools
+Requirements for running the application in dev environment:
+1. Required tools
 angular-cli (https://github.com/angular/angular-cli)
 nodejs (https://docs.npmjs.com/getting-started/installing-node)
 
-1. Clone repo:
+2. Clone repo:
 git clone https://akselip@bitbucket.org/kaj_torrkulla/llb.git
 
-2. Run development-kit
+
+Running application inside development kit:
+1. Run development-kit
 cd development-kit
 (npm install)
 npm start
 
-3. Run angular app
+2. Run angular app
 cd llb-poc
 ng build --watch
+
+
+Running application without development kit:
+1. Run angular app
+cd llb-poc
+ng serve
+
+
+Circumventing CORS:
+-On firefox, install "Cors everywhere" -plugin
+-On chrome, run chrome with following command (note: kill all open chrome processes first): 
+Windows: chromium-browser --disable-web-security --user-data-dir
+Os.X: open -a Google\ Chrome --args --disable-web-security --user-data-dir
+Linux: google-chrome --disable-web-security
+
+
+Dev guidelines:
+1. Use angular-cli to generate classes:
+Component: ng generate component [name]
+Service: ng generate service [name]
+etc.
+Read: https://github.com/angular/angular-cli#usage
+
+2. Use correct directory structure
+-Components should be in their own directory, under "component" -root directory
+-Services should be under "service" -directory
