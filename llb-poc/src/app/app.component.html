@@ -4,9 +4,9 @@
 
 <p>
   <button (click)="test()">Test REST api</button>
-  <span *ngIf="loader.isLoading()">Testing...</span>
-  <span *ngIf="testOk==true && !loader.isLoading()" style="color: green">Ok</span>
-  <span *ngIf="testOk==false && !loader.isLoading()" style="color: red">Failed!</span>
+  <span *ngIf="loader.isLoading()">Loading data...</span>
 </p>
 
-<p>Vehicle id: {{getVehicleId()}}</p>
+<p>Vehicle: {{llbService.data?.BusId}}</p>
+<p>Latitude: {{llbService.data?.lat}}</p>
+<p>Longitude: {{llbService.data?.lon}}</p>
