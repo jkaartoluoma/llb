@@ -12,7 +12,9 @@ export class LlbService {
   data: VehicleData;
   intervalLoop: any;
 
-  constructor(private rest: RestService) { }
+  constructor(private rest: RestService) {
+
+  }
 
   getRealTimeData(busId: number): Observable<any> {
     return this.rest.get(realTimeDataApiUrl + '/GetData?busId=' + busId);
@@ -23,6 +25,7 @@ export class LlbService {
       if (this.vehicleId != null) {
         this.getRealTimeData(this.vehicleId).subscribe(res => {
           this.data = res.json();
+          //console.log(this.data);
         });
       }
     }, 1000);

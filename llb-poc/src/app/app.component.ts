@@ -11,8 +11,4 @@ export class AppComponent {
 
   constructor(public llbService: LlbService, public loader: LoaderService) {}
 
-  test(): void {
-    this.llbService.start();
-    this.llbService.vehicleId = 1612;
-  }
 }

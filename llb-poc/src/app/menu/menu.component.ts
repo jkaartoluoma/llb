@@ -13,10 +13,17 @@ import {MenuButton} from './menubutton';
 export class MenuComponent implements OnInit {
   MenuButtons = MENUBUTTONS;
   selectedMenu: MenuButton;
-  constructor(public llbService: LlbService, public loader: LoaderService) {  }
+  constructor(public llbService: LlbService, public loader: LoaderService) {
+
+  }
 
   ngOnInit() {
 
+  }
+
+  start(): void {
+    this.llbService.start();
+    this.llbService.vehicleId = 1612;
   }
 
   onSelect(menubutton: MenuButton): void {
