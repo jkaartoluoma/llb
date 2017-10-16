@@ -1,0 +1,34 @@
+<ul>
+
+  <li>Vehicle acceleration-z: {{llbService.data?.acc[0].in_accel_z}}</li>
+  <li>Vehicle acceleration-y: {{llbService.data?.acc[0].in_accel_y}}</li>
+  <li>Vehicle acceleration-z: {{llbService.data?.acc[0].in_accel_x}}</li>
+  <br/>
+  <li>Device rotation:
+    {{llbService.data?.dro[0].in_rot_quaternion[0]}}
+    {{llbService.data?.dro[0].in_rot_quaternion[1]}}
+    {{llbService.data?.dro[0].in_rot_quaternion[2]}}
+    {{llbService.data?.dro[0].in_rot_quaternion[3]}}
+  </li>
+  <br/>
+  <li>Vehicle inclination-z: {{llbService.data?.inc[0].in_incli_z}}</li>
+  <li>Vehicle inclination-y: {{llbService.data?.inc[0].in_incli_y}}</li>
+  <li>Vehicle inclination-x: {{llbService.data?.inc[0].in_incli_x}}</li>
+  <br/>
+  <li>Magnetometer data (from_north_magnetic_tilt):
+    {{llbService.data?.mgn[0].in_rot_from_north_magnetic_tilt_comp}}
+  </li>
+  <li>Magnetometer data-z: {{llbService.data?.mgn[0].in_magn_z}}</li>
+  <li>Magnetometer data-y: {{llbService.data?.mgn[0].in_magn_y}}</li>
+  <li>Magnetometer data-x: {{llbService.data?.mgn[0].in_magn_x}}</li>
+  <br/>
+  <li>Gyroscope data-z: {{llbService.data?.gyr[0].in_anglvel_z}}</li>
+  <li>Gyroscope data-y: {{llbService.data?.gyr[0].in_anglvel_y}}</li>
+  <li>Gyroscope data-x: {{llbService.data?.gyr[0].in_anglvel_x}}</li>
+  <br/>
+  <li>Speed of the vehicle: {{llbService.data?.spd}}</li>
+  <li>Estimated speed error: {{llbService.data?.eps}}</li>
+  <br/>
+  <li> TCO1_DirectionIndicator: {{llbService.data?.can[0].TCO1_DirectionIndicator}} </li>
+  <li> TCO1_TachographVehicleSpeed: {{llbService.data?.can[0].TCO1_TachographVehicleSpeed} </li>
+</ul>
