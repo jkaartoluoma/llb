@@ -8,7 +8,6 @@ import {LoaderService} from './service/loader.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
 
   constructor(public llbService: LlbService, public loader: LoaderService) {}
 

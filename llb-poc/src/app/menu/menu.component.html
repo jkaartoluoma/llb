@@ -1,0 +1,7 @@
+<div *ngFor="let menubutton of MenuButtons;" >
+  <div id="menuButton" (click)="onSelect(menubutton)">{{menubutton.title}}</div>
+  <general-data *ngIf="menubutton.id == 1 && selectedMenu == menubutton" > </general-data>
+  <location-data *ngIf="menubutton.id == 2 && selectedMenu == menubutton" > </location-data>
+  <sensor-data *ngIf="menubutton.id == 3 && selectedMenu == menubutton" > </sensor-data>
+  <movement-data *ngIf="menubutton.id == 4 && selectedMenu == menubutton"> </movement-data>
+</div>

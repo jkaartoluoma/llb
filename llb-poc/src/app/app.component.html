@@ -1,12 +1,6 @@
-<h1>
-  {{title}}
-</h1>
+<div>
+  <menu></menu>
 
-<p>
   <button (click)="test()">Test REST api</button>
   <span *ngIf="loader.isLoading()">Loading data...</span>
-</p>
-
-<p>Vehicle: {{llbService.data?.BusId}}</p>
-<p>Latitude: {{llbService.data?.lat}}</p>
-<p>Longitude: {{llbService.data?.lon}}</p>
+</div>
