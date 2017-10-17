@@ -23,6 +23,7 @@ export class LlbService {
       if (this.vehicleId != null) {
         this.getRealTimeData(this.vehicleId).subscribe(res => {
           this.data = res.json();
+          this.data.can = res.json()['fi/llb/bus/1612/10/can/'];
         });
       }
     }, 1000);
