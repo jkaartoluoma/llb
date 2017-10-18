@@ -2,11 +2,15 @@
   {{title}}
 </h1>
 
-<p>
-  <button (click)="test()">Test REST api</button>
-  <span *ngIf="loader.isLoading()">Loading data...</span>
-</p>
-
 <p>Vehicle: {{llbService.data?.BusId}}</p>
 <p>Latitude: {{llbService.data?.lat}}</p>
 <p>Longitude: {{llbService.data?.lon}}</p>
+
+<p>Speed</p>
+<app-linechart data="{{llbService.data?.spd}}" [max]="50" [min]="0" [step]="10"></app-linechart>
+
+<p>Altitude</p>
+<app-linechart data="{{llbService.data?.alt}}"></app-linechart>
+
+<p>Climb rate</p>
+<app-linechart data="{{llbService.data?.clm}}"></app-linechart>

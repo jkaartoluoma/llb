@@ -8,14 +8,19 @@ import {LlbService} from './service/llb.service';
 import {RestService} from './service/rest.service';
 import {LoaderService} from './service/loader.service';
 
+import { ChartsModule } from 'ng2-charts';
+import { LinechartComponent } from './linechart/linechart.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LinechartComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ChartsModule
   ],
   providers: [LlbService, RestService, LoaderService],
   bootstrap: [AppComponent]
