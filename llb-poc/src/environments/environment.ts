@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  realTimeDataApiUrl: 'http://llb.vtt.fi/LLBDataAPI/'
+  realTimeDataApiUrl: 'http://llb.vtt.fi/LLBDataAPI'
 };
