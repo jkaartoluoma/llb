@@ -6,6 +6,10 @@
 <p>Latitude: {{llbService.data?.lat}}</p>
 <p>Longitude: {{llbService.data?.lon}}</p>
 
+<agm-map [latitude]="llbService.data?.lat" [longitude]="llbService.data?.lon">
+  <agm-marker [latitude]="llbService.data?.lat" [longitude]="llbService.data?.lon"></agm-marker>
+</agm-map>
+
 <p>Speed</p>
 <app-linechart data="{{llbService.data?.spd}}" [max]="50" [min]="0" [step]="10"></app-linechart>
 

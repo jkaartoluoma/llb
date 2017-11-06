@@ -10,6 +10,7 @@ import {LoaderService} from './service/loader.service';
 
 import { ChartsModule } from 'ng2-charts';
 import { LinechartComponent } from './linechart/linechart.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,10 @@ import { LinechartComponent } from './linechart/linechart.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    ChartsModule
+    ChartsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBd3tmzegmPCnjxAuIHOF9ZNcGytvCL24E'
+    })
   ],
   providers: [LlbService, RestService, LoaderService],
   bootstrap: [AppComponent]
