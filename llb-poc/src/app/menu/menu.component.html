@@ -1,5 +1,9 @@
 <div *ngFor="let menubutton of MenuButtons;" >
+<<<<<<< HEAD
   <div id="menuButton" (click)="onSelect(menubutton)">{{menubutton.title}}</div>
+=======
+  <div id="menuButton" (click)="onSelect(menubutton)" (click)="start()">{{menubutton.title}}</div>
+>>>>>>> f6db32b4b103ae5264a2094cbba6990d3b8f1315
   <general-data *ngIf="menubutton.id == 1 && selectedMenu == menubutton" > </general-data>
   <location-data *ngIf="menubutton.id == 2 && selectedMenu == menubutton" > </location-data>
   <sensor-data *ngIf="menubutton.id == 3 && selectedMenu == menubutton" > </sensor-data>

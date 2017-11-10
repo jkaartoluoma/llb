@@ -12,15 +12,21 @@ import { LocationDataComponent } from './location-data/location-data.component';
 import { GeneralDataComponent } from './general-data/general-data.component';
 import { SensorDataComponent } from './sensor-data/sensor-data.component';
 import { MovementDataComponent } from './movement-data/movement-data.component';
+<<<<<<< HEAD
 
 import { ChartsModule } from 'ng2-charts';
 import { LinechartComponent } from './linechart/linechart.component';
 import { AgmCoreModule } from '@agm/core';
+=======
+>>>>>>> f6db32b4b103ae5264a2094cbba6990d3b8f1315
 
 @NgModule({
   declarations: [
     AppComponent,
+<<<<<<< HEAD
     LinechartComponent,
+=======
+>>>>>>> f6db32b4b103ae5264a2094cbba6990d3b8f1315
     MenuComponent,
     LocationDataComponent,
     GeneralDataComponent,
