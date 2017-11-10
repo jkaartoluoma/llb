@@ -9,3 +9,13 @@
 	<li>Course over ground, degrees from true north: {{llbService.data?.trc}} </li>
 	<li>NMEA mode {{llbService.data?.mod}} </li>
 </ul>
+<agm-map [latitude]="llbService.data?.lat" [longitude]="llbService.data?.lon">
+	<agm-marker [latitude]="llbService.data?.lat" [longitude]="llbService.data?.lon"></agm-marker>
+</agm-map>
+
+
+<p>Climb rate</p>
+<app-linechart data="{{llbService.data?.clm}}"></app-linechart>
+
+<p>Altitude</p>
+<app-linechart data="{{llbService.data?.alt}}"></app-linechart>

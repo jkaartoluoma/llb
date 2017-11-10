@@ -4,15 +4,6 @@
 <p>Longitude: {{llbService.data?.lon}}</p>
 
 <agm-map [latitude]="llbService.data?.lat" [longitude]="llbService.data?.lon">
-  <agm-marker [latitude]="llbService.data?.lat" [longitude]="llbService.data?.lon"></agm-marker>
-</agm-map>
-
-<p>Speed</p>
-<app-linechart data="{{llbService.data?.spd}}" [max]="50" [min]="0" [step]="10"></app-linechart>
-
-<p>Altitude</p>
-<app-linechart data="{{llbService.data?.alt}}"></app-linechart>
-
-<p>Climb rate</p>
-<app-linechart data="{{llbService.data?.clm}}"></app-linechart>
+    <agm-marker [latitude]="llbService.data?.lat" [longitude]="llbService.data?.lon"></agm-marker>
+  </agm-map>
 <menu></menu>
