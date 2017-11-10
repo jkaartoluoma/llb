@@ -18,15 +18,6 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
-<<<<<<< HEAD
-=======
-
-  }
-
-  start(): void {
-    this.llbService.start();
-    this.llbService.vehicleId = 1612;
->>>>>>> f6db32b4b103ae5264a2094cbba6990d3b8f1315
   }
 
   onSelect(menubutton: MenuButton): void {

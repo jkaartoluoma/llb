@@ -7,7 +7,6 @@ import {LoaderService} from './service/loader.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-<<<<<<< HEAD
 export class AppComponent implements OnInit {
   title = 'app works!';
 
@@ -17,10 +16,4 @@ export class AppComponent implements OnInit {
     this.llbService.start();
     this.llbService.vehicleId = 1612;
   }
-=======
-export class AppComponent {
-
-  constructor(public llbService: LlbService, public loader: LoaderService) {}
-
->>>>>>> f6db32b4b103ae5264a2094cbba6990d3b8f1315
 }
