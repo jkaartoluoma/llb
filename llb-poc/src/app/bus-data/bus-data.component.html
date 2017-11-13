@@ -1,0 +1,87 @@
+<p>Speed</p>
+<app-linechart data="{{llbService.data?.spd}}"></app-linechart>
+
+Bus/Driver
+
+<ul>
+  <li>Vehicle acceleration-z: {{llbService.data?.acc[0].in_accel_z}}</li>
+  <li>Vehicle acceleration-y: {{llbService.data?.acc[0].in_accel_y}}</li>
+  <li>Vehicle acceleration-z: {{llbService.data?.acc[0].in_accel_x}}</li>
+  <br/>
+  <li>Device rotation:
+    {{llbService.data?.dro[0].in_rot_quaternion[0]}}
+    {{llbService.data?.dro[0].in_rot_quaternion[1]}}
+    {{llbService.data?.dro[0].in_rot_quaternion[2]}}
+    {{llbService.data?.dro[0].in_rot_quaternion[3]}}
+  </li>
+  <br/>
+  <li>Vehicle inclination-z: {{llbService.data?.inc[0].in_incli_z}}</li>
+  <li>Vehicle inclination-y: {{llbService.data?.inc[0].in_incli_y}}</li>
+  <li>Vehicle inclination-x: {{llbService.data?.inc[0].in_incli_x}}</li>
+  <br/>
+  <li>Magnetometer data (from_north_magnetic_tilt):
+    {{llbService.data?.mgn[0].in_rot_from_north_magnetic_tilt_comp}}
+  </li>
+  <li>Magnetometer data-z: {{llbService.data?.mgn[0].in_magn_z}}</li>
+  <li>Magnetometer data-y: {{llbService.data?.mgn[0].in_magn_y}}</li>
+  <li>Magnetometer data-x: {{llbService.data?.mgn[0].in_magn_x}}</li>
+  <br/>
+  <li>Gyroscope data-z: {{llbService.data?.gyr[0].in_anglvel_z}}</li>
+  <li>Gyroscope data-y: {{llbService.data?.gyr[0].in_anglvel_y}}</li>
+  <li>Gyroscope data-x: {{llbService.data?.gyr[0].in_anglvel_x}}</li>
+  <br/>
+  <li>Speed of the vehicle (m/s): {{llbService.data?.spd}}</li>
+  <li>Estimated speed error: {{llbService.data?.eps}}</li>
+  <br/>
+  <li> TCO1_DirectionIndicator: {{llbService.data?.can.TCO1_DirectionIndicator}} </li>
+  <li> TCO1_TachographVehicleSpeed: {{llbService.data?.can.TCO1_TachographVehicleSpeed}} </li>
+
+  
+  <li>Brake pedal status: {{llbService.data?.can.CCVS_BrakeSwitch}} <br> 
+  //0 = pedal not pressed, 1 = pedal pressed</li><br>
+
+  <li>Parking brake: {{llbService.data?.can.CCVS_ParkingBrakeSwitch}} <br> 
+  //0 = pedal not pressed, 1 = pedal pressed</li><br>
+
+  <li>Speed measured from wheels (km/h): {{llbService.data?.can.CCVS_WheelBasedVehicleSpeed}} </li><br>
+
+  <li>Accelerator pedal position (%): {{llbService.data?.can.DRIVER_AcceleratorPosition}} <br> 
+  //Resolution 0.5%</li><br>
+
+  <li>Brake pedal position (%): {{llbService.data?.can.DRIVER_BrakePedalPosition}} <br> 
+  //Resolution 0.5%</li><br>
+
+  <li>Driver torque request (%): {{llbService.data?.can.DRIVER_DriverTorqueRequest}} <br> 
+  //Positive = torque request, Negative = regeneration</li><br>
+
+  <li>Regeneration lever position (%): {{llbService.data?.can.DRIVER_RegenControlPosition}} <br> 
+  //Driver can adjust the, strength of the, regeneration</li><br>
+
+  <li>Steering wheel angle (°): {{llbService.data?.can.DRIVER_SteeringWheelAngle}} <br> 
+  //Range = -3276...+3276 degrees (steering wheel can be turned multiple turns) This is not yet working</li><br>
+
+  <li>Driver torque request (%); {{llbService.data?.can.EEC1_DriversDemandMotorPercentTorque}} <br> 
+  //See driver torque request</li><br>
+
+  <li>Accelerator pedal position (%): {{llbService.data?.can.EEC2_AccelPedalPos1}} <br> 
+  //Resolution 0.4%</li><br>
+
+  <li>Road speed limiter status: {{llbService.data?.can.EEC2_RoadSpeedLimitStatus}} <br> 
+  //0 = limiter off, 1 = limiter active NOT USED</li><br>
+
+  <li>Acceleration limiter status: {{llbService.data?.can.EEC2_VhclAccelerationRateLimitStatus}} <br> 
+  //0 = limiter off, 1 = limiter active</li><br>
+
+  <li>Current selected gear: {{llbService.data?.can.ETC2_TransCurrentGear}} <br> 
+  //0 = neutral, 1 = forward, -1 = reverse</li><br>
+
+  <li>Drive direction indicator: {{llbService.data?.can.TCO1_DirectionIndicator}} <br> 
+  //0 = forward, 1 = reverse</li><br>
+
+  <li>Tachograph based vehiclespeed (km/h): {{llbService.data?.can.TCO1_TachographVehicleSpeed}} <br> 
+  //Resolution 0.004 km/h</li><br>
+
+  <li>Vehicle motion status {{llbService.data?.can.TCO1_VehicleMotion}} <br> 
+  //0 = vehicle not moving, 1 = vehicle moving</li><br>
+
+</ul>

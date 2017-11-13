@@ -1,0 +1,52 @@
+<ul>
+  Engine
+
+
+  <li>Electric motor rpm: {{llbService.data?.can.EEC1_MotorSpeed}} </li><br>
+
+  <li>Motor coolant temperature (°C): {{llbService.data?.can.ET1_MotorCoolantTemp}} </li><br>
+
+  <li>Total hours of operation of the drive motor (h): {{llbService.data?.can.HOURS_MotorTotalHoursOfOperation}} </li><br>
+
+  <li>Motor acceleration limiter status: {{llbService.data?.can.MOTOR_AccelerationLimit}} <br> 
+  //0 = limiter off, 1 = limiter active</li><br>
+
+  <li>Motor instantaneous torque (Nm): {{llbService.data?.can.MOTOR_MotorTorque}} <br> 
+  //Range 3000...-3000 Nm</li><br>
+
+  <li>Motor requested torque (Nm): {{llbService.data?.can.MOTOR_MotorTorqueReference}} <br> 
+  //Range 3000...-3000 Nm</li><br>
+
+  <li>Slip limiter status {{llbService.data?.can.MOTOR_SlipLimit}} <br> 
+  //0 = off, 1 = active</li><br>
+
+  <li>Motor instantaneous power (kW): {{llbService.data?.can.MOTOR_Power}} <br> 
+  //Range 300...-300 kW</li><br>
+
+  <li>Measured slip percentage (%): {{llbService.data?.can.MOTOR_SlipPercentage}} </li><br>
+
+
+  <li>Drive inverter temperature (°C): {{llbService.data?.can.TEMPERATURE_DriveInverter}} </li><br>
+
+  <li>Drive motor temperature (°C): {{llbService.data?.can.TEMPERATURE_DriveMotor}} </li><br>
+
+
+
+  <li>Status of the air compressor: {{llbService.data?.can.AIR1_AirCompressorStatus}} <br> 
+  //0=off and 1=running</li><br>
+
+  <li>Air suspension supply pressure (kPa): {{llbService.data?.can.AIR1_AirSuspensionSupplyPress}} </li><br>
+
+  <li>Parking brake circuit pressure (kPa): {{llbService.data?.can.AIR1_ParkingAnd_OrTrailerAirPress}} </li><br>
+
+  <li>Pressure of compressed air tank (kPa): {{llbService.data?.can.AIR1_PneumaticSupplyPress}} </li><br>
+
+  <li>Rear axle brake circuit pressure (kPa): {{llbService.data?.can.AIR1_ServiceBrakeAirPressCircuit1}} </li><br>
+
+  <li>Front axle brake circuit pressure (kPa): {{llbService.data?.can.AIR1_ServiceBrakeAirPressCircuit2}} </li><br>
+
+  <li>Ambient Air temp (°C): {{llbService.data?.can.AMB_AmbientAirTemp}} </li><br>
+
+  <li>Cabin interior temp (°C): {{llbService.data?.can.AMB_CabInteriorTemp}} </li><br>
+    
+</ul>
