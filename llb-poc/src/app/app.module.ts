@@ -16,6 +16,9 @@ import { MovementDataComponent } from './movement-data/movement-data.component';
 import { ChartsModule } from 'ng2-charts';
 import { LinechartComponent } from './linechart/linechart.component';
 import { AgmCoreModule } from '@agm/core';
+import { BusDataComponent } from './bus-data/bus-data.component';
+import { EngineDataComponent } from './engine-data/engine-data.component';
+import { BatteryDataComponent } from './battery-data/battery-data.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { AgmCoreModule } from '@agm/core';
     LocationDataComponent,
     GeneralDataComponent,
     SensorDataComponent,
-    MovementDataComponent
+    MovementDataComponent,
+    BusDataComponent,
+    EngineDataComponent,
+    BatteryDataComponent
   ],
   imports: [
     BrowserModule,

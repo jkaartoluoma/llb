@@ -1,6 +1,30 @@
 <ul>
-  <li>Vehicle: {{llbService.data?.BusId}}</li>
-  <li>Gateway Id: {{llbService.data?.GwId}}</li>
-  <li>Vehicle Id: {{llbService.data?.fi/llb/bus/1612/10/can.AIR1_AirCompressorStatus}}</li>
-  <li>Wheelchair Ramp: {{llbService.data?.can[0].DC1_Ramp_WheelChairLiftPos}}</li>
+    General
+    
+    <li>Bus Id: {{llbService.data?.BusId}} </li><br>
+    
+    <li>Gw Id: {{llbService.data?.GwId}} </li><br>
+  
+    <li>Position timestamp: {{llbService.data?.tsp}} </li><br>
+    
+    <li>Vehicle total driven distance (m): {{llbService.data?.can.VDHR_HghRslutionTotalVehicleDistance}} <br> 
+    //Resolution 5 m</li><br>
+  
+    <li>Status of doors: {{llbService.data?.can.DC1_PosOfDoors}} <br> 
+    //0 = at least 1 door open, 1 = last door closing, 2 = all doors closed</li><br>
+    
+    <li>Wheel chair access ramp status: {{llbService.data?.can.DC1_Ramp_WheelChairLiftPos}} <br> 
+    //0 = ramp in the bus, 1 = ramp out</li><br>
+    
+    <li>Vehicle ID: {{llbService.data?.can.VI_VehicleIdentificationNumber}} <br> 
+    //Currently only sending value "0.1-"</li><br>
+    
+    <li>Vehicle axle weight, axle identifier: {{llbService.data?.can.VW_AxleLocation}} <br> 
+    //Indicates the axle of the measured axle weight in VW_AxleWeight Value 15 = front axle Value 31 = rear axle</li><br>
+    
+    <li>Vehicle axle weight: {{llbService.data?.can.VW_AxleWeight}} <br> 
+    //Measured axle weight (from air suspension, not very accurate)</li><br>
+    
+    <li>Greoo weight (kg): {{llbService.data?.can.CVW_GrossCombinationVehicleWeight}} </li><br>
+  
 </ul>

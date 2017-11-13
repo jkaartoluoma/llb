@@ -1,9 +1,5 @@
 
-<p>Vehicle: {{llbService.data?.BusId}}</p>
-<p>Latitude: {{llbService.data?.lat}}</p>
-<p>Longitude: {{llbService.data?.lon}}</p>
-
-<agm-map [latitude]="llbService.data?.lat" [longitude]="llbService.data?.lon">
-    <agm-marker [latitude]="llbService.data?.lat" [longitude]="llbService.data?.lon"></agm-marker>
-  </agm-map>
+<p>Timestamp can data: {{llbService.data?.tsc}} </p><br>
+<p>Timestamp can data: {{llbService.data?.can.timestamp}} </p><br>
+      
 <menu></menu>

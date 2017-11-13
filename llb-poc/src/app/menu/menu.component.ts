@@ -18,6 +18,7 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.selectedMenu = MENUBUTTONS[0];
   }
 
   onSelect(menubutton: MenuButton): void {
