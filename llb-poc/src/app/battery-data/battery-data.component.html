@@ -1,66 +1,66 @@
 <ul>
     Battery
-    
-      <li>Electricity consumed by the air compressor (kWh): {{llbService.data?.can.ENE_AUX1_AirCompressor}} </li><br>
-    
-      <li>Electricity consumed by the DC/DC converter (kWh): {{llbService.data?.can.ENE_AUX1_DCDC}} </li><br>
-    
-      <li>Electricity consumed by the heat pump (kWh): {{llbService.data?.can.ENE_AUX2_HeatPump}} <br> 
+
+      <li>Electricity consumed by the air compressor (kWh): {{llbService.data[0]?.can.ENE_AUX1_AirCompressor}} </li><br>
+
+      <li>Electricity consumed by the DC/DC converter (kWh): {{llbService.data[0]?.can.ENE_AUX1_DCDC}} </li><br>
+
+      <li>Electricity consumed by the heat pump (kWh): {{llbService.data[0]?.can.ENE_AUX2_HeatPump}} <br>
       //Not including the electricity of the fans; this is included in the DC/DC converter energy</li><br>
-    
-      <li>Electricity consumed by the power steering (kWh): {{llbService.data?.can.ENE_AUX2_PowerSteering}} </li><br>
-    
-      <li>Electricity consumed by the drive motor (kWh): {{llbService.data?.can.ENE_MOT_DriveMotor}} </li><br>
-    
-    
-    
-    
-      <li>Battery level (%): {{llbService.data?.can.DD_BatteryLevel}} <br> 
+
+      <li>Electricity consumed by the power steering (kWh): {{llbService.data[0]?.can.ENE_AUX2_PowerSteering}} </li><br>
+
+      <li>Electricity consumed by the drive motor (kWh): {{llbService.data[0]?.can.ENE_MOT_DriveMotor}} </li><br>
+
+
+
+
+      <li>Battery level (%): {{llbService.data[0]?.can.DD_BatteryLevel}} <br>
       //Resolution 0.4%</li><br>
-    
-    
-      <li>Battery charging status: {{llbService.data?.can.STATUS_ChargingType}} <br> 
+
+
+      <li>Battery charging status: {{llbService.data[0]?.can.STATUS_ChargingType}} <br>
       //0 = not charging, 1 = charging</li><br>
-    
-      <li>Avarage Battery Cell temp (°C): {{llbService.data?.can.BATTERY_AverageCellTemp}} </li><br>
-    
-      
-      <li>Battery in/out current (A): {{llbService.data?.can.BATTERY_BatteryCurrent}} <br> 
+
+      <li>Avarage Battery Cell temp (°C): {{llbService.data[0]?.can.BATTERY_AverageCellTemp}} </li><br>
+
+
+      <li>Battery in/out current (A): {{llbService.data[0]?.can.BATTERY_BatteryCurrent}} <br>
       //Negative = discharge, Positive = charge, Resolution 0.1A</li><br>
-    
-      <li>Battery in/out power (kW): {{llbService.data?.can.BATTERY_BatteryPower}} <br> 
+
+      <li>Battery in/out power (kW): {{llbService.data[0]?.can.BATTERY_BatteryPower}} <br>
       //Negative = discharge, Positive = charge, Resolution 0.1kW</li><br>
-    
-      <li>Battery voltage (V): {{llbService.data?.can.BATTERY_BatteryVoltage}} <br> 
+
+      <li>Battery voltage (V): {{llbService.data[0]?.can.BATTERY_BatteryVoltage}} <br>
       //Resolution 0.1V</li><br>
-    
-      <li>Battery charge (%): {{llbService.data?.can.BATTERY_SOC}} <br> 
+
+      <li>Battery charge (%): {{llbService.data[0]?.can.BATTERY_SOC}} <br>
       //Resolution 0.5%</li><br>
-    
-      <li>Total charged energy into the battery (kWh): {{llbService.data?.can.ENERGY_TotalChargedEnergy}} </li><br>
-    
-      <li>Total discharged energy from the battery (kWh): {{llbService.data?.can.ENERGY_TotalDischargedEnergy}} </li><br>
-    
-      <li>Total externally charged energy (Ah): {{llbService.data?.can.ENERGY2_TotalExternalCharge}} </li><br>
-    
-      <li>Total prosessed Amp Hours (Ah): {{llbService.data?.can.ENERGY2_TotalProcessedAmpHours}} <br> 
+
+      <li>Total charged energy into the battery (kWh): {{llbService.data[0]?.can.ENERGY_TotalChargedEnergy}} </li><br>
+
+      <li>Total discharged energy from the battery (kWh): {{llbService.data[0]?.can.ENERGY_TotalDischargedEnergy}} </li><br>
+
+      <li>Total externally charged energy (Ah): {{llbService.data[0]?.can.ENERGY2_TotalExternalCharge}} </li><br>
+
+      <li>Total prosessed Amp Hours (Ah): {{llbService.data[0]?.can.ENERGY2_TotalProcessedAmpHours}} <br>
       //No info</li><br>
-    
-      <li>Momentary energy efficiency (Wh/km): {{llbService.data?.can.EFFICIENCY_Efficiency}} </li><br>
-    
-      <li>Average energy efficiency (Wh/km): {{llbService.data?.can.EFFICIENCY_EfficiencyAverage}} </li><br>
-    
-    
-    
-      <li>Instantaneous power of heat pump (kW): {{llbService.data?.can.PWR_AUX_HeatPump}} </li><br>
-    
-      <li>Instantaneous power of air compressor (kW): {{llbService.data?.can.PWR_AUX_AirCompressor}} </li><br>
-    
-      <li>Instantaneous power of power steering (kW): {{llbService.data?.can.PWR_AUX_PowerSteering}} </li><br>
-    
-      <li>Instantaneous power of DC/DC converter (kW): {{llbService.data?.can.PWR_AUX_DCDC}} </li><br>
-    
-      
-      <li>Status of the 24V DC/DC converter: {{llbService.data?.can.AS_Alt1Status}} <br> 
-      //0=OFF and 1=ON</li><br>  
+
+      <li>Momentary energy efficiency (Wh/km): {{llbService.data[0]?.can.EFFICIENCY_Efficiency}} </li><br>
+
+      <li>Average energy efficiency (Wh/km): {{llbService.data[0]?.can.EFFICIENCY_EfficiencyAverage}} </li><br>
+
+
+
+      <li>Instantaneous power of heat pump (kW): {{llbService.data[0]?.can.PWR_AUX_HeatPump}} </li><br>
+
+      <li>Instantaneous power of air compressor (kW): {{llbService.data[0]?.can.PWR_AUX_AirCompressor}} </li><br>
+
+      <li>Instantaneous power of power steering (kW): {{llbService.data[0]?.can.PWR_AUX_PowerSteering}} </li><br>
+
+      <li>Instantaneous power of DC/DC converter (kW): {{llbService.data[0]?.can.PWR_AUX_DCDC}} </li><br>
+
+
+      <li>Status of the 24V DC/DC converter: {{llbService.data[0]?.can.AS_Alt1Status}} <br>
+      //0=OFF and 1=ON</li><br>
 </ul>>

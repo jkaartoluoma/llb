@@ -9,9 +9,13 @@ import {LoaderService} from '../service/loader.service';
 })
 export class BusDataComponent implements OnInit {
 
+  // Historical data for speed
+  spd_ex: number[] = [];
+
   constructor(public llbService: LlbService, public loader: LoaderService) { }
 
   ngOnInit() {
+    // Calculate historical data for speed
+    this.spd_ex = this.llbService.data.map(e => e.spd);
   }
-
 }

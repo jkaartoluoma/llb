@@ -10,13 +10,15 @@ import {Component, Input, OnChanges, OnInit} from '@angular/core';
  * Use input values to configure chart
  *
  * data: data variable to chart
+ * history: historical data to set on init
  * length: length of x-axis (in seconds)
  * max: default max value of y axis
  * min: default min value of y axis
  * step: step in y-axis
  */
 export class LinechartComponent implements OnInit, OnChanges {
-  @Input() data: any;
+  @Input() data: number;
+  @Input() history: number[] = [];
   @Input() length = 60;
   @Input() max = 0;
   @Input() min = 0;
@@ -45,18 +47,28 @@ export class LinechartComponent implements OnInit, OnChanges {
 
   constructor() {}
 
+  /**
+   * Set historical data, labels and settings on init
+   */
   ngOnInit(): void {
-    const t: any[] = [];
+    const t = this.history.slice();
 
+    // Set labels
     for (let i = 0; i < this.length; i++) {
-      t[i] = 0;
       this.lineChartLabels[i] = '';
     }
 
+    // Set missing historical data to 0
+    for (let i = this.history.length; i < this.length; i++) {
+      t[i] = 0;
+    }
+
+    // Reverse and set historical data to chart
     this.lineChartData = [
-      {data: t, label: ''}
+      {data: t.reverse(), label: ''}
     ];
 
+    // Settings
     this.lineChartOptions = {
       responsive: true,
       animation: {
@@ -89,15 +101,17 @@ export class LinechartComponent implements OnInit, OnChanges {
     };
   }
 
+  /**
+   * Add incoming data to chart
+   */
   ngOnChanges() {
-    const t: any[] = [];
+    const t: number[] = this.lineChartData[0].data.slice();
 
-    for (let i = 1; i < this.length; i++) {
-      t[i - 1] = this.lineChartData[0].data[i];
-    }
-
+    // Add new data
+    t.shift();
     t[this.length - 1] = this.data;
 
+    // Set data to chart
     this.lineChartData = [
       {data: t, label: ''}
     ];

@@ -1,9 +1,9 @@
 <ul>
-  <li>Air pressure (from TinyNode): {{llbService.data?.sep}}</li>
-  <li>Index of measured value: {{llbService.data?.sei}}</li>
-  <li>measured temperature (from TinyNode): {{llbService.data?.set}}</li>
-  <li>measured battery (from TinyNode): {{llbService.data?.seb}}</li>
-  <li>id of the measured TinyNode value: {{llbService.data?.sid}}</li>
-  <li>measured RSSI (from TinyNode): {{llbService.data?.srs}}</li>
-  <li>measured humidity (from TinyNode): {{llbService.data?.seh}}</li>
+  <li>Air pressure (from TinyNode): {{llbService.data[0]?.sep}}</li>
+  <li>Index of measured value: {{llbService.data[0]?.sei}}</li>
+  <li>measured temperature (from TinyNode): {{llbService.data[0]?.set}}</li>
+  <li>measured battery (from TinyNode): {{llbService.data[0]?.seb}}</li>
+  <li>id of the measured TinyNode value: {{llbService.data[0]?.sid}}</li>
+  <li>measured RSSI (from TinyNode): {{llbService.data[0]?.srs}}</li>
+  <li>measured humidity (from TinyNode): {{llbService.data[0]?.seh}}</li>
 </ul>
