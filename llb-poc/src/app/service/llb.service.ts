@@ -1,10 +1,9 @@
 import {Injectable} from '@angular/core';
-import {environment} from '../../environments/environment';
 import {RestService} from './rest.service';
 import {Observable} from 'rxjs/Observable';
 import {VehicleData} from '../model/VehicleData';
 
-const realTimeDataApiUrl = environment.realTimeDataApiUrl;
+const realTimeDataApiUrl = 'https://llb.cloud.tyk.io/llb-bus-api';
 
 // Length of the data kept in memory at the time (seconds)
 const dataLength = 60;
