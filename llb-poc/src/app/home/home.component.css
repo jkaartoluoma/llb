@@ -1,0 +1,12 @@
+#default {
+	width:150px;
+	height:150px;
+
+}
+
+#location {
+	width:95px;
+	height:95px;
+	position:relative;
+	left:85%;
+}

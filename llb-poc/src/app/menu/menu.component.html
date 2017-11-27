@@ -55,3 +55,22 @@
   </app-modal>
 
 </div>
+
+<div id='menu'>
+  <ul>
+    <li *ngFor="let menubutton of MenuButtons;" [class.active]="selectedMenu.id == menubutton.id">
+      <a id="menuButton" (click)="onSelect(menubutton)">
+        {{menubutton.title}}
+      </a>
+    </li>
+  </ul>
+</div>
+<br>
+<div>
+  <app-home *ngIf="selectedMenu.id == 0"></app-home>
+  <general-data *ngIf="selectedMenu.id == 1"></general-data>
+  <location-data *ngIf="selectedMenu.id == 2"></location-data>
+  <engine-data *ngIf="selectedMenu.id == 3"> </engine-data>
+  <bus-data *ngIf="selectedMenu.id == 4"> </bus-data>
+  <battery-data *ngIf="selectedMenu.id == 5"> </battery-data>
+</div>

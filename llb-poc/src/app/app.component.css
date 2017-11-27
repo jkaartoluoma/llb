@@ -11,3 +11,11 @@ button {
   top:0;
   right:0;
 }
+
+span {
+	position:absolute;
+	display:inline-block;
+	width: 87%;
+	text-align:right;
+	top:50px;
+}
