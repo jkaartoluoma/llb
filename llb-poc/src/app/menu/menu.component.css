@@ -98,12 +98,3 @@
 #menu > ul > li > a:hover:after {
   background: /*#2479da*/ #00B0FF;
 }
-
-.logo {
-  display: block;
-  text-indent: -9999px;
-  width: 100px;
-  height: 82px;
-  background: url('../../assets/images/artificial-intelligence.svg');
-  background-size: 100px 82px;
-}
