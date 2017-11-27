@@ -7,3 +7,46 @@
 	<img id="default" src="assets/img/default.png" />
 	<img id="location" src="assets/img/location.png" />
 </a>
+      <button class="logo" type="button" id="menubutton" (click)="modal1.show()">General Data</button>
+      <button type="button" id="menubutton" (click)="modal2.show()">Location Data</button>
+      <button type="button" id="menubutton" (click)="modal3.show()">Engine Data</button>
+      <button type="button" id="menubutton" (click)="modal4.show()">Bus Data</button>
+      <button type="button" id="menubutton" (click)="modal5.show()">Battery Data</button>
+<br>
+<div>
+  <app-modal #modal1>
+  <div class="modal-body">
+    <button (click)="modal1.hide()">Sulje</button>
+    <general-data></general-data>
+  </div>
+
+  </app-modal>
+  <app-modal #modal2>
+  <div class="modal-body">
+    <button (click)="modal2.hide()">Sulje</button>
+    <location-data></location-data>
+  </div>
+
+  </app-modal>
+  <app-modal #modal3>
+  <div class="modal-body">
+    <button (click)="modal3.hide()">Sulje</button>
+    <engine-data> </engine-data>
+  </div>
+  </app-modal>
+  
+  <app-modal #modal4>
+  <div class="modal-body">
+    <button (click)="modal4.hide()">Sulje</button>
+    <bus-data> </bus-data>
+  </div>
+  </app-modal>
+
+  <app-modal #modal5>
+  <div class="modal-body">
+    <button (click)="modal5.hide()">Sulje</button>
+    <battery-data> </battery-data>
+  </div>
+  </app-modal>
+
+</div>

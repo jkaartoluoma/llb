@@ -20,6 +20,7 @@ import { BusDataComponent } from './bus-data/bus-data.component';
 import { EngineDataComponent } from './engine-data/engine-data.component';
 import { BatteryDataComponent } from './battery-data/battery-data.component';
 import { ModalComponent } from './modal/modal.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ModalComponent } from './modal/modal.component';
     BusDataComponent,
     EngineDataComponent,
     BatteryDataComponent,
-    ModalComponent
+    ModalComponent,
+	HomeComponent
   ],
   imports: [
     BrowserModule,
