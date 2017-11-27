@@ -3,15 +3,11 @@
 		<img src="assets/img/busid.png" />
 	</a>
 </div>
-<a>
-	<img id="default" src="assets/img/default.png" />
-	<img id="location" src="assets/img/location.png" />
-</a>
-      <button class="logo" type="button" id="menubutton" (click)="modal1.show()">General Data</button>
-      <button type="button" id="menubutton" (click)="modal2.show()">Location Data</button>
-      <button type="button" id="menubutton" (click)="modal3.show()">Engine Data</button>
-      <button type="button" id="menubutton" (click)="modal4.show()">Bus Data</button>
-      <button type="button" id="menubutton" (click)="modal5.show()">Battery Data</button>
+      <button class="general" type="button" id="menubutton" (click)="modal1.show()">General Data</button>
+      <button class="location" type="button" id="menubutton" (click)="modal2.show()">Location Data</button>
+      <button class="engine" type="button" id="menubutton" (click)="modal3.show()">Engine Data</button>
+      <button class="bus" type="button" id="menubutton" (click)="modal4.show()">Bus Data</button>
+      <button class="battery" type="button" id="menubutton" (click)="modal5.show()">Battery Data</button>
 <br>
 <div>
   <app-modal #modal1>
