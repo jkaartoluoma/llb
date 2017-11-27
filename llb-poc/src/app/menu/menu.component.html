@@ -1,17 +1,57 @@
 <div id='menu'>
   <ul>
-    <li *ngFor="let menubutton of MenuButtons;" [class.active]="selectedMenu.id == menubutton.id">
-      <a id="menuButton" (click)="onSelect(menubutton)">
-        {{menubutton.title}}
-      </a>
+    <li>
+      <button class="logo" type="button" id="menubutton" (click)="modal1.show()">General Data</button>
+    </li>
+    <li>
+      <button type="button" id="menubutton" (click)="modal2.show()">Location Data</button>
+    </li>
+    <li>
+      <button type="button" id="menubutton" (click)="modal3.show()">Engine Data</button>
+    </li>
+    <li>
+      <button type="button" id="menubutton" (click)="modal4.show()">Bus Data</button>
+    </li>
+    <li>
+      <button type="button" id="menubutton" (click)="modal5.show()">Battery Data</button>
     </li>
   </ul>
 </div>
 <br>
 <div>
-  <general-data *ngIf="selectedMenu.id == 1"></general-data>
-  <location-data *ngIf="selectedMenu.id == 2"></location-data>
-  <engine-data *ngIf="selectedMenu.id == 3"> </engine-data>
-  <bus-data *ngIf="selectedMenu.id == 4"> </bus-data>
-  <battery-data *ngIf="selectedMenu.id == 5"> </battery-data>
+  <app-modal #modal1>
+  <div class="modal-body">
+    <button (click)="modal1.hide()">Sulje</button>
+    <general-data></general-data>
+  </div>
+
+  </app-modal>
+  <app-modal #modal2>
+  <div class="modal-body">
+    <button (click)="modal2.hide()">Sulje</button>
+    <location-data></location-data>
+  </div>
+
+  </app-modal>
+  <app-modal #modal3>
+  <div class="modal-body">
+    <button (click)="modal3.hide()">Sulje</button>
+    <engine-data> </engine-data>
+  </div>
+  </app-modal>
+  
+  <app-modal #modal4>
+  <div class="modal-body">
+    <button (click)="modal4.hide()">Sulje</button>
+    <bus-data> </bus-data>
+  </div>
+  </app-modal>
+
+  <app-modal #modal5>
+  <div class="modal-body">
+    <button (click)="modal5.hide()">Sulje</button>
+    <battery-data> </battery-data>
+  </div>
+  </app-modal>
+
 </div>

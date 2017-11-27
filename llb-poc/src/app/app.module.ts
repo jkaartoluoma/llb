@@ -19,6 +19,7 @@ import { AgmCoreModule } from '@agm/core';
 import { BusDataComponent } from './bus-data/bus-data.component';
 import { EngineDataComponent } from './engine-data/engine-data.component';
 import { BatteryDataComponent } from './battery-data/battery-data.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { BatteryDataComponent } from './battery-data/battery-data.component';
     MovementDataComponent,
     BusDataComponent,
     EngineDataComponent,
-    BatteryDataComponent
+    BatteryDataComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

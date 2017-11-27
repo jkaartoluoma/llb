@@ -54,7 +54,7 @@
     }
   ],
   "tsc": "2017/10/04 09:56:35z",
-  "fi/llb/bus/1612/10/can/": {
+  "fi/llb/bus/1612/can/": {
     "timestamp": "2017-10-04T12:56:34.936Z",
     "AIR1_AirCompressorStatus": "1",
     "AIR1_AirSuspensionSupplyPress": "824",

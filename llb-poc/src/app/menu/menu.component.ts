@@ -23,5 +23,6 @@ export class MenuComponent implements OnInit {
 
   onSelect(menubutton: MenuButton): void {
     this.selectedMenu = menubutton;
+	
   }
 }

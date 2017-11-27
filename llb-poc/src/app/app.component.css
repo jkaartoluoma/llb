@@ -5,3 +5,9 @@ menu {
   width: 100%;
   padding: 0px;
 }
+
+button {
+  position:absolute;
+  top:0;
+  right:0;
+}
