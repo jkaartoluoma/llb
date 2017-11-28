@@ -5,17 +5,11 @@ menu {
   width: 100%;
   padding: 0px;
 }
-
+header {
+	height: 60px;
+}
 button {
   position:absolute;
   top:0;
   right:0;
-}
-
-span {
-	position:absolute;
-	display:inline-block;
-	width: 87%;
-	text-align:right;
-	top:50px;
 }

@@ -10,43 +10,11 @@
 	position:relative;
 	left:85%;
 }
-.general {
-	background: url('../../assets/img/default.png');
-	background-size: 100px 82px;
-	display: block;
+.button {
 	width: 100px;
-	height: 82px;
-	text-indent: -9999px;
+	height: 100px;
+	border: solid 2px transparent;
 }
-.location {
-	background: url('../../assets/img/location.png');
-	background-size: 100px 82px;
-	display: block;
-	width: 100px;
-	height: 82px;
-	text-indent: -9999px;
-}
-.engine {
-	background: url('../../assets/img/driver.png');
-	background-size: 100px 82px;
-	display: block;
-	width: 100px;
-	height: 82px;
-	text-indent: -9999px;
-}
-.bus {
-	background: url('../../assets/img/driver.png');
-	background-size: 100px 82px;
-	display: block;
-	width: 100px;
-	height: 82px;
-	text-indent: -9999px;
-}
-.battery {
-	background: url('../../assets/img/battery.png');
-	background-size: 100px 82px;
-	display: block;
-	width: 100px;
-	height: 82px;
-	text-indent: -9999px;
+.button:hover {
+    border-color: black;
 }
