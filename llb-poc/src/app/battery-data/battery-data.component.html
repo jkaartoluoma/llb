@@ -12,24 +12,34 @@
 
       <li>Electricity consumed by the drive motor (kWh): {{llbService.data[0]?.can.ENE_MOT_DriveMotor}} </li><br>
 
-
-
-
       <li>Battery level (%): {{llbService.data[0]?.can.DD_BatteryLevel}} <br>
       //Resolution 0.4%</li><br>
 
 
-      <li>Battery charging status: {{llbService.data[0]?.can.STATUS_ChargingType}} <br>
-      //0 = not charging, 1 = charging</li><br>
+      <li>Battery charging status: 
+	  <span *ngIf="llbService.data[0]?.can.STATUS_ChargingType == 0">Not Charging</span>
+	  <span *ngIf="llbService.data[0]?.can.STATUS_ChargingType == 1">Charging</span>
+	  <span *ngIf="llbService.data[0]?.can.STATUS_ChargingType == 'na'" id="notAvailable">{{n_a}}</span>
+	  <!-- 0 = not charging, 1 = charging -->
+      </li><br>
 
-      <li>Avarage Battery Cell temp (°C): {{llbService.data[0]?.can.BATTERY_AverageCellTemp}} </li><br>
+      <li>Average Battery Cell temp (°C): {{llbService.data[0]?.can.BATTERY_AverageCellTemp}} </li><br>
 
+      <li>Battery in/out current (A): {{llbService.data[0]?.can.BATTERY_BatteryCurrent}} 
+      <span *ngIf="lllbService.data[0]?.can.BATTERY_BatteryCurrent < 0">(discharge)</span>
+	  <span *ngIf="lllbService.data[0]?.can.BATTERY_BatteryCurrent > 0">(charge)</span>
+	  <span *ngIf="lllbService.data[0]?.can.BATTERY_BatteryCurrent 'na'" id="notAvailable">{{n_a}}</span>
+	  <!-- Negative = discharge, Positive = charge -->
+	  <br>
+      //Resolution 0.1A</li><br>
 
-      <li>Battery in/out current (A): {{llbService.data[0]?.can.BATTERY_BatteryCurrent}} <br>
-      //Negative = discharge, Positive = charge, Resolution 0.1A</li><br>
-
-      <li>Battery in/out power (kW): {{llbService.data[0]?.can.BATTERY_BatteryPower}} <br>
-      //Negative = discharge, Positive = charge, Resolution 0.1kW</li><br>
+      <li>Battery in/out power (kW): {{llbService.data[0]?.can.BATTERY_BatteryPower}} 
+	  <span *ngIf="llbService.data[0]?.can.BATTERY_BatteryPower < 0">(discharge)</span>
+	  <span *ngIf="llbService.data[0]?.can.BATTERY_BatteryPower > 0">(charge)</span>
+	  <span *ngIf="llbService.data[0]?.can.BATTERY_BatteryPower 'na'" id="notAvailable">{{n_a}}</span>
+	  <!-- Negative = discharge, Positive = charge -->
+	  <br>
+      //Resolution 0.1kW</li><br>
 
       <li>Battery voltage (V): {{llbService.data[0]?.can.BATTERY_BatteryVoltage}} <br>
       //Resolution 0.1V</li><br>
@@ -51,7 +61,6 @@
       <li>Average energy efficiency (Wh/km): {{llbService.data[0]?.can.EFFICIENCY_EfficiencyAverage}} </li><br>
 
 
-
       <li>Instantaneous power of heat pump (kW): {{llbService.data[0]?.can.PWR_AUX_HeatPump}} </li><br>
 
       <li>Instantaneous power of air compressor (kW): {{llbService.data[0]?.can.PWR_AUX_AirCompressor}} </li><br>
@@ -61,6 +70,9 @@
       <li>Instantaneous power of DC/DC converter (kW): {{llbService.data[0]?.can.PWR_AUX_DCDC}} </li><br>
 
 
-      <li>Status of the 24V DC/DC converter: {{llbService.data[0]?.can.AS_Alt1Status}} <br>
-      //0=OFF and 1=ON</li><br>
-</ul>>
+      <li>Status of the 24V DC/DC converter: 
+	  <span *ngIf="llbService.data[0]?.can.AS_Alt1Status == 0">OFF</span>
+	  <span *ngIf="llbService.data[0]?.can.AS_Alt1Status == 1">ON</span>
+	  <span *ngIf="llbService.data[0]?.can.AS_Alt1Status == 'na'" id="notAvailable">{{n_a}}</span>
+      </li><br>
+</ul>
