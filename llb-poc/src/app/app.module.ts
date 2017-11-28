@@ -8,6 +8,7 @@ import {LlbService} from './service/llb.service';
 import {RestService} from './service/rest.service';
 import {LoaderService} from './service/loader.service';
 import { MenuComponent } from './menu/menu.component';
+import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
 import { LocationDataComponent } from './location-data/location-data.component';
 import { GeneralDataComponent } from './general-data/general-data.component';
 import { SensorDataComponent } from './sensor-data/sensor-data.component';
@@ -27,6 +28,7 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     LinechartComponent,
     MenuComponent,
+    MobileMenuComponent,
     LocationDataComponent,
     GeneralDataComponent,
     SensorDataComponent,
@@ -35,7 +37,7 @@ import { HomeComponent } from './home/home.component';
     EngineDataComponent,
     BatteryDataComponent,
     ModalComponent,
-	HomeComponent
+	  HomeComponent
   ],
   imports: [
     BrowserModule,
