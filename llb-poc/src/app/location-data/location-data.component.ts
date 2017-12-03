@@ -14,8 +14,8 @@ export class LocationDataComponent implements OnInit {
   _lon: number;
   
   constructor(public llbService: LlbService, public loader: LoaderService) { 
-    this._lat = this.llbService.data[0].lat;
-    this._lon = this.llbService.data[0].lon;
+    // this._lat = this.llbService.data[0].lat;
+    // this._lon = this.llbService.data[0].lon;
   }
   
   ngOnInit() {

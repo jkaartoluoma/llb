@@ -17,7 +17,7 @@
 	//0=no mode value yet seen 1=no fix 2=2D 3=3D</li><br>
 </ul>
 <span>Coordinates: {{llbService.data[0]?.lat}}, {{llbService.data[0]?.lon}}</span>
-<agm-map [latitude]="_lat" [longitude]="_lon" [zoom]="14">
+<agm-map [latitude]="llbService.data[0]?.lat" [longitude]="llbService.data[0]?.lon">
 	<agm-marker [latitude]="llbService.data[0]?.lat" [longitude]="llbService.data[0]?.lon"></agm-marker>
 </agm-map>
 
