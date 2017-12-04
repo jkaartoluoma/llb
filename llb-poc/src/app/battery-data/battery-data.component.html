@@ -17,26 +17,26 @@
 
 
       <li>Battery charging status: 
-	  <span *ngIf="llbService.data[0]?.can.STATUS_ChargingType == 0">Not Charging</span>
+	  <!-- <span *ngIf="llbService.data[0]?.can.STATUS_ChargingType == 0">Not Charging</span>
 	  <span *ngIf="llbService.data[0]?.can.STATUS_ChargingType == 1">Charging</span>
-	  <span *ngIf="llbService.data[0]?.can.STATUS_ChargingType == 'na'" id="notAvailable">{{n_a}}</span>
+	  <span *ngIf="llbService.data[0]?.can.STATUS_ChargingType == 'na'" id="notAvailable">{{n_a}}</span> -->
 	  <!-- 0 = not charging, 1 = charging -->
       </li><br>
 
       <li>Average Battery Cell temp (°C): {{llbService.data[0]?.can.BATTERY_AverageCellTemp}} </li><br>
 
       <li>Battery in/out current (A): {{llbService.data[0]?.can.BATTERY_BatteryCurrent}} 
-      <span *ngIf="lllbService.data[0]?.can.BATTERY_BatteryCurrent < 0">(discharge)</span>
-	  <span *ngIf="lllbService.data[0]?.can.BATTERY_BatteryCurrent > 0">(charge)</span>
-	  <span *ngIf="lllbService.data[0]?.can.BATTERY_BatteryCurrent 'na'" id="notAvailable">{{n_a}}</span>
+      <!-- <span *ngIf="llbService.data[0]?.can.BATTERY_BatteryCurrent < 0">(discharge)</span>
+	  <span *ngIf="llbService.data[0]?.can.BATTERY_BatteryCurrent > 0">(charge)</span>
+	  <span *ngIf="llbService.data[0]?.can.BATTERY_BatteryCurrent 'na'" id="notAvailable">{{n_a}}</span> -->
 	  <!-- Negative = discharge, Positive = charge -->
 	  <br>
       //Resolution 0.1A</li><br>
 
       <li>Battery in/out power (kW): {{llbService.data[0]?.can.BATTERY_BatteryPower}} 
-	  <span *ngIf="llbService.data[0]?.can.BATTERY_BatteryPower < 0">(discharge)</span>
+	  <!-- <span *ngIf="llbService.data[0]?.can.BATTERY_BatteryPower < 0">(discharge)</span>
 	  <span *ngIf="llbService.data[0]?.can.BATTERY_BatteryPower > 0">(charge)</span>
-	  <span *ngIf="llbService.data[0]?.can.BATTERY_BatteryPower 'na'" id="notAvailable">{{n_a}}</span>
+	  <span *ngIf="llbService.data[0]?.can.BATTERY_BatteryPower 'na'" id="notAvailable">{{n_a}}</span> -->
 	  <!-- Negative = discharge, Positive = charge -->
 	  <br>
       //Resolution 0.1kW</li><br>

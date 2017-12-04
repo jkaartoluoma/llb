@@ -17,8 +17,9 @@
 	//0=no mode value yet seen 1=no fix 2=2D 3=3D</li><br>
 </ul>
 <span>Coordinates: {{llbService.data[0]?.lat}}, {{llbService.data[0]?.lon}}</span>
-<agm-map [latitude]="llbService.data[0]?.lat" [longitude]="llbService.data[0]?.lon">
-	<agm-marker [latitude]="llbService.data[0]?.lat" [longitude]="llbService.data[0]?.lon"></agm-marker>
+<agm-map [latitude]="_lat" [longitude]="_lon" [zoom]="13">
+	<agm-marker [latitude]="llbService.data[0]?.lat" [longitude]="llbService.data[0]?.lon" [iconUrl]="'../../assets/img/bus-marker-32.png'" [label]="'1612'"></agm-marker>
+	<agm-marker [latitude]="location?.latitude" [longitude]="location?.longitude"></agm-marker>
 </agm-map>
 
 
