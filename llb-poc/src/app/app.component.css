@@ -5,3 +5,11 @@ menu {
   width: 100%;
   padding: 0px;
 }
+header {
+	height: 60px;
+}
+button {
+  position:absolute;
+  top:0;
+  right:0;
+}

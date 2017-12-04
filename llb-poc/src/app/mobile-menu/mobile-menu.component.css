@@ -30,12 +30,11 @@
   line-height: 1;
 }
 #menu ul {
-  background: /*#ffffff*/ #0277BD;
+  background: #ffffff;
 }
 #menu > ul > li {
   float: left;
-  width: 16%;
-  display:inline;
+  width: 20%
 }
 #menu.align-center > ul {
   font-size: 0;
@@ -54,12 +53,12 @@
 }
 #menu > ul > li > a {
   z-index: 2;
-  padding: 18px 25px 12px 25px;
+  padding: 18px 0px 12px 0px;
   font-size: 15px;
   font-weight: 400;
   text-decoration: none;
   text-align: center;
-  color: /*#444444*/ black;
+  color: #444444;
   -webkit-transition: all .2s ease;
   -moz-transition: all .2s ease;
   -ms-transition: all .2s ease;
@@ -96,5 +95,5 @@
 #menu > ul > li.active > a:after,
 #menu > ul > li:hover > a:after,
 #menu > ul > li > a:hover:after {
-  background: /*#2479da*/ #00B0FF;
+  background: #2479da;
 }

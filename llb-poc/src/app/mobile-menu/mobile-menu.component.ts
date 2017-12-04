@@ -6,11 +6,11 @@ import {MenuButton} from './menubutton';
 
 
 @Component({
-  selector: 'menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  selector: 'mobile-menu',
+  templateUrl: './mobile-menu.component.html',
+  styleUrls: ['./mobile-menu.component.css']
 })
-export class MenuComponent implements OnInit {
+export class MobileMenuComponent implements OnInit {
   MenuButtons = MENUBUTTONS;
   selectedMenu: MenuButton;
   constructor(public llbService: LlbService, public loader: LoaderService) {
@@ -23,6 +23,5 @@ export class MenuComponent implements OnInit {
 
   onSelect(menubutton: MenuButton): void {
     this.selectedMenu = menubutton;
-	
   }
 }

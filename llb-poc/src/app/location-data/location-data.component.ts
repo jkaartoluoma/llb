@@ -9,8 +9,15 @@ import {LoaderService} from '../service/loader.service';
 })
 export class LocationDataComponent implements OnInit {
 
-  constructor(public llbService: LlbService, public loader: LoaderService) { }
-
+  //sets the center of the map to first numbers
+  _lat: number;
+  _lon: number;
+  
+  constructor(public llbService: LlbService, public loader: LoaderService) { 
+    // this._lat = this.llbService.data[0].lat;
+    // this._lon = this.llbService.data[0].lon;
+  }
+  
   ngOnInit() {
   }
 

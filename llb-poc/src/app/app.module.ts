@@ -8,6 +8,7 @@ import {LlbService} from './service/llb.service';
 import {RestService} from './service/rest.service';
 import {LoaderService} from './service/loader.service';
 import { MenuComponent } from './menu/menu.component';
+import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
 import { LocationDataComponent } from './location-data/location-data.component';
 import { GeneralDataComponent } from './general-data/general-data.component';
 import { SensorDataComponent } from './sensor-data/sensor-data.component';
@@ -19,19 +20,24 @@ import { AgmCoreModule } from '@agm/core';
 import { BusDataComponent } from './bus-data/bus-data.component';
 import { EngineDataComponent } from './engine-data/engine-data.component';
 import { BatteryDataComponent } from './battery-data/battery-data.component';
+import { ModalComponent } from './modal/modal.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LinechartComponent,
     MenuComponent,
+    MobileMenuComponent,
     LocationDataComponent,
     GeneralDataComponent,
     SensorDataComponent,
     MovementDataComponent,
     BusDataComponent,
     EngineDataComponent,
-    BatteryDataComponent
+    BatteryDataComponent,
+    ModalComponent,
+	  HomeComponent
   ],
   imports: [
     BrowserModule,
