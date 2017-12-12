@@ -22,7 +22,8 @@ export class LinechartComponent implements OnInit, OnChanges {
   @Input() length = 60;
   @Input() max = 0;
   @Input() min = 0;
-  @Input() step = 1;
+  @Input() step = 5;
+  @Input() label = '';
 
   public lineChartData: Array<any> = [
     {data: [], label: ''}
@@ -58,14 +59,14 @@ export class LinechartComponent implements OnInit, OnChanges {
       this.lineChartLabels[i] = '';
     }
 
-    // Set missing historical data to 0
+    // Set missing historical data to last known value or 0
     for (let i = this.history.length; i < this.length; i++) {
-      t[i] = 0;
+      t[i] = this.history.length > 0 ? this.history[this.history.length - 1] : 0;
     }
 
     // Reverse and set historical data to chart
     this.lineChartData = [
-      {data: t.reverse(), label: ''}
+      {data: t.reverse(), label: this.label}
     ];
 
     // Settings
@@ -75,7 +76,7 @@ export class LinechartComponent implements OnInit, OnChanges {
         duration: 0                       // disable animations
       },
       legend: {
-        display: false,                   // hide legend
+        display: this.label.length > 0,   // hide legend if no label is set
       },
       elements: {
         line: {
@@ -113,7 +114,7 @@ export class LinechartComponent implements OnInit, OnChanges {
 
     // Set data to chart
     this.lineChartData = [
-      {data: t, label: ''}
+      {data: t, label: this.label}
     ];
   }
 }

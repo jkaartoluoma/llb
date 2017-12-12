@@ -4,8 +4,8 @@ import {LoaderService} from './service/loader.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: "./" + (window.screen.width > 900 ? 
-    "app.component.html" : 
+  templateUrl: "./" + (window.screen.width > 900 ?
+    "app.component.html" :
     "app.component.mobile.html"),
   styleUrls: ['./app.component.css']
 })

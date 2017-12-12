@@ -1,70 +1,114 @@
-<p>Speed</p>
-<app-linechart [data]="llbService.data[0]?.spd" [history]="spd_ex"></app-linechart>
+<div class="row">
+  <div class="container">
+    <ul>
+      <li><span>Movenment status:</span>
+        <span *ngIf="llbService.data[0].can.TCO1_VehicleMotion == 0" class="red">In place</span>
+        <span *ngIf="llbService.data[0].can.TCO1_VehicleMotion == 1" class="green">Moving</span>
+      </li>
+      <li><span>Movenment direction:</span>
+        <ng-container *ngIf="llbService.data[0].can.TCO1_VehicleMotion == 1">
+          <span *ngIf="llbService.data[0].can.TCO1_DirectionIndicator == 0" class="green">Forward</span>
+          <span *ngIf="llbService.data[0].can.TCO1_DirectionIndicator == 1" class="red">Backwards</span>
+        </ng-container>
+        <span *ngIf="llbService.data[0].can.TCO1_VehicleMotion == 0">
+          <span class="red">Neutral</span>
+        </span>
+      </li>
+      <li><span>Gear position:</span><span>{{getGear()}}</span></li>
+    </ul>
+  </div>
 
-Bus/Driver
+  <div class="container">
+    <app-linechart [data]="llbService.data[0]?.spd*3.6" [history]="spd_ex" [label]="'Speed of the vehicle (km/h)'"></app-linechart>
+  </div>
 
-<ul>
-  <li>Vehicle acceleration-z: {{llbService.data[0]?.acc[0].in_accel_z}}</li>
+  <div class="container">
+    <ul>
+      <li class="padtop"><span>Speed of the vehicle (m/s):</span><span>{{llbService.data[0]?.spd}}</span></li>
+      <li><span>Speed measured from wheels (km/h):</span><span>{{llbService.data[0]?.can?.CCVS_WheelBasedVehicleSpeed}}</span>
+      </li>
+      <li><span>Tachograph based vehiclespeed (km/h):</span><span>{{llbService.data[0]?.can?.TCO1_TachographVehicleSpeed}}</span></li>
+      <li>
+        <span>Estimated speed error:</span><span>{{llbService.data[0]?.eps}}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="container">
+    <app-pedal-chart [data]="llbService.data[0]?.can?.DRIVER_AcceleratorPosition" [name]="'Accelerator'"></app-pedal-chart>
+  </div>
+
+  <div class="container">
+    <app-pedal-chart [data]="llbService.data[0]?.can?.DRIVER_BrakePedalPosition" [name]="'Break'"></app-pedal-chart>
+  </div>
+
+  <div class="container">
+    <ul>
+      <li>Brake pedal:
+        <span *ngIf="llbService.data[0]?.can?.CCVS_BrakeSwitch == 0" class="red">not pressed</span>
+        <span *ngIf="llbService.data[0]?.can?.CCVS_BrakeSwitch == 1" class="green">pressed</span>
+        <!--{{llbService.data[0]?.can?.CCVS_BrakeSwitch}}//0 = paedal not pressed, 1 = pedal pressed--></li>
+      <li>Parking brake:
+        <span *ngIf="llbService.data[0]?.can?.CCVS_ParkingBrakeSwitch == 0" class="red">off</span>
+        <span *ngIf="llbService.data[0]?.can?.CCVS_ParkingBrakeSwitch == 1" class="green">on</span>
+        <!--{{llbService.data[0]?.can?.CCVS_ParkingBrakeSwitch}}//0 = pedal not pressed, 1 = pedal pressed--></li>
+      <li>Road speed limiter:
+        <span *ngIf="llbService.data[0]?.can?.EEC2_RoadSpeedLimitStatus == 0" class="red">off</span>
+        <span *ngIf="llbService.data[0]?.can?.EEC2_RoadSpeedLimitStatus == 1" class="green">on</span>
+        <!--{{llbService.data[0]?.can?.EEC2_RoadSpeedLimitStatus}}0 = limiter off, 1 = limiter active NOT USED--></li>
+      <li>Acceleration limiter:
+        <span *ngIf="llbService.data[0]?.can?.EEC2_VhclAccelerationRateLimitStatus == 0" class="red">off</span>
+        <span *ngIf="llbService.data[0]?.can?.EEC2_VhclAccelerationRateLimitStatus == 1" class="green">on</span>
+        <!--{{llbService.data[0]?.can?.EEC2_VhclAccelerationRateLimitStatus}}0 = limiter off, 1 = limiter active--></li>
+    </ul>
+  </div>
+</div>
+
+<!--
+  <li class="padtop">Vehicle acceleration-z: {{llbService.data[0]?.acc[0].in_accel_z}}</li>
   <li>Vehicle acceleration-y: {{llbService.data[0]?.acc[0].in_accel_y}}</li>
   <li>Vehicle acceleration-z: {{llbService.data[0]?.acc[0].in_accel_x}}</li>
   <br/>
-  <br/>
-  <li>Vehicle inclination-z: {{llbService.data[0]?.inc[0].in_incli_z}}</li>
-  <li>Vehicle inclination-y: {{llbService.data[0]?.inc[0].in_incli_y}}</li>
-  <li>Vehicle inclination-x: {{llbService.data[0]?.inc[0].in_incli_x}}</li>
+  <li>Device rotation:
+    {{llbService.data[0]?.dro[0]?.in_rot_quaternion[0]}}
+    {{llbService.data[0]?.dro[0]?.in_rot_quaternion[1]}}
+    {{llbService.data[0]?.dro[0]?.in_rot_quaternion[2]}}
+    {{llbService.data[0]?.dro[0]?.in_rot_quaternion[3]}}
+  </li>
+  <li>Vehicle inclination-z: {{llbService.data[0]?.inc[0]?.in_incli_z}}</li>
+  <li>Vehicle inclination-y: {{llbService.data[0]?.inc[0]?.in_incli_y}}</li>
+  <li>Vehicle inclination-x: {{llbService.data[0]?.inc[0]?.in_incli_x}}</li>
   <br/>
   <li>Magnetometer data (from_north_magnetic_tilt):
     {{llbService.data[0]?.mgn[0].in_rot_from_north_magnetic_tilt_comp}}
   </li>
-  <li>Magnetometer data-z: {{llbService.data[0]?.mgn[0].in_magn_z}}</li>
-  <li>Magnetometer data-y: {{llbService.data[0]?.mgn[0].in_magn_y}}</li>
-  <li>Magnetometer data-x: {{llbService.data[0]?.mgn[0].in_magn_x}}</li>
+  <li>Magnetometer data-z: {{llbService.data[0]?.mgn[0]?.in_magn_z}}</li>
+  <li>Magnetometer data-y: {{llbService.data[0]?.mgn[0]?.in_magn_y}}</li>
+  <li>Magnetometer data-x: {{llbService.data[0]?.mgn[0]?.in_magn_x}}</li>
   <br/>
-  <li>Gyroscope data-z: {{llbService.data[0]?.gyr[0].in_anglvel_z}}</li>
-  <li>Gyroscope data-y: {{llbService.data[0]?.gyr[0].in_anglvel_y}}</li>
-  <li>Gyroscope data-x: {{llbService.data[0]?.gyr[0].in_anglvel_x}}</li>
+  <li>Gyroscope data-z: {{llbService.data[0]?.gyr[0]?.in_anglvel_z}}</li>
+  <li>Gyroscope data-y: {{llbService.data[0]?.gyr[0]?.in_anglvel_y}}</li>
+  <li>Gyroscope data-x: {{llbService.data[0]?.gyr[0]?.in_anglvel_x}}</li>
   <br/>
-  <li>Speed of the vehicle (m/s): {{llbService.data[0]?.spd}}</li>
-  <li>Estimated speed error: {{llbService.data[0]?.eps}}</li>
   <br/>
-  <li> TCO1_DirectionIndicator: {{llbService.data[0]?.can.TCO1_DirectionIndicator}} </li>
-  <li> TCO1_TachographVehicleSpeed: {{llbService.data[0]?.can.TCO1_TachographVehicleSpeed}} </li>
+  <li> TCO1_DirectionIndicator: {{llbService.data[0]?.can?.TCO1_DirectionIndicator}} </li>
+  <li> TCO1_TachographVehicleSpeed: {{llbService.data[0]?.can?.TCO1_TachographVehicleSpeed}} </li>
 
 
-  <li>Brake pedal status: {{llbService.data[0]?.can.CCVS_BrakeSwitch}} <br>
-  //0 = pedal not pressed, 1 = pedal pressed</li><br>
-
-  <li>Parking brake: {{llbService.data[0]?.can.CCVS_ParkingBrakeSwitch}} <br>
-  //0 = pedal not pressed, 1 = pedal pressed</li><br>
-
-  <li>Speed measured from wheels (km/h): {{llbService.data[0]?.can.CCVS_WheelBasedVehicleSpeed}} </li><br>
-
-  <li>Accelerator pedal position (%): {{llbService.data[0]?.can.DRIVER_AcceleratorPosition}} <br>
-  //Resolution 0.5%</li><br>
-
-  <li>Brake pedal position (%): {{llbService.data[0]?.can.DRIVER_BrakePedalPosition}} <br>
-  //Resolution 0.5%</li><br>
-
-  <li>Driver torque request (%): {{llbService.data[0]?.can.DRIVER_DriverTorqueRequest}} <br>
+  <li>Driver torque request (%): {{llbService.data[0]?.can?.DRIVER_DriverTorqueRequest}} <br>
   //Positive = torque request, Negative = regeneration</li><br>
 
-  <li>Regeneration lever position (%): {{llbService.data[0]?.can.DRIVER_RegenControlPosition}} <br>
+  <li>Regeneration lever position (%): {{llbService.data[0]?.can?.DRIVER_RegenControlPosition}} <br>
   //Driver can adjust the, strength of the, regeneration</li><br>
 
-  <li>Steering wheel angle (°): {{llbService.data[0]?.can.DRIVER_SteeringWheelAngle}} <br>
+  <li>Steering wheel angle (°): {{llbService.data[0]?.can?.DRIVER_SteeringWheelAngle}} <br>
   //Range = -3276...+3276 degrees (steering wheel can be turned multiple turns) This is not yet working</li><br>
 
-  <li>Driver torque request (%); {{llbService.data[0]?.can.EEC1_DriversDemandMotorPercentTorque}} <br>
+  <li>Driver torque request (%); {{llbService.data[0]?.can?.EEC1_DriversDemandMotorPercentTorque}} <br>
   //See driver torque request</li><br>
 
-  <li>Accelerator pedal position (%): {{llbService.data[0]?.can.EEC2_AccelPedalPos1}} <br>
-  //Resolution 0.4%</li><br>
-
-  <li>Road speed limiter status: {{llbService.data[0]?.can.EEC2_RoadSpeedLimitStatus}} <br>
-  //0 = limiter off, 1 = limiter active NOT USED</li><br>
-
-  <li>Acceleration limiter status: {{llbService.data[0]?.can.EEC2_VhclAccelerationRateLimitStatus}} <br>
-  //0 = limiter off, 1 = limiter active</li><br>
 
   <li>Current selected gear: {{llbService.data[0]?.can.ETC2_TransCurrentGear}} <br>
   //0 = neutral, 1 = forward, -1 = reverse</li><br>
@@ -72,10 +116,8 @@ Bus/Driver
   <li>Drive direction indicator: {{llbService.data[0]?.can.TCO1_DirectionIndicator}} <br>
   //0 = forward, 1 = reverse</li><br>
 
-  <li>Tachograph based vehiclespeed (km/h): {{llbService.data[0]?.can.TCO1_TachographVehicleSpeed}} <br>
-  //Resolution 0.004 km/h</li><br>
 
   <li>Vehicle motion status {{llbService.data[0]?.can.TCO1_VehicleMotion}} <br>
   //0 = vehicle not moving, 1 = vehicle moving</li><br>
 
-</ul>
+</ul>-->

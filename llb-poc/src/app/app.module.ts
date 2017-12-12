@@ -22,6 +22,7 @@ import { EngineDataComponent } from './engine-data/engine-data.component';
 import { BatteryDataComponent } from './battery-data/battery-data.component';
 import { ModalComponent } from './modal/modal.component';
 import { HomeComponent } from './home/home.component';
+import { PedalChartComponent } from './pedal-chart/pedal-chart.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { HomeComponent } from './home/home.component';
     EngineDataComponent,
     BatteryDataComponent,
     ModalComponent,
-	  HomeComponent
+    HomeComponent,
+    PedalChartComponent
   ],
   imports: [
     BrowserModule,

@@ -137,7 +137,7 @@ export interface VehicleData {
   mgn: MagnetometerStruct;        // Magnetometer data
   gyr: GyroscopeStruct;           // Gyroscope data
 
-  /* SENSOR DATA */ //these don't exists, at least not in realtime json
+  /* SENSOR DATA (these don't exists, at least not in realtime json) */
   sep: number;          // measured air pressure (from TinyNode)
   sei: number;          // Index of measured value
   set: number;          // measured temperature (from TinyNode)
