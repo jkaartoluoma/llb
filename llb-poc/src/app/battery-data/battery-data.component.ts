@@ -13,5 +13,12 @@ export class BatteryDataComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  /*
+  getTotal(): number {
+	try{
+	  return this.llbService.data[0].can.PWR_AUX_AirCompressor + this.llbService.data[0].can.PWR_AUX_HeatPump + this.llbService.data[0].can.PWR_AUX_DCDC + this.llbService.data[0].can.PWR_AUX_PowerSteering;
+	} catch (e) {
+      return -1;
+    }  
+  }*/
 }

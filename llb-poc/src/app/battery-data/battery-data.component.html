@@ -4,7 +4,15 @@
 	 <!-- <li><span>Battery level (%): {{llbService.data[0]?.can?.DD_BatteryLevel}}</span></li> -->
 	  <!-- //Resolution 0.4% -->
   </div>
+  <div class="container">
+	 <app-linechart [data]="llbService.data[0]?.can?.ENE_MOT_DriveMotor + llbService.data[0]?.can?.ENE_AUX2_PowerSteering + llbService.data[0]?.can?.ENE_AUX2_HeatPump + llbService.data[0]?.can?.ENE_AUX1_DCDC + llbService.data[0]?.can?.ENE_AUX1_AirCompressor" [label]="'Total electricity consumed (kWh)'"></app-linechart>
+  </div>
+  <div class="container">
+     <app-linechart [data]="llbService.data[0]?.can?.PWR_AUX_PowerSteering + llbService.data[0]?.can?.PWR_AUX_HeatPump + llbService.data[0]?.can?.PWR_AUX_DCDC + llbService.data[0]?.can?.PWR_AUX_AirCompressor" [label]="'Total instantaneous power (kW)'"></app-linechart>
+  </div>
+</div>
 
+<div class="row">
   <div class="container">
 	<ul>
 		
@@ -20,24 +28,16 @@
 	<span *ngIf="llbService.data[0]?.can?.AS_Alt1Status == 1">ON</span>
 	<span *ngIf="llbService.data[0]?.can?.AS_Alt1Status == 'na'">na</span>
 	</li>
-	<br>
-	  <li><span>Battery in/out</span></li>
-      <li><span>Current (A): {{llbService.data[0]?.can?.BATTERY_BatteryCurrent}} </span>
-      <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryCurrent < 0">(discharge)</span>
-	  <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryCurrent > 0">(charge)</span>
-	  </li>
-	  <!-- Negative = discharge, Positive = charge -->
-      <!-- //Resolution 0.1A -->
 
-      <li><span>Power (kW): {{llbService.data[0]?.can?.BATTERY_BatteryPower}} </span>
-	  <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryPower < 0">(discharge)</span>
-	  <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryPower > 0">(charge)</span>
-	  </li>
-	  <!-- Negative = discharge, Positive = charge -->
-      <!-- //Resolution 0.1kW -->
+    <li><span>Battery voltage (V): {{llbService.data[0]?.can?.BATTERY_BatteryVoltage}} </span></li>
+      <!-- //Resolution 0.1V -->
+	  
+    <li><span>Battery charge (%): {{llbService.data[0]?.can?.BATTERY_SOC}} </span></li>
+      <!-- //Resolution 0.5% -->
+	<li><span>Average Battery Cell temp (°C): {{llbService.data[0]?.can?.BATTERY_AverageCellTemp}} </span></li>
+
 	</ul>
   </div>
-
   <div class="container">
     <ul>
 		<li><span>Electricity consumed (kWh)</span></li>
@@ -53,36 +53,6 @@
 		<li><span>Drive motor: {{llbService.data[0]?.can?.ENE_MOT_DriveMotor}} </span></li>
 
     </ul>
-  </div>
-</div>
-<div class="row">
-  <div class="container">
-    <ul>
-      <li><span>Average Battery Cell temp (°C): {{llbService.data[0]?.can?.BATTERY_AverageCellTemp}} </span></li>
-
-      <li><span>Battery voltage (V): {{llbService.data[0]?.can?.BATTERY_BatteryVoltage}} </span></li>
-      <!-- //Resolution 0.1V -->
-	  
-      <li><span>Battery charge (%): {{llbService.data[0]?.can?.BATTERY_SOC}} </span></li>
-      <!-- //Resolution 0.5% -->
-	  <br>
-	  <li><span>Momentary energy efficiency (Wh/km): {{llbService.data[0]?.can?.EFFICIENCY_Efficiency}} </span></li>
-
-      <li><span>Average energy efficiency (Wh/km): {{llbService.data[0]?.can?.EFFICIENCY_EfficiencyAverage}} </span></li>
-	</ul>
-  </div>
-  <div class="container">
-    <ul>
-	  <li><span>Totals</span></li>
-	  <li><span>Energy charged into the battery (kWh): {{llbService.data[0]?.can?.ENERGY_TotalChargedEnergy}} </span></li>
-
-      <li><span>Energy discharged from the battery (kWh): {{llbService.data[0]?.can?.ENERGY_TotalDischargedEnergy}} </span></li>
-
-      <li><span>Externally charged energy (Ah): {{llbService.data[0]?.can?.ENERGY2_TotalExternalCharge}} </span></li>
-
-      <li><span>Processed Amp Hours (Ah): {{llbService.data[0]?.can?.ENERGY2_TotalProcessedAmpHours}} </span></li>
-      <!-- //No info -->
-	</ul>
   </div>
   <div class="container">
     <ul>
@@ -101,11 +71,39 @@
 <div class="row">
   <div class="container">
     <ul>
+	  <li><span>Battery in/out</span></li>
+      <li><span>Current (A): {{llbService.data[0]?.can?.BATTERY_BatteryCurrent}} </span>
+      <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryCurrent < 0">(discharge)</span>
+	  <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryCurrent > 0">(charge)</span>
+	  </li>
+	  <!-- Negative = discharge, Positive = charge -->
+      <!-- //Resolution 0.1A -->
 
+      <li><span>Power (kW): {{llbService.data[0]?.can?.BATTERY_BatteryPower}} </span>
+	  <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryPower < 0">(discharge)</span>
+	  <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryPower > 0">(charge)</span>
+	  </li>
+	  <!-- Negative = discharge, Positive = charge -->
+      <!-- //Resolution 0.1kW -->
+	  <br>
+	  <li><span>Momentary energy efficiency (Wh/km): {{llbService.data[0]?.can?.EFFICIENCY_Efficiency}} </span></li>
+
+      <li><span>Average energy efficiency (Wh/km): {{llbService.data[0]?.can?.EFFICIENCY_EfficiencyAverage}} </span></li>
 	</ul>
   </div>
-  <div class="container">
 
+  <div class="container">
+    <ul>
+	  <li><span>Totals</span></li>
+	  <li><span>Energy charged into the battery (kWh): {{llbService.data[0]?.can?.ENERGY_TotalChargedEnergy}} </span></li>
+
+      <li><span>Energy discharged from the battery (kWh): {{llbService.data[0]?.can?.ENERGY_TotalDischargedEnergy}} </span></li>
+
+      <li><span>Externally charged energy (Ah): {{llbService.data[0]?.can?.ENERGY2_TotalExternalCharge}} </span></li>
+
+      <li><span>Processed Amp Hours (Ah): {{llbService.data[0]?.can?.ENERGY2_TotalProcessedAmpHours}} </span></li>
+      <!-- //No info -->
+	</ul>
   </div>
   <div class="container">
   </div>
