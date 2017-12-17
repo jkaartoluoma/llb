@@ -5,45 +5,45 @@
     <option value="3009">3009</option>
     <option value="9999">9999</option>
   </select>
-	<a (click)="modal1.show()"><img class="button" src="../../assets/img/default.png"></a>
-	<a (click)="modal2.show()"><img class="button" src="../../assets/img/location.png"></a>
-	<a (click)="modal3.show()"><img class="button" src="../../assets/img/battery.png"></a>
-	<a (click)="modal4.show()"><img class="button" src="../../assets/img/driver.png"></a>
-	<a (click)="modal5.show()"><img class="button" src="../../assets/img/battery.png"></a>
+	<a (click)="showModal(modal1, 1)"><img class="button" src="../../assets/img/default.png"></a>
+	<a (click)="showModal(modal2, 2)"><img class="button" src="../../assets/img/location.png"></a>
+	<a (click)="showModal(modal3, 3)"><img class="button" src="../../assets/img/battery.png"></a>
+	<a (click)="showModal(modal4, 4)"><img class="button" src="../../assets/img/driver.png"></a>
+	<a (click)="showModal(modal5, 5)"><img class="button" src="../../assets/img/battery.png"></a>
 </div>
 <div>
   <app-modal #modal1>
   <div class="modal-body">
     <button (click)="modal1.hide()">Sulje</button>
-    <general-data></general-data>
+    <general-data *ngIf="_selectedModal == 1"></general-data>
   </div>
   </app-modal>
 
   <app-modal #modal2>
   <div class="modal-body">
     <button (click)="modal2.hide()">Sulje</button>
-    <location-data></location-data>
+    <location-data *ngIf="_selectedModal == 2"></location-data>
   </div>
   </app-modal>
 
   <app-modal #modal3>
   <div class="modal-body">
     <button (click)="modal3.hide()">Sulje</button>
-    <engine-data> </engine-data>
+    <engine-data *ngIf="_selectedModal == 3"> </engine-data>
   </div>
   </app-modal>
 
   <app-modal #modal4>
   <div class="modal-body">
     <button (click)="modal4.hide()">Sulje</button>
-    <bus-data> </bus-data>
+    <bus-data *ngIf="_selectedModal == 4"> </bus-data>
   </div>
   </app-modal>
 
   <app-modal #modal5>
   <div class="modal-body">
     <button (click)="modal5.hide()">Sulje</button>
-    <battery-data> </battery-data>
+    <battery-data *ngIf="_selectedModal == 5"> </battery-data>
   </div>
   </app-modal>
 </div>
