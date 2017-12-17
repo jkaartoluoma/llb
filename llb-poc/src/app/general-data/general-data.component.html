@@ -30,7 +30,7 @@
         <span *ngIf="llbService.data[0]?.can?.DC1_PosOfDoors == 'na'"><n-a></n-a></span>
         <br>
         
-        <img *ngIf="2 == 2" src="assets/img/closed.png" width="200px" alt="Closed Doors" border="1">
+        <img *ngIf="llbService.data[0]?.can?.DC1_PosOfDoors == 2" src="assets/img/closed.png" width="200px" alt="Closed Doors" border="1">
         <img *ngIf="llbService.data[0]?.can?.DC1_PosOfDoors == 1 || llbService.date?.can?.DC1_PosOfDoors == 0" src="assets/img/open.png" width="200px" alt="Open Doors" border="1">
 
     </div>
@@ -64,19 +64,24 @@
         <span *ngIf="llbService.data[0]?.can?.VW_AxleLocation == 0">Front Axle</span>
         <span *ngIf="llbService.data[0]?.can?.VW_AxleLocation == 1">Rear Axle</span>
         <span *ngIf="llbService.data[0]?.can?.VW_AxleLocation == 'na' || llbService.data[0]?.can?.VW_AxleLocations == undefined" ><n-a></n-a></span>
-        <br>
     </div>
 
     <div class="container">
-        Vehicle axle weight:
-        <span *ngIf="llbService.data[0]?.can?.VW_AxleWeight == 'na'; else axleWeight"><n-a-chart></n-a-chart></span>
-        <ng-template #axleWeight> <app-linechart data="{{llbService.data[0]?.can?.VW_AxleWeight}}"></app-linechart> </ng-template>
-        <br>
-        Measured axle weight (from air suspension, not very accurate).        
+        <n-a-chart *ngIf="isNullOrUndefined(llbService.data[0]?.can?.VW_AxleWeight)"></n-a-chart>
+        <ng-container *ngIf="!isNullOrUndefined(llbService.data[0]?.can?.VW_AxleWeight)">
+            Vehicle axle weight:
+            
+            <ng-template #axleWeight> <app-linechart data="{{llbService.data[0]?.can?.VW_AxleWeight}}"></app-linechart> </ng-template>
+            <br>
+            Measured axle weight (from air suspension, not very accurate).        
+            </ng-container>
     </div>
-    <div class="container">      
-        Gross Combination Weight (kg):
-        <span *ngIf="llbService.data[0]?.can?.CVW_GrossCombinationVehicleWeight == 'na'; else grossCombinationVehicleWeight"><n-a-chart></n-a-chart></span>
-        <ng-template #grossCombinationVehicleWeight><app-linechart data="{{llbService.data[0]?.can?.CVW_GrossCombinationVehicleWeight}}"></app-linechart> {{llbService.data[0]?.can.CVW_GrossCombinationVehicleWeight}} </ng-template>
+    <div class="container"> 
+        <n-a-chart *ngIf="isNullOrUndefined(llbService.data[0]?.can?.CVW_GrossCombinationVehicleWeight)"></n-a-chart>
+        <ng-container *ngIf="!isNullOrUndefined(llbService.data[0]?.can?.CVW_GrossCombinationVehicleWeight)">
+                        
+            Gross Combination Weight (kg):
+            <ng-template #grossCombinationVehicleWeight><app-linechart data="{{llbService.data[0]?.can?.CVW_GrossCombinationVehicleWeight}}"></app-linechart> {{llbService.data[0]?.can.CVW_GrossCombinationVehicleWeight}} </ng-template>
+        </ng-container>
     </div>
 </div>
