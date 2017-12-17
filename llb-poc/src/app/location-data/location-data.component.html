@@ -21,27 +21,42 @@
 
 <div class="row">
 	<div class="container">
-			<p>Climb rate</p>
-			<app-linechart data="{{llbService.data[0]?.clm}}"></app-linechart>
+		<span class="header">Climb rate</span>
+		<n-a-chart *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.clm)"></n-a-chart>
+		<app-linechart *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.clm)"
+			[data]="llbService.data[0]?.clm">
+		</app-linechart>
+	</div>
+	
+	<div class="container">
+		<span class="header">Altitude</span>
+		<n-a-chart *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.alt)"></n-a-chart>
+		<app-linechart *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.alt)"
+			[data]="llbService.data[0]?.alt">
+		</app-linechart>
 	</div>
 
 	<div class="container">
-		<p>Altitude</p>
-		<app-linechart data="{{llbService.data[0]?.alt}}"></app-linechart>
-	</div>
-	<div class="container">
 		<ul>
 			<li>
-				<span>Altitude: {{llbService.data[0]?.alt}}</span>
+				<span>Altitude: </span>
+				<span *ngIf="!llbService.isLiveData() || llbService.data[0]?.alt === 'na'"><n-a></n-a></span>
+				<span *ngIf="llbService.isLiveData() && llbService.data[0]?.alt !== 'na'">{{llbService.data[0]?.alt}}</span>
 			</li>
 			<li>
-				<span>Estimated vertical error: {{llbService.data[0]?.epv}}m </span>
+				<span>Estimated vertical error: </span>
+				<span *ngIf="!llbService.isLiveData() || llbService.data[0]?.epv === 'na'"><n-a></n-a></span>
+				<span *ngIf="llbService.isLiveData() && llbService.data[0]?.epv !== 'na'">{{llbService.data[0]?.epv}}m</span>
 			</li>
 			<li>
-				<span>Course over true north: {{llbService.data[0]?.trc}} degrees </span>
+				<span>Course over true north: </span>
+				<span *ngIf="!llbService.isLiveData() || llbService.data[0]?.trc === 'na'"><n-a></n-a></span>
+				<span *ngIf="llbService.isLiveData() && llbService.data[0]?.trc !== 'na'">{{llbService.data[0]?.trc}}m</span>
 			</li>
 			<li>
-				<span>NMEA mode: {{getNmeaMode()}}</span>
+				<span>NMEA mode: </span>
+				<span *ngIf="!llbService.isLiveData() || getNmeaMode() === 'unknown'"><n-a></n-a></span>
+				<span *ngIf="llbService.isLiveData() && getNmeaMode() !== 'unknown'">{{getNmeaMode()}}m</span>
 			</li>
 		</ul>
 	</div>

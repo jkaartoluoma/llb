@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LlbService} from '../service/llb.service';
 import {LoaderService} from '../service/loader.service';
+import {isNullOrUndefined} from '../../utils';
 
 @Component({
   selector: 'location-data',
@@ -11,6 +12,7 @@ export class LocationDataComponent implements OnInit {
 
   //sets the center of the map to first numbers
   location: Coordinates;
+  isNullOrUndefined = isNullOrUndefined;
 
   constructor(public llbService: LlbService, public loader: LoaderService) { 
     
