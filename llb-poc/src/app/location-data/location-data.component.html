@@ -1,35 +1,49 @@
+<div class="row">
+	<div class="container">
+		<agm-map [latitude]="llbService.data[0]?.lat" [longitude]="llbService.data[0]?.lon" 
+			[zoom]="15" [mapDraggable]="false" [streetViewControl]="false" [gestureHandling]="none"
+			[disableDoubleClickZoom]="true" [zoomControl] = "false" [keyboardShortcuts] = "false" >
+			<agm-marker [latitude]="llbService.data[0]?.lat" [longitude]="llbService.data[0]?.lon" 
+			[iconUrl]="'../../assets/img/bus-marker-32.png'" [label]="llbService._vehicleId">
+				<agm-info-window [disableAutoPan]="true">
+					<ul>
+						<li><span>Latitude: {{llbService.data[0]?.lat}}</span></li>
+						<li><span>Longitude: {{llbService.data[0]?.lon}}</span></li>
+						<li><span>Estimated error: {{llbService.data[0]?.epx}}m</span></li>
+					</ul>
+				</agm-info-window>
+			</agm-marker>
+			<agm-marker [latitude]="location?.latitude" [longitude]="location?.longitude"></agm-marker>
+		</agm-map>
+	</div>
+	
+</div>
 
-<ul>
-	<li>GPS timestamp: {{llbService.data[0]?.tsl}} </li><br>
-	<li>Estimated timestamp error: {{llbService.data[0]?.ept}}</li>
-	<li>Latitude: {{llbService.data[0]?.lat}}</li>
-	<li>Longitude: {{llbService.data[0]?.lon}}</li>
-	<li>Estimated longitude error (m): {{llbService.data[0]?.epx}} </li><br>
+<div class="row">
+	<div class="container">
+			<p>Climb rate</p>
+			<app-linechart data="{{llbService.data[0]?.clm}}"></app-linechart>
+	</div>
 
-	<li>Altitude: {{llbService.data[0]?.alt}}</li>
-	<li>Estimated vertical error (m): {{llbService.data[0]?.epv}} </li><br>
-
-	<li>Estimated timestamp error (ms): {{llbService.data[0]?.ept}} </li><br>
-
-	<li>Course over true north (m): {{llbService.data[0]?.trc}} </li><br>
-
-	<li>NMEA mode: {{llbService.data[0]?.mod}} <br>
-	//0=no mode value yet seen 1=no fix 2=2D 3=3D</li><br>
-</ul>
-<span>Coordinates: {{llbService.data[0]?.lat}}, {{llbService.data[0]?.lon}}</span>
-<agm-map [latitude]="llbService.data[0]?.lat" [longitude]="llbService.data[0]?.lon" 
-	[zoom]="15" [mapDraggable]="false" [streetViewControl]="false" [gestureHandling]="none"
-	[disableDoubleClickZoom]="true" [zoomControl] = "false" [keyboardShortcuts] = "false" >
-	<agm-marker [latitude]="llbService.data[0]?.lat" [longitude]="llbService.data[0]?.lon" [iconUrl]="'../../assets/img/bus-marker-32.png'" [label]="'1612'"></agm-marker>
-	<agm-marker [latitude]="location?.latitude" [longitude]="location?.longitude"></agm-marker>
-</agm-map>
-
-
-<p>Climb rate</p>
-<app-linechart data="{{llbService.data[0]?.clm}}"></app-linechart>
-
-<p>Altitude</p>
-<app-linechart data="{{llbService.data[0]?.alt}}"></app-linechart>
-
-Location
+	<div class="container">
+		<p>Altitude</p>
+		<app-linechart data="{{llbService.data[0]?.alt}}"></app-linechart>
+	</div>
+	<div class="container">
+		<ul>
+			<li>
+				<span>Altitude: {{llbService.data[0]?.alt}}</span>
+			</li>
+			<li>
+				<span>Estimated vertical error: {{llbService.data[0]?.epv}}m </span>
+			</li>
+			<li>
+				<span>Course over true north: {{llbService.data[0]?.trc}} degrees </span>
+			</li>
+			<li>
+				<span>NMEA mode: {{getNmeaMode()}}</span>
+			</li>
+		</ul>
+	</div>
+</div>
 

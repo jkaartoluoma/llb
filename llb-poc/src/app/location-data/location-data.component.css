@@ -1,3 +1,43 @@
 agm-map {
     height: 300px;
-  }
+}
+
+ul {
+  list-style: none;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+}
+
+.padtop {
+  padding-top: 2em;
+}
+
+.padbtm {
+  padding-bottom: 2em;
+}
+
+.warning {
+  color: darkred;
+}
+
+.row {
+  display: table;
+  width: 100%; /*Optional*/
+  table-layout: fixed; /*Optional*/
+  border-spacing: 10px; /*Optional*/
+}
+
+.container {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.green {
+  color: darkgreen;
+  font-weight: bold;
+}
+
+.red {
+  color: red;
+  font-weight: bold;
+}
