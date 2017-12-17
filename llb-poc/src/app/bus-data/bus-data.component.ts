@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {LlbService} from '../service/llb.service';
 import {LoaderService} from '../service/loader.service';
+import {isNullOrUndefined} from '../../utils';
 
 @Component({
   selector: 'bus-data',
@@ -13,6 +14,8 @@ export class BusDataComponent implements OnInit {
 
   // Wheel base speed history
   wbvs_ex: number[] = [];
+
+  isNullOrUndefined = isNullOrUndefined;
 
   constructor(public llbService: LlbService, public loader: LoaderService) { }
 

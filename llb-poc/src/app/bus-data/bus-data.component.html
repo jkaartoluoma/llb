@@ -1,22 +1,25 @@
 <div class="row">
   <div class="container">
-    <span class="header">Movenment status:</span>
-    <ul>
-      <li><span>Movenment status:</span>
-        <span *ngIf="llbService.data[0]?.can?.TCO1_VehicleMotion == 0" class="red">In place</span>
-        <span *ngIf="llbService.data[0]?.can?.TCO1_VehicleMotion == 1" class="green">Moving</span>
-      </li>
-      <li><span>Movenment direction:</span>
-        <ng-container *ngIf="llbService.data[0]?.can?.TCO1_VehicleMotion == 1">
-          <span *ngIf="llbService.data[0]?.can?.TCO1_DirectionIndicator == 0" class="green">Forward</span>
-          <span *ngIf="llbService.data[0]?.can?.TCO1_DirectionIndicator == 1" class="red">Backwards</span>
-        </ng-container>
-        <span *ngIf="llbService.data[0]?.can?.TCO1_VehicleMotion == 0">
+    <n-a-chart *ngIf="isNullOrUndefined(llbService.data[0]?.can?.TCO1_VehicleMotion)"></n-a-chart>
+    <ng-container *ngIf="llbService.data[0]?.can !== null">
+      <span class="header">Movenment status:</span>
+      <ul>
+        <li><span>Movenment status:</span>
+          <span *ngIf="llbService.data[0]?.can?.TCO1_VehicleMotion == 0" class="red">In place</span>
+          <span *ngIf="llbService.data[0]?.can?.TCO1_VehicleMotion == 1" class="green">Moving</span>
+        </li>
+        <li><span>Movenment direction:</span>
+          <ng-container *ngIf="llbService.data[0]?.can?.TCO1_VehicleMotion == 1">
+            <span *ngIf="llbService.data[0]?.can?.TCO1_DirectionIndicator == 0" class="green">Forward</span>
+            <span *ngIf="llbService.data[0]?.can?.TCO1_DirectionIndicator == 1" class="red">Backwards</span>
+          </ng-container>
+          <span *ngIf="llbService.data[0]?.can?.TCO1_VehicleMotion == 0">
           <span class="red">Neutral</span>
         </span>
-      </li>
-      <li><span>Gear position:</span><span>{{getGear()}}</span></li>
-    </ul>
+        </li>
+        <li><span>Gear position:</span><span>{{getGear()}}</span></li>
+      </ul>
+    </ng-container>
   </div>
 
   <div class="container">

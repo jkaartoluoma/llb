@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {LlbService} from '../service/llb.service';
+import {isNullOrUndefined} from '../../utils';
 
 @Component({
   selector: 'app-loader',
@@ -7,9 +8,7 @@ import {LlbService} from '../service/llb.service';
   styleUrls: ['./loader.component.less']
 })
 export class LoaderComponent {
-  constructor(public llbService: LlbService) {}
+  isNullOrUndefined = isNullOrUndefined;
 
-  isNullOrUndefined(itm: any): boolean {
-    return (itm === null || itm === undefined);
-  }
+  constructor(public llbService: LlbService) {}
 }
