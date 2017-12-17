@@ -1,6 +1,6 @@
 <div class="row">
   <div class="container">
-     <app-battery-chart [data]="70" [name]="Battery"></app-battery-chart>
+     <app-battery-chart [data]="llbService.data[0]?.can?.DD_BatteryLevel" [name]="Battery"></app-battery-chart>
 	 <!-- <li><span>Battery level (%): {{llbService.data[0]?.can?.DD_BatteryLevel}}</span></li> -->
 	  <!-- //Resolution 0.4% -->
   </div>
@@ -8,29 +8,31 @@
   <div class="container">
 	<ul>
 		
-	<li><span>Battery charging status: {{llbService.data[0]?.can?.STATUS_ChargingType}}</span></li>
-	<!-- <span *ngIf="llbService.data[0]?.can?.STATUS_ChargingType == 0">Not Charging</span>
+	<li><span>Battery charging status: </span>
+	<span *ngIf="llbService.data[0]?.can?.STATUS_ChargingType == 0">Not Charging</span>
 	<span *ngIf="llbService.data[0]?.can?.STATUS_ChargingType == 1">Charging</span>
-	<span *ngIf="llbService.data[0]?.can?.STATUS_ChargingType == 'na'" id="notAvailable">{{n_a}}</span> -->
+	<span *ngIf="llbService.data[0]?.can?.STATUS_ChargingType == 'na'" >na</span>
+	</li>
 	<!-- 0 = not charging, 1 = charging -->
 	
-	<li><span>Status of the 24V DC/DC converter: {{llbService.data[0]?.can?.AS_Alt1Status}}</span></li>
-	<!-- <span *ngIf="llbService.data[0]?.can?.AS_Alt1Status == 0">OFF</span> -->
-	<!-- <span *ngIf="llbService.data[0]?.can?.AS_Alt1Status == 1">ON</span> -->
-	<!-- <span *ngIf="llbService.data[0]?.can?.AS_Alt1Status == 'na'" id="notAvailable">{{n_a}}</span> -->
+	<li><span>Status of the 24V DC/DC converter: </span>
+	<span *ngIf="llbService.data[0]?.can?.AS_Alt1Status == 0">OFF</span>
+	<span *ngIf="llbService.data[0]?.can?.AS_Alt1Status == 1">ON</span>
+	<span *ngIf="llbService.data[0]?.can?.AS_Alt1Status == 'na'">na</span>
+	</li>
 	<br>
 	  <li><span>Battery in/out</span></li>
-      <li><span>Current (A): {{llbService.data[0]?.can?.BATTERY_BatteryCurrent}} </span></li>
-      <!-- <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryCurrent < 0">(discharge)</span>
+      <li><span>Current (A): {{llbService.data[0]?.can?.BATTERY_BatteryCurrent}} </span>
+      <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryCurrent < 0">(discharge)</span>
 	  <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryCurrent > 0">(charge)</span>
-	  <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryCurrent 'na'" id="notAvailable">{{n_a}}</span> -->
+	  </li>
 	  <!-- Negative = discharge, Positive = charge -->
       <!-- //Resolution 0.1A -->
 
-      <li><span>Power (kW): {{llbService.data[0]?.can?.BATTERY_BatteryPower}} </span></li>
-	  <!-- <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryPower < 0">(discharge)</span>
+      <li><span>Power (kW): {{llbService.data[0]?.can?.BATTERY_BatteryPower}} </span>
+	  <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryPower < 0">(discharge)</span>
 	  <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryPower > 0">(charge)</span>
-	  <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryPower 'na'" id="notAvailable">{{n_a}}</span> -->
+	  </li>
 	  <!-- Negative = discharge, Positive = charge -->
       <!-- //Resolution 0.1kW -->
 	</ul>

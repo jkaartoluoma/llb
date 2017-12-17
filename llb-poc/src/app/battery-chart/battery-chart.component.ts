@@ -24,7 +24,7 @@ export class BatteryChartComponent implements OnInit, OnChanges {
   
   draw() {
     const charge = this.data;
-
+	//https://github.com/bencevans/canvas-battery
     // Canvas
     this.context = (<HTMLCanvasElement>this.myCanvas.nativeElement).getContext('2d');
 	
