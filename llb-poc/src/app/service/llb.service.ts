@@ -57,4 +57,16 @@ export class LlbService {
       }
     }, 1000);
   }
+
+  isLiveData(): boolean {
+    try {
+      if (this.data[0].tsl.getTime() > (new Date().getTime() - 10000)) {
+        return true;
+      }
+    } catch (e) {
+      return false;
+    }
+
+    return false;
+  }
 }

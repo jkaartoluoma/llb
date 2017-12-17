@@ -1,6 +1,15 @@
 <header>
 	<img src="assets/img/logo.png" style="float: left;">
-	<span><p style="text-align: right;">Data last updated: {{llbService.data[0]?.tsl | date:'dd.MM.y, HH:mm:ss'}} </p></span>
+	<ul>
+    <li>Following bus {{llbService._vehicleId}}</li>
+    <li>Last update: {{llbService.data[0]?.tsl | date:'dd.MM.y, HH:mm:ss'}}</li>
+    <li *ngIf="llbService.isLiveData() == false">
+      <i class="fa fa-exclamation-triangle warning"></i> Vehicle not online!
+    </li>
+    <li *ngIf="llbService.isLiveData() == true">
+      <i class="fa fa-check-circle success"></i> Vehicle online!
+    </li>
+  </ul>
 </header>
 
 <menu></menu>

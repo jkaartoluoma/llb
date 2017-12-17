@@ -7,10 +7,10 @@
       </li>
       <li><span>Movenment direction:</span>
         <ng-container *ngIf="llbService.data[0]?.can?.TCO1_VehicleMotion == 1">
-          <span *ngIf="llbService.data[0]?.can.TCO1_DirectionIndicator == 0" class="green">Forward</span>
-          <span *ngIf="llbService.data[0]?.can.TCO1_DirectionIndicator == 1" class="red">Backwards</span>
+          <span *ngIf="llbService.data[0]?.can?.TCO1_DirectionIndicator == 0" class="green">Forward</span>
+          <span *ngIf="llbService.data[0]?.can?.TCO1_DirectionIndicator == 1" class="red">Backwards</span>
         </ng-container>
-        <span *ngIf="llbService.data[0]?.can.TCO1_VehicleMotion == 0">
+        <span *ngIf="llbService.data[0]?.can?.TCO1_VehicleMotion == 0">
           <span class="red">Neutral</span>
         </span>
       </li>
