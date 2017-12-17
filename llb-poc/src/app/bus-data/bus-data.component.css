@@ -25,7 +25,8 @@ ul {
 
 .container {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: top;
+  width: 33%;
 }
 
 .green {
@@ -36,4 +37,19 @@ ul {
 .red {
   color: red;
   font-weight: bold;
+}
+
+.busicon {
+  width: 150px;
+  margin: 2em;
+}
+
+.middle {
+  text-align: center;
+}
+
+
+.header {
+  font-weight: bold;
+  display: block;
 }

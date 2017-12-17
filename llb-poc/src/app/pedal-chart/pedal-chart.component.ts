@@ -10,7 +10,7 @@ export class PedalChartComponent implements OnInit, OnChanges {
   public context: CanvasRenderingContext2D;
 
   @Input() width = 300;
-  @Input() height = 200;
+  @Input() height = 150;
   @Input() data: number;
   @Input() name: string;
 
@@ -36,7 +36,7 @@ export class PedalChartComponent implements OnInit, OnChanges {
    */
   draw() {
     const percent = this.data;
-    const r = this.height;                                          // r
+    const r = this.height * 1.2;                                          // r
     const h = this.height;                                          // height of canvas
     const w = this.width;                                           // width of canvas
 
@@ -45,8 +45,8 @@ export class PedalChartComponent implements OnInit, OnChanges {
     this.context.canvas.width = w;
     this.context.canvas.height = h;
     this.context.clearRect(0, 0, w, h);
-    this.context.font = '1em Arial';
-    this.context.fillText(this.name + ' pedal position: ' + this.data + '%', 10, 20);
+    // this.context.font = '1em Arial';
+    // this.context.fillText(this.name + ' pedal position: ' + this.data + '%', 10, 20);
 
     // Pedal
     // Draw from lower left corner to point P
@@ -67,7 +67,7 @@ export class PedalChartComponent implements OnInit, OnChanges {
 
     // Ticks
     // Draw tick indicators to fixed points in circle
-    this.context.font = '0.6em Arial';
+    this.context.font = '0.8em Arial';
     let ta; // temp alpha
     let tw; // temp width
     let th; // temp height

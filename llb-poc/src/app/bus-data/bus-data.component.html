@@ -1,5 +1,6 @@
 <div class="row">
   <div class="container">
+    <span class="header">Movenment status:</span>
     <ul>
       <li><span>Movenment status:</span>
         <span *ngIf="llbService.data[0]?.can?.TCO1_VehicleMotion == 0" class="red">In place</span>
@@ -19,32 +20,34 @@
   </div>
 
   <div class="container">
-    <app-linechart [data]="llbService.data[0]?.spd*3.6" [history]="spd_ex" [label]="'Speed of the vehicle (km/h)'"></app-linechart>
+    <span class="header padbtm">Speed of the vehicle (km/h): {{llbService.data[0]?.spd*3.6}}</span>
+    <app-linechart [data]="llbService.data[0]?.spd*3.6" [history]="spd_ex"></app-linechart>
   </div>
 
   <div class="container">
+    <span class="header">Detailed speed information:</span>
     <ul>
-      <li class="padtop"><span>Speed of the vehicle (km/h):</span><span>{{llbService.data[0]?.spd*3.6}}</span></li>
-      <li><span>Speed measured from wheels (km/h):</span><span>{{llbService.data[0]?.can?.CCVS_WheelBasedVehicleSpeed}}</span>
-      </li>
+      <li><span>Speed of the vehicle (km/h):</span><span>{{llbService.data[0]?.spd*3.6}}</span></li>
+      <li><span>Speed measured from wheels (km/h):</span><span>{{llbService.data[0]?.can?.CCVS_WheelBasedVehicleSpeed}}</span></li>
       <li><span>Tachograph based vehiclespeed (km/h):</span><span>{{llbService.data[0]?.can?.TCO1_TachographVehicleSpeed}}</span></li>
-      <li>
-        <span>Estimated speed error:</span><span>{{llbService.data[0]?.eps}}</span>
-      </li>
+      <li><span>Estimated speed error:</span><span>{{llbService.data[0]?.eps}}</span></li>
     </ul>
   </div>
 </div>
 
 <div class="row">
   <div class="container">
+    <span class="header">Accelerator pedal position: {{llbService.data[0]?.can?.DRIVER_AcceleratorPosition}}</span>
     <app-pedal-chart [data]="llbService.data[0]?.can?.DRIVER_AcceleratorPosition" [name]="'Accelerator'"></app-pedal-chart>
   </div>
 
   <div class="container">
+    <span class="header">Break pedal position: {{llbService.data[0]?.can?.DRIVER_BrakePedalPosition}}</span>
     <app-pedal-chart [data]="llbService.data[0]?.can?.DRIVER_BrakePedalPosition" [name]="'Break'"></app-pedal-chart>
   </div>
 
   <div class="container">
+    <span class="header">Detailed pedal/switch information:</span>
     <ul>
       <li>Brake pedal:
         <span *ngIf="llbService.data[0]?.can?.CCVS_BrakeSwitch == 0" class="red">not pressed</span>
@@ -66,17 +69,28 @@
   </div>
 </div>
 
+<!-- Inclination -->
+<div class="row">
+  <div class="container">
+    <span class="header">Vehicle inclination:</span><br>
+    <object id="busicon" class="busicon" type="image/svg+xml" data="../../assets/img/bus.svg">
+      SVG not enabled
+    </object>
+  </div>
+
+  <div class="container">
+
+  </div>
+  <div class="container">
+
+  </div>
+</div>
+
 <!--
   <li class="padtop">Vehicle acceleration-z: {{llbService.data[0]?.acc[0].in_accel_z}}</li>
   <li>Vehicle acceleration-y: {{llbService.data[0]?.acc[0].in_accel_y}}</li>
   <li>Vehicle acceleration-z: {{llbService.data[0]?.acc[0].in_accel_x}}</li>
   <br/>
-  <li>Device rotation:
-    {{llbService.data[0]?.dro[0]?.in_rot_quaternion[0]}}
-    {{llbService.data[0]?.dro[0]?.in_rot_quaternion[1]}}
-    {{llbService.data[0]?.dro[0]?.in_rot_quaternion[2]}}
-    {{llbService.data[0]?.dro[0]?.in_rot_quaternion[3]}}
-  </li>
   <li>Vehicle inclination-z: {{llbService.data[0]?.inc[0]?.in_incli_z}}</li>
   <li>Vehicle inclination-y: {{llbService.data[0]?.inc[0]?.in_incli_y}}</li>
   <li>Vehicle inclination-x: {{llbService.data[0]?.inc[0]?.in_incli_x}}</li>

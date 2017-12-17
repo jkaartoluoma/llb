@@ -20,9 +20,4 @@ export class HomeComponent implements OnInit {
     modal.show();
     this._selectedModal = id;
   }
-
-  selectBus(id: number) {
-    this.service.changeBusId(id);
-  }
-
 }

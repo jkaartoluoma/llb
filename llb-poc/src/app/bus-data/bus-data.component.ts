@@ -20,6 +20,8 @@ export class BusDataComponent implements OnInit {
     // Calculate historical data
     this.spd_ex = this.llbService.data.map(e => e.spd * 3.6);
     this.wbvs_ex = this.llbService.data.map(e => e.can.CCVS_WheelBasedVehicleSpeed);
+
+    document.getElementById("busicon").style.transform = "rotate(7deg)";
   }
 
   getMovenmentStatus(): string {

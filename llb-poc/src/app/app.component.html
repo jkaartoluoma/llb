@@ -1,22 +1,32 @@
 <header>
-	<img src="assets/img/logo.png" style="float: left;">
-	<ul>
-    <li>Following bus {{llbService._vehicleId}}</li>
-    <li>Last update: {{llbService.data[0]?.tsl | date:'dd.MM.y, HH:mm:ss'}}</li>
-    <li *ngIf="llbService.isLiveData() == false">
-      <i class="fa fa-exclamation-triangle warning"></i> Vehicle not online!
-    </li>
-    <li *ngIf="llbService.isLiveData() == true">
-      <i class="fa fa-check-circle success"></i> Vehicle online!
-    </li>
-  </ul>
+  <img src="assets/img/logo.png" style="float: left;">
+  <div id="businfo">
+    <ul>
+      <li>Following bus {{llbService._vehicleId}}</li>
+      <li>Last update: {{llbService.data[0]?.tsl | date:'dd.MM.y, HH:mm:ss'}}</li>
+      <li *ngIf="llbService.isLiveData() == false">
+        <i class="fa fa-exclamation-triangle warning"></i> Vehicle not online!
+      </li>
+      <li *ngIf="llbService.isLiveData() == true">
+        <i class="fa fa-check-circle success"></i> Vehicle online!
+      </li>
+    </ul>
+  </div>
+  <div id="selectbus">
+    <select (change)="llbService.changeBusId($event.target.value)">
+      <option value="1612" selected>1612</option>
+      <option value="3008">3008</option>
+      <option value="3009">3009</option>
+      <option value="9999">9999</option>
+    </select>
+  </div>
 </header>
 
 <menu></menu>
 
 <div>
-<app-home>
-</app-home>
+  <app-home>
+  </app-home>
 </div>
 
 
