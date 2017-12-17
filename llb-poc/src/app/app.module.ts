@@ -27,6 +27,8 @@ import { NAComponent } from './n-a/n-a.component';
 import {LoaderComponent} from './loader/loader.component';
 import { BatteryChartComponent } from './battery-chart/battery-chart.component';
 import { InfoComponent } from './info/info.component';
+import { NAChartComponent } from './n-a-chart/n-a-chart.component';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { InfoComponent } from './info/info.component';
     NAComponent,
     LoaderComponent,
     BatteryChartComponent,
-    InfoComponent
+    InfoComponent,
+    NAChartComponent
   ],
   imports: [
     BrowserModule,

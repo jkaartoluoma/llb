@@ -1,3 +1,12 @@
-#notAvailable {
-    color: red;
-  }
+.row {
+  display: table;
+  width: 100%; /*Optional*/
+  table-layout: fixed; /*Optional*/
+  border-spacing: 10px; /*Optional*/
+}
+
+.container {
+  padding: 1em;
+  display: table-cell;
+  vertical-align: middle;
+}
