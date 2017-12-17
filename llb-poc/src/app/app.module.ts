@@ -24,6 +24,7 @@ import { ModalComponent } from './modal/modal.component';
 import { HomeComponent } from './home/home.component';
 import { PedalChartComponent } from './pedal-chart/pedal-chart.component';
 import { NAComponent } from './n-a/n-a.component';
+import {LoaderComponent} from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { NAComponent } from './n-a/n-a.component';
     ModalComponent,
     HomeComponent,
     PedalChartComponent,
-    NAComponent
+    NAComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

@@ -9,18 +9,6 @@ import { Injectable } from '@angular/core';
 export class LoaderService {
   private tasks = 0;
 
-  /**
-   * Check if the application is currently loading data from rest
-   * @returns {boolean}
-   */
-  isLoading(): boolean {
-    return this.tasks > 0;
-  }
-
-  /**
-   * Get number of currently running tasks
-   * @returns {number}
-   */
   getTasks(): number {
     return this.tasks;
   }

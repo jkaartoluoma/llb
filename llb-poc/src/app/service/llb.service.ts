@@ -69,4 +69,12 @@ export class LlbService {
 
     return false;
   }
+
+  /**
+   * Use this function to change bus id
+   */
+  changeBusId(id: number) {
+    this.data = [];
+    this._vehicleId = id;
+  }
 }

@@ -1,0 +1,22 @@
+#loader-div {
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  background: rgba(0,0,0,0.5);
+
+  .loader {
+    background: url('../../assets/img/indicator.gif') no-repeat;
+    background-size: 24px;
+    @size: 24px;
+    @half: @size / 2;
+    position: absolute;
+    left: ~"calc(50% - @{half})";
+    top: ~"calc(50% - @{half})";
+    width: @size;
+    height: @size;
+  }
+}

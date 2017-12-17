@@ -1,5 +1,5 @@
 <div><!-- 3008 3009-->
-	<select [(ngModel)]="service._vehicleId">
+	<select (change)="selectBus($event.target.value)">
     <option value="1612" selected>1612</option>
     <option value="3008">3008</option>
     <option value="3009">3009</option>
