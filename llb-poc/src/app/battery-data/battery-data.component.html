@@ -1,46 +1,58 @@
 <div class="row">
-  <div class="container">
+  <div class="container"> <!-- MIT battery chart -->
+    <n-a-chart *ngIf="isNullOrUndefined(llbService.data[0]?.can?.DD_BatteryLevel)"></n-a-chart>
+    <ng-container *ngIf="!isNullOrUndefined(llbService.data[0]?.can?.DD_BatteryLevel)">
      <app-battery-chart [data]="llbService.data[0]?.can?.DD_BatteryLevel" [name]="Battery"></app-battery-chart>
 	 <!-- <li><span>Battery level (%): {{llbService.data[0]?.can?.DD_BatteryLevel}}</span></li> -->
 	  <!-- //Resolution 0.4% -->
+	</ng-container>
   </div>
-  <div class="container">
-	 <app-linechart [data]="llbService.data[0]?.can?.ENE_MOT_DriveMotor + llbService.data[0]?.can?.ENE_AUX2_PowerSteering + llbService.data[0]?.can?.ENE_AUX2_HeatPump + llbService.data[0]?.can?.ENE_AUX1_DCDC + llbService.data[0]?.can?.ENE_AUX1_AirCompressor" [label]="'Total electricity consumed (kWh)'"></app-linechart>
+  <div class="container"> <!-- Total electricity consumed chart -->
+    <span class="header">Total electricity consumed (kWh): {{llbService.data[0]?.can?.ENE_MOT_DriveMotor + llbService.data[0]?.can?.ENE_AUX2_PowerSteering + llbService.data[0]?.can?.ENE_AUX2_HeatPump + llbService.data[0]?.can?.ENE_AUX1_DCDC + llbService.data[0]?.can?.ENE_AUX1_AirCompressor}}</span>
+    <n-a-chart *ngIf="isNullOrUndefined(llbService.data[0]?.can?.ENE_MOT_DriveMotor) || isNullOrUndefined(llbService.data[0]?.can?.ENE_AUX2_PowerSteering) || isNullOrUndefined(llbService.data[0]?.can?.ENE_AUX2_HeatPump) || isNullOrUndefined(llbService.data[0]?.can?.ENE_AUX1_DCDC) || isNullOrUndefined(llbService.data[0]?.can?.ENE_AUX1_AirCompressor)"></n-a-chart>
+    <ng-container *ngIf="!isNullOrUndefined(llbService.data[0]?.can?.ENE_MOT_DriveMotor) || !isNullOrUndefined(llbService.data[0]?.can?.ENE_AUX2_PowerSteering) || !isNullOrUndefined(llbService.data[0]?.can?.ENE_AUX2_HeatPump) || !isNullOrUndefined(llbService.data[0]?.can?.ENE_AUX1_DCDC) || !isNullOrUndefined(llbService.data[0]?.can?.ENE_AUX1_AirCompressor)">
+	 <app-linechart [data]="llbService.data[0]?.can?.ENE_MOT_DriveMotor + llbService.data[0]?.can?.ENE_AUX2_PowerSteering + llbService.data[0]?.can?.ENE_AUX2_HeatPump + llbService.data[0]?.can?.ENE_AUX1_DCDC + llbService.data[0]?.can?.ENE_AUX1_AirCompressor"></app-linechart>
+	</ng-container>
   </div>
-  <div class="container">
-     <app-linechart [data]="llbService.data[0]?.can?.PWR_AUX_PowerSteering + llbService.data[0]?.can?.PWR_AUX_HeatPump + llbService.data[0]?.can?.PWR_AUX_DCDC + llbService.data[0]?.can?.PWR_AUX_AirCompressor" [label]="'Total instantaneous power (kW)'"></app-linechart>
+  <div class="container"> <!-- Total instantaneous power chart -->
+	<span class="header">Total instantaneous power (kW): {{llbService.data[0]?.can?.PWR_AUX_PowerSteering + llbService.data[0]?.can?.PWR_AUX_HeatPump + llbService.data[0]?.can?.PWR_AUX_DCDC + llbService.data[0]?.can?.PWR_AUX_AirCompressor}} </span>
+    <n-a-chart *ngIf="isNullOrUndefined(llbService.data[0]?.can?.PWR_AUX_PowerSteering) || isNullOrUndefined(llbService.data[0]?.can?.PWR_AUX_HeatPump) || isNullOrUndefined(llbService.data[0]?.can?.PWR_AUX_DCDC) || isNullOrUndefined(llbService.data[0]?.can?.PWR_AUX_AirCompressor)"></n-a-chart>
+    <ng-container *ngIf="!isNullOrUndefined(llbService.data[0]?.can?.PWR_AUX_PowerSteering) || !isNullOrUndefined(llbService.data[0]?.can?.PWR_AUX_HeatPump) || !isNullOrUndefined(llbService.data[0]?.can?.PWR_AUX_DCDC) || !isNullOrUndefined(llbService.data[0]?.can?.PWR_AUX_AirCompressor)">
+     <app-linechart [data]="llbService.data[0]?.can?.PWR_AUX_PowerSteering + llbService.data[0]?.can?.PWR_AUX_HeatPump + llbService.data[0]?.can?.PWR_AUX_DCDC + llbService.data[0]?.can?.PWR_AUX_AirCompressor"></app-linechart>
+    </ng-container>
   </div>
 </div>
 
 <div class="row">
   <div class="container">
 	<ul>
-		
+	<li><span class="header">Battery info</span></li>
 	<li><span>Battery charging status: </span>
-	<span *ngIf="llbService.data[0]?.can?.STATUS_ChargingType == 0">Not Charging</span>
-	<span *ngIf="llbService.data[0]?.can?.STATUS_ChargingType == 1">Charging</span>
+	<span *ngIf="llbService.data[0]?.can?.STATUS_ChargingType == 0" class="red">Not Charging</span>
+	<span *ngIf="llbService.data[0]?.can?.STATUS_ChargingType == 1" class="green">Charging</span>
 	<span *ngIf="llbService.data[0]?.can?.STATUS_ChargingType == 'na'" >na</span>
 	</li>
 	<!-- 0 = not charging, 1 = charging -->
-	
-	<li><span>Status of the 24V DC/DC converter: </span>
-	<span *ngIf="llbService.data[0]?.can?.AS_Alt1Status == 0">OFF</span>
-	<span *ngIf="llbService.data[0]?.can?.AS_Alt1Status == 1">ON</span>
-	<span *ngIf="llbService.data[0]?.can?.AS_Alt1Status == 'na'">na</span>
-	</li>
-
     <li><span>Battery voltage (V): {{llbService.data[0]?.can?.BATTERY_BatteryVoltage}} </span></li>
       <!-- //Resolution 0.1V -->
 	  
     <li><span>Battery charge (%): {{llbService.data[0]?.can?.BATTERY_SOC}} </span></li>
       <!-- //Resolution 0.5% -->
 	<li><span>Average Battery Cell temp (°C): {{llbService.data[0]?.can?.BATTERY_AverageCellTemp}} </span></li>
+	
+	<li><span>Status of the 24V DC/DC converter: </span>
+	<span *ngIf="llbService.data[0]?.can?.AS_Alt1Status == 0" class="red">OFF</span>
+	<span *ngIf="llbService.data[0]?.can?.AS_Alt1Status == 1" class="green">ON</span>
+	<span *ngIf="llbService.data[0]?.can?.AS_Alt1Status == 'na'">na</span>
+	</li>
+
+ 
 
 	</ul>
   </div>
   <div class="container">
     <ul>
-		<li><span>Electricity consumed (kWh)</span></li>
+		<li><span class="header">Electricity consumed (kWh)</span></li>
 		<li><span>Air compressor: {{llbService.data[0]?.can?.ENE_AUX1_AirCompressor}} </span></li>
 
 		<li><span>DC/DC converter: {{llbService.data[0]?.can?.ENE_AUX1_DCDC}} </span></li>
@@ -56,7 +68,7 @@
   </div>
   <div class="container">
     <ul>
-	  <li><span>Instantaneous power (kW)</span></li>
+	  <li><span class="header">Instantaneous power (kW)</span></li>
 	  
 	  <li><span>Air compressor: {{llbService.data[0]?.can?.PWR_AUX_AirCompressor}} </span></li>
 	  
@@ -71,30 +83,33 @@
 <div class="row">
   <div class="container">
     <ul>
-	  <li><span>Battery in/out</span></li>
-      <li><span>Current (A): {{llbService.data[0]?.can?.BATTERY_BatteryCurrent}} </span>
-      <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryCurrent < 0">(discharge)</span>
-	  <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryCurrent > 0">(charge)</span>
+	  <li><span class="header">Battery in/out</span></li>
+      <li><span>Current (A): </span>
+      <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryCurrent < 0" class="red">{{llbService.data[0]?.can?.BATTERY_BatteryCurrent}} (discharge)</span>
+	  <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryCurrent > 0" class="green">{{llbService.data[0]?.can?.BATTERY_BatteryCurrent}} (charge)</span>
 	  </li>
 	  <!-- Negative = discharge, Positive = charge -->
       <!-- //Resolution 0.1A -->
 
-      <li><span>Power (kW): {{llbService.data[0]?.can?.BATTERY_BatteryPower}} </span>
-	  <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryPower < 0">(discharge)</span>
-	  <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryPower > 0">(charge)</span>
+      <li><span>Power (kW): </span>
+	  <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryPower < 0" class="red">{{llbService.data[0]?.can?.BATTERY_BatteryPower}} (discharge)</span>
+	  <span *ngIf="llbService.data[0]?.can?.BATTERY_BatteryPower > 0" class="green">{{llbService.data[0]?.can?.BATTERY_BatteryPower}} (charge)</span>
 	  </li>
 	  <!-- Negative = discharge, Positive = charge -->
       <!-- //Resolution 0.1kW -->
-	  <br>
-	  <li><span>Momentary energy efficiency (Wh/km): {{llbService.data[0]?.can?.EFFICIENCY_Efficiency}} </span></li>
+	</ul>
+  </div>
+  <div class="container">
+	<ul>
+	  <li><span class="header">Energy effiency</span></li>
+  	  <li><span>Momentary energy efficiency (Wh/km): {{llbService.data[0]?.can?.EFFICIENCY_Efficiency}} </span></li>
 
       <li><span>Average energy efficiency (Wh/km): {{llbService.data[0]?.can?.EFFICIENCY_EfficiencyAverage}} </span></li>
 	</ul>
   </div>
-
   <div class="container">
     <ul>
-	  <li><span>Totals</span></li>
+	  <li><span class="header">Totals</span></li>
 	  <li><span>Energy charged into the battery (kWh): {{llbService.data[0]?.can?.ENERGY_TotalChargedEnergy}} </span></li>
 
       <li><span>Energy discharged from the battery (kWh): {{llbService.data[0]?.can?.ENERGY_TotalDischargedEnergy}} </span></li>
@@ -104,7 +119,5 @@
       <li><span>Processed Amp Hours (Ah): {{llbService.data[0]?.can?.ENERGY2_TotalProcessedAmpHours}} </span></li>
       <!-- //No info -->
 	</ul>
-  </div>
-  <div class="container">
   </div>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LlbService} from '../service/llb.service';
 import {LoaderService} from '../service/loader.service';
+import {isNullOrUndefined} from '../../utils';
 
 @Component({
   selector: 'battery-data',
@@ -11,8 +12,11 @@ export class BatteryDataComponent implements OnInit {
 
   constructor(public llbService: LlbService, public loader: LoaderService) { }
 
+  isNullOrUndefined = isNullOrUndefined;
+  
   ngOnInit() {
   }
+  
   /*
   getTotal(): number {
 	try{
