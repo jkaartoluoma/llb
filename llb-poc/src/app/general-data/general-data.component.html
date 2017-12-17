@@ -10,7 +10,7 @@
             <li>Position timestamp: {{llbService.data[0]?.tsp | date:'d.MM.yyyy, HH:mm:ss'}} </li>
 
             <li>Vehicle total driven distance (m):
-                <span *ngIf="llbService.data[1]?.can?.VDHR_HghRslutionTotalVehicleDistance == 'na'; else totalVehicleDistance"><n-a></n-a></span>
+                <span *ngIf="isNullOrUndefined(llbService.data[1]?.can?.VDHR_HghRslutionTotalVehicleDistance); else totalVehicleDistance"><n-a></n-a></span>
                 <ng-template #totalVehicleDistance> {{llbService.data[1]?.can?.VDHR_HghRslutionTotalVehicleDistance}} </ng-template>
                 <br>
             <!--//Resolution 5 m -->
