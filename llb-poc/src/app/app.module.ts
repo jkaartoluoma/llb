@@ -23,6 +23,7 @@ import { BatteryDataComponent } from './battery-data/battery-data.component';
 import { ModalComponent } from './modal/modal.component';
 import { HomeComponent } from './home/home.component';
 import { PedalChartComponent } from './pedal-chart/pedal-chart.component';
+import { NAComponent } from './n-a/n-a.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { PedalChartComponent } from './pedal-chart/pedal-chart.component';
     BatteryDataComponent,
     ModalComponent,
     HomeComponent,
-    PedalChartComponent
+    PedalChartComponent,
+    NAComponent
   ],
   imports: [
     BrowserModule,
