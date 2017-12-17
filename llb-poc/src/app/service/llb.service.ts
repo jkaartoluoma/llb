@@ -41,7 +41,7 @@ export class LlbService {
 
           // Catch data from response
           const tempData: VehicleData = res.json();
-          tempData.can = res.json()['fi/llb/bus/1612/can/'];
+          tempData.can = res.json()['fi/llb/bus/' + this._vehicleId + '/can/'];
 
           // Add most recent data to memory
           tempArray.unshift(tempData);

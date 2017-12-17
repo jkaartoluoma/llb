@@ -2,15 +2,15 @@
   <div class="container">
     <ul>
       <li><span>Movenment status:</span>
-        <span *ngIf="llbService.data[0].can.TCO1_VehicleMotion == 0" class="red">In place</span>
-        <span *ngIf="llbService.data[0].can.TCO1_VehicleMotion == 1" class="green">Moving</span>
+        <span *ngIf="llbService.data[0]?.can?.TCO1_VehicleMotion == 0" class="red">In place</span>
+        <span *ngIf="llbService.data[0]?.can?.TCO1_VehicleMotion == 1" class="green">Moving</span>
       </li>
       <li><span>Movenment direction:</span>
-        <ng-container *ngIf="llbService.data[0].can.TCO1_VehicleMotion == 1">
-          <span *ngIf="llbService.data[0].can.TCO1_DirectionIndicator == 0" class="green">Forward</span>
-          <span *ngIf="llbService.data[0].can.TCO1_DirectionIndicator == 1" class="red">Backwards</span>
+        <ng-container *ngIf="llbService.data[0]?.can?.TCO1_VehicleMotion == 1">
+          <span *ngIf="llbService.data[0]?.can.TCO1_DirectionIndicator == 0" class="green">Forward</span>
+          <span *ngIf="llbService.data[0]?.can.TCO1_DirectionIndicator == 1" class="red">Backwards</span>
         </ng-container>
-        <span *ngIf="llbService.data[0].can.TCO1_VehicleMotion == 0">
+        <span *ngIf="llbService.data[0]?.can.TCO1_VehicleMotion == 0">
           <span class="red">Neutral</span>
         </span>
       </li>
@@ -24,7 +24,7 @@
 
   <div class="container">
     <ul>
-      <li class="padtop"><span>Speed of the vehicle (m/s):</span><span>{{llbService.data[0]?.spd}}</span></li>
+      <li class="padtop"><span>Speed of the vehicle (km/h):</span><span>{{llbService.data[0]?.spd*3.6}}</span></li>
       <li><span>Speed measured from wheels (km/h):</span><span>{{llbService.data[0]?.can?.CCVS_WheelBasedVehicleSpeed}}</span>
       </li>
       <li><span>Tachograph based vehiclespeed (km/h):</span><span>{{llbService.data[0]?.can?.TCO1_TachographVehicleSpeed}}</span></li>
