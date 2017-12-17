@@ -1,14 +1,14 @@
 <div class="row">
   <div class="container">
+    <span class="header">Movement status:</span>
     <n-a-chart *ngIf="isNullOrUndefined(llbService.data[0]?.can?.TCO1_VehicleMotion)"></n-a-chart>
     <ng-container *ngIf="!isNullOrUndefined(llbService.data[0]?.can?.TCO1_VehicleMotion)">
-      <span class="header">Movenment status:</span>
       <ul>
-        <li><span>Movenment status:</span>
+        <li><span>Movement status:</span>
           <span *ngIf="llbService.data[0]?.can?.TCO1_VehicleMotion == 0" class="red">In place</span>
           <span *ngIf="llbService.data[0]?.can?.TCO1_VehicleMotion == 1" class="green">Moving</span>
         </li>
-        <li><span>Movenment direction:</span>
+        <li><span>Movement direction:</span>
           <ng-container *ngIf="llbService.data[0]?.can?.TCO1_VehicleMotion == 1">
             <span *ngIf="llbService.data[0]?.can?.TCO1_DirectionIndicator == 0" class="green">Forward</span>
             <span *ngIf="llbService.data[0]?.can?.TCO1_DirectionIndicator == 1" class="red">Backwards</span>
@@ -23,52 +23,103 @@
   </div>
 
   <div class="container">
-    <span class="header padbtm">Speed of the vehicle (km/h): {{llbService.data[0]?.spd*3.6}}</span>
-    <app-linechart [data]="llbService.data[0]?.spd*3.6" [history]="spd_ex"></app-linechart>
+    <span class="header">Speed of the vehicle (km/h): {{llbService.data[0]?.spd*3.6}}</span>
+    <n-a-chart *ngIf="!llbService.isLiveData()"></n-a-chart>
+    <app-linechart *ngIf="llbService.isLiveData()" [data]="llbService.data[0]?.spd*3.6" [history]="spd_ex"></app-linechart>
   </div>
 
   <div class="container">
     <span class="header">Detailed speed information:</span>
-    <ul>
-      <li><span>Speed of the vehicle (km/h):</span><span>{{llbService.data[0]?.spd*3.6}}</span></li>
-      <li><span>Speed measured from wheels (km/h):</span><span>{{llbService.data[0]?.can?.CCVS_WheelBasedVehicleSpeed}}</span></li>
-      <li><span>Tachograph based vehiclespeed (km/h):</span><span>{{llbService.data[0]?.can?.TCO1_TachographVehicleSpeed}}</span></li>
-      <li><span>Estimated speed error:</span><span>{{llbService.data[0]?.eps}}</span></li>
-    </ul>
+    <n-a-chart *ngIf="!llbService.isLiveData()"></n-a-chart>
+    <ng-container *ngIf="llbService.isLiveData()">
+      <ul>
+        <li>
+          <span>Speed (km/h):</span>
+          <span *ngIf="llbService.isLiveData()">{{llbService.data[0]?.spd*3.6}}</span>
+          <span *ngIf="!llbService.isLiveData()"><i class="fa fa-exclamation-triangle warning"></i> data not available</span>
+        </li>
+        <li>
+          <span>Measured from wheels (km/h):</span>
+          <span *ngIf="!isNullOrUndefined(llbService.data[0]?.can?.CCVS_WheelBasedVehicleSpeed)">
+            {{llbService.data[0]?.can?.CCVS_WheelBasedVehicleSpeed}}
+          </span>
+          <span *ngIf="isNullOrUndefined(llbService.data[0]?.can?.CCVS_WheelBasedVehicleSpeed)">
+            <i class="fa fa-exclamation-triangle warning"></i> (n/a)
+          </span>
+        </li>
+        <li>
+          <span>Tachograph based (km/h):</span>
+          <span *ngIf="!isNullOrUndefined(llbService.data[0]?.can?.TCO1_TachographVehicleSpeed)">
+            {{llbService.data[0]?.can?.TCO1_TachographVehicleSpeed}}
+          </span>
+          <span *ngIf="isNullOrUndefined(llbService.data[0]?.can?.TCO1_TachographVehicleSpeed)">
+            <i class="fa fa-exclamation-triangle warning"></i> (n/a)
+          </span>
+        </li>
+        <li>
+          <span>Estimated error:</span>
+          <span *ngIf="llbService.isLiveData()">{{llbService.data[0]?.eps}}</span>
+          <span *ngIf="!llbService.isLiveData()"><i class="fa fa-exclamation-triangle warning"></i> data not available</span>
+        </li>
+      </ul>
+    </ng-container>
   </div>
 </div>
 
 <div class="row">
   <div class="container">
     <span class="header">Accelerator pedal position: {{llbService.data[0]?.can?.DRIVER_AcceleratorPosition}}</span>
-    <app-pedal-chart [data]="llbService.data[0]?.can?.DRIVER_AcceleratorPosition" [name]="'Accelerator'"></app-pedal-chart>
+    <n-a-chart *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.DRIVER_AcceleratorPosition)"></n-a-chart>
+    <app-pedal-chart *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.DRIVER_AcceleratorPosition)"
+                     [data]="llbService.data[0]?.can?.DRIVER_AcceleratorPosition" [name]="'Accelerator'"></app-pedal-chart>
   </div>
 
   <div class="container">
     <span class="header">Break pedal position: {{llbService.data[0]?.can?.DRIVER_BrakePedalPosition}}</span>
-    <app-pedal-chart [data]="llbService.data[0]?.can?.DRIVER_BrakePedalPosition" [name]="'Break'"></app-pedal-chart>
+    <n-a-chart *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.DRIVER_BrakePedalPosition)"></n-a-chart>
+    <app-pedal-chart *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.DRIVER_BrakePedalPosition)"
+                     [data]="llbService.data[0]?.can?.DRIVER_BrakePedalPosition" [name]="'Break'"></app-pedal-chart>
   </div>
 
   <div class="container">
     <span class="header">Detailed pedal/switch information:</span>
-    <ul>
-      <li>Brake pedal:
-        <span *ngIf="llbService.data[0]?.can?.CCVS_BrakeSwitch == 0" class="red">not pressed</span>
-        <span *ngIf="llbService.data[0]?.can?.CCVS_BrakeSwitch == 1" class="green">pressed</span>
-        <!--{{llbService.data[0]?.can?.CCVS_BrakeSwitch}}//0 = paedal not pressed, 1 = pedal pressed--></li>
-      <li>Parking brake:
-        <span *ngIf="llbService.data[0]?.can?.CCVS_ParkingBrakeSwitch == 0" class="red">off</span>
-        <span *ngIf="llbService.data[0]?.can?.CCVS_ParkingBrakeSwitch == 1" class="green">on</span>
-        <!--{{llbService.data[0]?.can?.CCVS_ParkingBrakeSwitch}}//0 = pedal not pressed, 1 = pedal pressed--></li>
-      <li>Road speed limiter:
-        <span *ngIf="llbService.data[0]?.can?.EEC2_RoadSpeedLimitStatus == 0" class="red">off</span>
-        <span *ngIf="llbService.data[0]?.can?.EEC2_RoadSpeedLimitStatus == 1" class="green">on</span>
-        <!--{{llbService.data[0]?.can?.EEC2_RoadSpeedLimitStatus}}0 = limiter off, 1 = limiter active NOT USED--></li>
-      <li>Acceleration limiter:
-        <span *ngIf="llbService.data[0]?.can?.EEC2_VhclAccelerationRateLimitStatus == 0" class="red">off</span>
-        <span *ngIf="llbService.data[0]?.can?.EEC2_VhclAccelerationRateLimitStatus == 1" class="green">on</span>
-        <!--{{llbService.data[0]?.can?.EEC2_VhclAccelerationRateLimitStatus}}0 = limiter off, 1 = limiter active--></li>
-    </ul>
+    <n-a-chart *ngIf="!llbService.isLiveData()"></n-a-chart>
+    <ng-container *ngIf="llbService.isLiveData()">
+      <ul>
+        <li>
+          <span>Brake pedal:</span>
+          <span *ngIf="llbService.data[0]?.can?.CCVS_BrakeSwitch == 0" class="red">not pressed</span>
+          <span *ngIf="llbService.data[0]?.can?.CCVS_BrakeSwitch == 1" class="green">pressed</span>
+          <span *ngIf="isNullOrUndefined(llbService.data[0]?.can?.CCVS_BrakeSwitch)">
+            <i class="fa fa-exclamation-triangle warning"></i> (n/a)
+          </span>
+          <!--{{llbService.data[0]?.can?.CCVS_BrakeSwitch}}//0 = paedal not pressed, 1 = pedal pressed--></li>
+        <li>
+          <span>Parking brake:</span>
+          <span *ngIf="llbService.data[0]?.can?.CCVS_ParkingBrakeSwitch == 0" class="red">off</span>
+          <span *ngIf="llbService.data[0]?.can?.CCVS_ParkingBrakeSwitch == 1" class="green">on</span>
+          <span *ngIf="isNullOrUndefined(llbService.data[0]?.can?.CCVS_ParkingBrakeSwitch)">
+            <i class="fa fa-exclamation-triangle warning"></i> (n/a)
+          </span>
+          <!--{{llbService.data[0]?.can?.CCVS_ParkingBrakeSwitch}}//0 = pedal not pressed, 1 = pedal pressed--></li>
+        <li>
+          <span>Road speed limiter:</span>
+          <span *ngIf="llbService.data[0]?.can?.EEC2_RoadSpeedLimitStatus == 0" class="red">off</span>
+          <span *ngIf="llbService.data[0]?.can?.EEC2_RoadSpeedLimitStatus == 1" class="green">on</span>
+          <span *ngIf="isNullOrUndefined(llbService.data[0]?.can?.EEC2_RoadSpeedLimitStatus)">
+            <i class="fa fa-exclamation-triangle warning"></i> (n/a)
+          </span>
+          <!--{{llbService.data[0]?.can?.EEC2_RoadSpeedLimitStatus}}0 = limiter off, 1 = limiter active NOT USED--></li>
+        <li>
+          <span>Acceleration limiter:</span>
+          <span *ngIf="llbService.data[0]?.can?.EEC2_VhclAccelerationRateLimitStatus == 0" class="red">off</span>
+          <span *ngIf="llbService.data[0]?.can?.EEC2_VhclAccelerationRateLimitStatus == 1" class="green">on</span>
+          <span *ngIf="isNullOrUndefined(llbService.data[0]?.can?.EEC2_VhclAccelerationRateLimitStatus)">
+            <i class="fa fa-exclamation-triangle warning"></i> (n/a)
+          </span>
+          <!--{{llbService.data[0]?.can?.EEC2_VhclAccelerationRateLimitStatus}}0 = limiter off, 1 = limiter active--></li>
+      </ul>
+    </ng-container>
   </div>
 </div>
 
