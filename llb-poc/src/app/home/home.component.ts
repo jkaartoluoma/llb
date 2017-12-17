@@ -16,14 +16,13 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-<<<<<<< HEAD
   showModal(modal: ModalComponent, id: number) {
     modal.show();
     this._selectedModal = id;
-=======
+  }
+
   selectBus(id: number) {
     this.service.changeBusId(id);
->>>>>>> Loader spinner while loading bus data for first time.
   }
 
 }
