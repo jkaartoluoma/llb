@@ -23,7 +23,7 @@
   </div>
 
   <div class="container">
-    <span class="header">Speed of the vehicle (km/h): {{llbService.data[0]?.spd*3.6}}</span>
+    <span class="header">Speed of the vehicle (km/h): {{llbService.data[0]?.spd*3.6 | number : '1.2-2'}}</span>
     <n-a-chart *ngIf="!llbService.isLiveData()"></n-a-chart>
     <app-linechart *ngIf="llbService.isLiveData()" [data]="llbService.data[0]?.spd*3.6" [history]="spd_ex"></app-linechart>
   </div>
@@ -35,7 +35,7 @@
       <ul>
         <li>
           <span>Speed (km/h):</span>
-          <span *ngIf="llbService.isLiveData()">{{llbService.data[0]?.spd*3.6}}</span>
+          <span *ngIf="llbService.isLiveData()">{{llbService.data[0]?.spd*3.6 | number : '1.2-2'}}</span>
           <span *ngIf="!llbService.isLiveData()"><i class="fa fa-exclamation-triangle warning"></i> data not available</span>
         </li>
         <li>

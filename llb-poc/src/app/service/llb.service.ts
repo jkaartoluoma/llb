@@ -17,6 +17,8 @@ export class LlbService {
 
   intervalLoop: any;
 
+  isLive: boolean;
+  
   set vehicleId(id: number) {
     this._vehicleId = id;
     this.data = [];
@@ -53,23 +55,20 @@ export class LlbService {
 
           // Update datatable
           this.data = tempArray;
+          if (new Date(this.data[0].tsl).getTime() > (new Date().getTime() - 10000)) {
+            this.isLive = true;
+          } else {
+            this.isLive = false;
+          }
+      
         });
       }
     }, 1000);
   }
-
+  
   isLiveData(): boolean {
-    try {
-      if (this.data[0].tsl.getTime() > (new Date().getTime() - 10000)) {
-        return true;
-      }
-    } catch (e) {
-      return false;
-    }
-
-    return false;
+    return this.isLive;
   }
-
   /**
    * Use this function to change bus id
    */

@@ -13,6 +13,7 @@ export class LocationDataComponent implements OnInit {
   //sets the center of the map to first numbers
   location: Coordinates;
   isNullOrUndefined = isNullOrUndefined;
+  intervalLoop: any;
 
   constructor(public llbService: LlbService, public loader: LoaderService) { 
     
@@ -24,6 +25,9 @@ export class LocationDataComponent implements OnInit {
         this.location = position.coords;
       });
     }
+    //rotates compass to 0degrees and then start the loop
+    document.getElementById("compass").style.transform = "rotate(" + (-45) + "deg)"
+    this.rotateImage()
   }
   
   // 0=no mode value yet seen 1=no fix 2=2D 3=3D
@@ -42,5 +46,10 @@ export class LocationDataComponent implements OnInit {
     } catch (e) {
       return 'unknown';
     }
+  }
+  rotateImage(): void {
+    this.intervalLoop = setInterval (() => {
+      document.getElementById("compass").style.transform = "rotate(" + (this.llbService.data[0].trc - 45) + "deg)";
+    }, 1000);
   }
 }

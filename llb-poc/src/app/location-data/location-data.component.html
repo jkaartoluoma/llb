@@ -49,14 +49,17 @@
 				<span *ngIf="llbService.isLiveData() && llbService.data[0]?.epv !== 'na'">{{llbService.data[0]?.epv}}m</span>
 			</li>
 			<li>
-				<span>Course over true north: </span>
-				<span *ngIf="!llbService.isLiveData() || llbService.data[0]?.trc === 'na'"><n-a></n-a></span>
-				<span *ngIf="llbService.isLiveData() && llbService.data[0]?.trc !== 'na'">{{llbService.data[0]?.trc}}m</span>
-			</li>
-			<li>
 				<span>NMEA mode: </span>
 				<span *ngIf="!llbService.isLiveData() || getNmeaMode() === 'unknown'"><n-a></n-a></span>
 				<span *ngIf="llbService.isLiveData() && getNmeaMode() !== 'unknown'">{{getNmeaMode()}}m</span>
+			</li>
+			<li><br></li>
+			<li>
+				<span>Course over true north: </span>
+				<span *ngIf="!llbService.isLiveData() || llbService.data[0]?.trc === 'na'"><n-a></n-a></span>
+				<span *ngIf="llbService.isLiveData() && llbService.data[0]?.trc !== 'na'">{{llbService.data[0]?.trc | number : '1.1-1'}}°</span>
+				<br>
+				<img id="compass" src="../../assets/img/compass.png">
 			</li>
 		</ul>
 	</div>

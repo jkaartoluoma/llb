@@ -3,7 +3,11 @@
   <div id="businfo">
     <ul>
       <li>Following bus {{llbService._vehicleId}}</li>
-      <li>Last update: {{llbService.data[0]?.tsl | date:'dd.MM.y, HH:mm:ss'}}</li>
+      <li>
+        <span>Last update: </span>
+        <span *ngIf="llbService.data[0]?.tsl == 'na'"><n-a></n-a></span>
+        <span *ngIf="llbService.data[0]?.tsl != 'na'">{{llbService.data[0]?.tsl | date:'dd.MM.y, HH:mm:ss'}}</span>
+      </li>
       <li *ngIf="llbService.isLiveData() == false">
         <i class="fa fa-exclamation-triangle warning"></i> Vehicle not online!
       </li>
