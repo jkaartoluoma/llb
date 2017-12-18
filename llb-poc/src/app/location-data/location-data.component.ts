@@ -10,8 +10,6 @@ import {isNullOrUndefined} from '../../utils';
 })
 export class LocationDataComponent implements OnInit {
 
-  //sets the center of the map to first numbers
-  location: Coordinates;
   isNullOrUndefined = isNullOrUndefined;
   intervalLoop: any;
 
@@ -20,11 +18,6 @@ export class LocationDataComponent implements OnInit {
   }
   
   ngOnInit() {
-    if(navigator.geolocation){
-      navigator.geolocation.getCurrentPosition(position => {
-        this.location = position.coords;
-      });
-    }
     //rotates compass to 0degrees and then start the loop
     document.getElementById("compass").style.transform = "rotate(" + (-45) + "deg)"
     this.rotateImage()
@@ -49,7 +42,7 @@ export class LocationDataComponent implements OnInit {
   }
   rotateImage(): void {
     this.intervalLoop = setInterval (() => {
-      document.getElementById("compass").style.transform = "rotate(" + (this.llbService.data[0].trc - 45) + "deg)";
+      if(this.llbService.data[0].trc) document.getElementById("compass").style.transform = "rotate(" + (this.llbService.data[0].trc - 45) + "deg)";
     }, 1000);
   }
 }
