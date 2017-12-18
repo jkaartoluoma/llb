@@ -20,4 +20,8 @@ export class HomeComponent implements OnInit {
     modal.show();
     this._selectedModal = id;
   }
+  hideModal(modal: ModalComponent) {
+    modal.hide();
+    this._selectedModal = 0;
+  }
 }

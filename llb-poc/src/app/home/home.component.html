@@ -8,35 +8,35 @@
 <div>
   <app-modal #modal1>
   <div class="modal-body">
-    <button (click)="modal1.hide()">Sulje</button>
+    <button (click)="hideModal(modal1)">Sulje</button>
     <general-data *ngIf="_selectedModal == 1"></general-data>
   </div>
   </app-modal>
 
   <app-modal #modal2>
   <div class="modal-body">
-    <button (click)="modal2.hide()">Sulje</button>
+    <button (click)="hideModal(modal2)">Sulje</button>
     <location-data *ngIf="_selectedModal == 2"></location-data>
   </div>
   </app-modal>
 
   <app-modal #modal3>
   <div class="modal-body">
-    <button (click)="modal3.hide()">Sulje</button>
+    <button (click)="hideModal(modal3)">Sulje</button>
     <engine-data *ngIf="_selectedModal == 3"> </engine-data>
   </div>
   </app-modal>
 
   <app-modal #modal4>
   <div class="modal-body">
-    <button (click)="modal4.hide()">Sulje</button>
+    <button (click)="hideModal(modal4)">Sulje</button>
     <bus-data *ngIf="_selectedModal == 4"> </bus-data>
   </div>
   </app-modal>
 
   <app-modal #modal5>
   <div class="modal-body">
-    <button (click)="modal5.hide()">Sulje</button>
+    <button (click)="hideModal(modal5)">Sulje</button>
     <battery-data *ngIf="_selectedModal == 5"> </battery-data>
   </div>
   </app-modal>

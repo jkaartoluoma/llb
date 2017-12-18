@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="container" *ngIf="llbService.isLiveData() && llbService.data[0]?.lat !== 'na' && llbService.data[0]?.lon !== 'na'">
+	<div class="container" id="map" *ngIf="llbService.isLiveData() && llbService.data[0]?.lat !== 'na' && llbService.data[0]?.lon !== 'na'">
 		<agm-map [latitude]="llbService.data[0]?.lat" [longitude]="llbService.data[0]?.lon" 
 			[zoom]="15" [mapDraggable]="false" [streetViewControl]="false" [gestureHandling]="none"
 			[disableDoubleClickZoom]="true" [scrollwheel] = "false" [keyboardShortcuts] = "false" >
