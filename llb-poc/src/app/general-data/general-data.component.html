@@ -20,18 +20,18 @@
 
     <div class="container">
         
-        Status of doors: {{llbService.date?.can.DC1_PosOfDoors}}
+        Status of doors:
                 <!-- showing the positions of the doors
                 //0 = at least 1 door open,
                 1 = last door closing,
                 2 = all doors close -->
         <span *ngIf="llbService.data[0]?.can?.DC1_PosOfDoors == 2">Closed</span>
-        <span *ngIf="llbService.data[0]?.can?.DC1_PosOfDoors == 1">Open</span>
-        <span *ngIf="llbService.data[0]?.can?.DC1_PosOfDoors == 'na'"><n-a></n-a></span>
+        <span *ngIf="llbService.data[0]?.can?.DC1_PosOfDoors == 1 || llbService.data[0]?.can?.DC1_PosOfDoors == 0">Open</span>
+        <span *ngIf="isNullOrUndefined(llbService.data[0]?.can?.DC1_PosOfDoors)"><n-a></n-a></span>
         <br>
         
-        <img *ngIf="llbService.data[0]?.can?.DC1_PosOfDoors == 2" src="assets/img/closed.png" width="200px" alt="Closed Doors" border="1">
-        <img *ngIf="llbService.data[0]?.can?.DC1_PosOfDoors == 1 || llbService.date?.can?.DC1_PosOfDoors == 0" src="assets/img/open.png" width="200px" alt="Open Doors" border="1">
+        <img *ngIf="llbService.data[0]?.can?.DC1_PosOfDoors == 2" src="assets/img/closed.png" width="90%" alt="Closed Doors" border="1">
+        <img *ngIf="llbService.data[0]?.can?.DC1_PosOfDoors == 1 || llbService.data[0]?.can?.DC1_PosOfDoors == 0" src="assets/img/open.png" width="90%" alt="Open Doors" border="1">
 
     </div>
     <div class="container">
@@ -40,7 +40,7 @@
         <!--
             //0 = ramp in the bus, 1 = ramp out
         -->
-        <span *ngIf="llbService.data[0]?.can?.DC1_Ramp_WheelChairLiftPos == 'na'"><n-a></n-a></span>
+        <span *ngIf="isNullOrUndefined(llbService.data[0]?.can?.DC1_Ramp_WheelChairLiftPos)"><n-a></n-a></span>
         <span *ngIf="llbService.data[0]?.can?.DC1_Ramp_WheelChairLiftPos == 0">Ramp in the bus.</span>
         <span *ngIf="llbService.data[0]?.can?.DC1_Ramp_WheelChairLiftPos == 1">Ramp out.</span>
 
@@ -56,6 +56,7 @@
         -->
 
         Vehicle axle weight, axle identifier:
+        <br>
             <!--
             Indicates the axle of the measured axle weight in VW_AxleWeight
             Value 0 = front axle
@@ -63,7 +64,7 @@
             -->
         <span *ngIf="llbService.data[0]?.can?.VW_AxleLocation == 0">Front Axle</span>
         <span *ngIf="llbService.data[0]?.can?.VW_AxleLocation == 1">Rear Axle</span>
-        <span *ngIf="llbService.data[0]?.can?.VW_AxleLocation == 'na' || llbService.data[0]?.can?.VW_AxleLocations == undefined" ><n-a></n-a></span>
+        <span *ngIf="isNullOrUndefined(llbService.data[0]?.can?.VW_AxleLocation)" ><n-a></n-a></span>
     </div>
 
     <div class="container">
@@ -71,8 +72,7 @@
         <ng-container *ngIf="!isNullOrUndefined(llbService.data[0]?.can?.VW_AxleWeight)">
             Vehicle axle weight:
             
-            <ng-template #axleWeight> <app-linechart data="{{llbService.data[0]?.can?.VW_AxleWeight}}"></app-linechart> </ng-template>
-            <br>
+           {{llbService.data[0]?.can?.VW_AxleWeight}} kg <br>
             Measured axle weight (from air suspension, not very accurate).        
             </ng-container>
     </div>
@@ -80,8 +80,8 @@
         <n-a-chart *ngIf="isNullOrUndefined(llbService.data[0]?.can?.CVW_GrossCombinationVehicleWeight)"></n-a-chart>
         <ng-container *ngIf="!isNullOrUndefined(llbService.data[0]?.can?.CVW_GrossCombinationVehicleWeight)">
                         
-            Gross Combination Weight (kg):
-            <ng-template #grossCombinationVehicleWeight><app-linechart data="{{llbService.data[0]?.can?.CVW_GrossCombinationVehicleWeight}}"></app-linechart> {{llbService.data[0]?.can.CVW_GrossCombinationVehicleWeight}} </ng-template>
+            Gross Combination Weight: {{llbService.data[0]?.can.CVW_GrossCombinationVehicleWeight}} kg
+            <app-linechart data="{{llbService.data[0]?.can?.CVW_GrossCombinationVehicleWeight}}"></app-linechart>  
         </ng-container>
     </div>
 </div>
