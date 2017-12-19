@@ -50,6 +50,6 @@ export class BatteryChartComponent implements OnInit, OnChanges {
 	//Number
 	this.context.font = '3em Arial';
 	this.context.fillStyle = 'black';
-	this.context.fillText(this.data + "%", 70, 60);
+	this.context.fillText(Math.round(this.data) + "%", 70, 60);
   }
 }

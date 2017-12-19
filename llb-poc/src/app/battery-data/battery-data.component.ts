@@ -9,14 +9,18 @@ import {isNullOrUndefined} from '../../utils';
   styleUrls: ['./battery-data.component.css']
 })
 export class BatteryDataComponent implements OnInit {
-
-  constructor(public llbService: LlbService, public loader: LoaderService) { }
-
+  // Historical data for total electricity consumed
+  total_inst_ex: number[] = [];
+  
   isNullOrUndefined = isNullOrUndefined;
   
-  ngOnInit() {
-  }
+  constructor(public llbService: LlbService, public loader: LoaderService) { }
   
+  ngOnInit() { 
+	  this.total_inst_ex = this.llbService.data.map(e => (e.can.PWR_AUX_PowerSteering + e.can.PWR_AUX_HeatPump + e.can.PWR_AUX_DCDC + e.can.PWR_AUX_AirCompressor)); // ei toimi?
+	  
+  }
+
   /*
   getTotal(): number {
 	try{
