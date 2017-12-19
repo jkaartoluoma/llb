@@ -68,14 +68,14 @@
 
 <div class="row">
   <div class="container">
-    <span class="header">Accelerator pedal position: {{llbService.data[0]?.can?.DRIVER_AcceleratorPosition}}</span>
+    <span class="header">Accelerator pedal position: {{llbService.data[0]?.can?.DRIVER_AcceleratorPosition}}%</span>
     <n-a-chart *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.DRIVER_AcceleratorPosition)"></n-a-chart>
     <app-pedal-chart *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.DRIVER_AcceleratorPosition)"
                      [data]="llbService.data[0]?.can?.DRIVER_AcceleratorPosition" [name]="'Accelerator'"></app-pedal-chart>
   </div>
 
   <div class="container">
-    <span class="header">Break pedal position: {{llbService.data[0]?.can?.DRIVER_BrakePedalPosition}}</span>
+    <span class="header">Break pedal position: {{llbService.data[0]?.can?.DRIVER_BrakePedalPosition}}%</span>
     <n-a-chart *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.DRIVER_BrakePedalPosition)"></n-a-chart>
     <app-pedal-chart *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.DRIVER_BrakePedalPosition)"
                      [data]="llbService.data[0]?.can?.DRIVER_BrakePedalPosition" [name]="'Break'"></app-pedal-chart>
