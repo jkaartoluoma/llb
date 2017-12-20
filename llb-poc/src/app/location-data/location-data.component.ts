@@ -18,17 +18,13 @@ export class LocationDataComponent implements OnInit {
   }
   
   ngOnInit() {
-    if(document.getElementById("compass")) {
-      //rotates compass to 0degrees and then start the loop
-      document.getElementById("compass").style.transform = "rotate(" + (-45) + "deg)"
-      this.rotateImage()
-    }
+    this.rotateImage()
   }
   
   // 0=no mode value yet seen 1=no fix 2=2D 3=3D
   // makes string from NMEA mode data
   getNmeaMode(): string {
-    try {
+    if(this.llbService.isLiveData()) {
       if (this.llbService.data[0].mod === 1) {
         return 'no fix';
       } else if  (this.llbService.data[0].mod === 2) {
@@ -38,14 +34,36 @@ export class LocationDataComponent implements OnInit {
       } else {
         return 'no mode value yet';
       }
-    } catch (e) {
+    } else {
       return 'unknown';
     }
   }
   //rotates image every second if the image is in sight
   rotateImage(): void {
     this.intervalLoop = setInterval (() => {
-      if(this.llbService.data[0] && this.llbService.data[0].trc && document.getElementById("compass")) document.getElementById("compass").style.transform = "rotate(" + (this.llbService.data[0].trc - 45) + "deg)";
-    }, 1000);
+      if(this.llbService.isLiveData() && !isNullOrUndefined(this.llbService.data[0].trc) && document.getElementById("compass")) {
+        var valueBefore;
+        if(this.llbService.data[0].trc !== valueBefore) {
+          valueBefore = this.llbService.data[0].trc;
+          document.getElementById("compass").style.transform = "rotate(" + (this.llbService.data[0].trc - 45) + "deg)";
+        }
+      } 
+    }, 200);
+  }
+
+  isLocationDataValid(): boolean {
+    return this.llbService.isLiveData() && !isNullOrUndefined(this.llbService.data[0].lat) && !isNullOrUndefined(this.llbService.data[0].lon);
+  }
+  isClimbRateValid(): boolean {
+    return this.llbService.isLiveData() && !isNullOrUndefined(this.llbService.data[0].clm);
+  }
+  isAltitudeValid(): boolean {
+    return this.llbService.isLiveData() && !isNullOrUndefined(this.llbService.data[0].alt);
+  }
+  isVerticalErrorValid(): boolean {
+    return this.llbService.isLiveData() && !isNullOrUndefined(this.llbService.data[0].epv) && !isNullOrUndefined(this.llbService.data[0].epv);
+  }
+  isCompassValid(): boolean {
+    return this.llbService.isLiveData() && !isNullOrUndefined(this.llbService.data[0].trc) && !isNullOrUndefined(this.llbService.data[0].trc);
   }
 }

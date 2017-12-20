@@ -1,6 +1,5 @@
 <div class="row">
-	<div class="container" id="map" *ngIf="llbService.isLiveData() && 
-	llbService.data[0]?.lat !== 'na' && llbService.data[0]?.lon !== 'na' && llbService.data[0]?.lat !== 'NaN' && llbService.data[0]?.lon !== 'NaN'">
+	<div class="container" id="map" *ngIf="isLocationDataValid()">
 		<agm-map [latitude]="llbService.data[0]?.lat" [longitude]="llbService.data[0]?.lon" 
 			[zoom]="15" [mapDraggable]="false" [streetViewControl]="false" [gestureHandling]="none"
 			[disableDoubleClickZoom]="true" [scrollwheel] = "false" [keyboardShortcuts] = "false" >
@@ -10,7 +9,7 @@
 					<ul>
 						<li><span>Latitude: {{llbService.data[0]?.lat}}</span></li>
 						<li><span>Longitude: {{llbService.data[0]?.lon}}</span></li>
-						<li><span>Estimated error: {{llbService.data[0]?.epx}}m</span></li>
+						<li><span>Horizontal error: {{llbService.data[0]?.epx}}m</span></li>
 					</ul>
 				</agm-info-window>
 			</agm-marker>
@@ -22,16 +21,16 @@
 <div class="row">
 	<div class="container">
 		<span class="header">Climb rate</span>
-		<n-a-chart *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.clm) || llbService.data[0]?.alt === 'NaN'"></n-a-chart>
-		<app-linechart *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.clm)  && llbService.data[0]?.alt !== 'NaN'"
+		<n-a-chart *ngIf="!isClimbRateValid() || !isAltitudeValid()"></n-a-chart>
+		<app-linechart *ngIf="isClimbRateValid() && isAltitudeValid()"
 			[data]="llbService.data[0]?.clm">
 		</app-linechart>
 	</div>
 	
 	<div class="container">
 		<span class="header">Altitude</span>
-		<n-a-chart *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.alt) || llbService.data[0]?.alt === 'NaN'"></n-a-chart>
-		<app-linechart *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.alt) && llbService.data[0]?.alt !== 'NaN'"
+		<n-a-chart *ngIf="!isAltitudeValid()"></n-a-chart>
+		<app-linechart *ngIf="isAltitudeValid()"
 			[data]="llbService.data[0]?.alt">
 		</app-linechart>
 	</div>
@@ -40,28 +39,26 @@
 		<ul>
 			<li>
 				<span>Altitude: </span>
-				<span *ngIf="!llbService.isLiveData() || llbService.data[0]?.alt === 'na' || llbService.data[0]?.alt === 'NaN'"><n-a></n-a></span>
-				<span *ngIf="llbService.isLiveData() && llbService.data[0]?.alt !== 'na'  && llbService.data[0]?.alt !== 'NaN'">{{llbService.data[0]?.alt}}</span>
+				<span *ngIf="!isAltitudeValid()"><n-a></n-a></span>
+				<span *ngIf="isAltitudeValid()">{{llbService.data[0]?.alt | number : '1.1-1'}}m</span>
 			</li>
 			<li>
 				<span>Estimated vertical error: </span>
-				<span *ngIf="!llbService.isLiveData() || llbService.data[0]?.epv === 'na' || llbService.data[0]?.epv === 'NaN'"><n-a></n-a></span>
-				<span *ngIf="llbService.isLiveData() && llbService.data[0]?.epv !== 'na' && llbService.data[0]?.epv !== 'NaN'">{{llbService.data[0]?.epv}}m</span>
+				<span *ngIf="!isVerticalErrorValid()"><n-a></n-a></span>
+				<span *ngIf="isVerticalErrorValid()">{{llbService.data[0]?.epv | number : '1.1-1'}}m</span>
 			</li>
 			<li>
 				<span>NMEA mode: </span>
-				<span *ngIf="!llbService.isLiveData() || getNmeaMode() === 'unknown'"><n-a></n-a></span>
-				<span *ngIf="llbService.isLiveData() && getNmeaMode() !== 'unknown'">{{getNmeaMode()}}</span>
+				<span *ngIf="getNmeaMode() === 'unknown'"><n-a></n-a></span>
+				<span *ngIf="getNmeaMode() !== 'unknown'">{{getNmeaMode()}}</span>
 			</li>
 			<li><br></li>
 			<li>
 				<span>Course over true north: </span>
-				<span *ngIf="!llbService.isLiveData() || llbService.data[0]?.trc === 'na' || llbService.data[0]?.trc === 'NaN'"><n-a></n-a></span>
-				<div *ngIf="llbService.isLiveData() && llbService.data[0]?.trc !== 'na' && llbService.data[0]?.trc !== 'NaN'">
-					<span>{{llbService.data[0]?.trc | number : '1.1-1'}}°</span>
-					<br>
-					<img id="compass" src="../../assets/img/compass.png">
-				</div>
+				<span *ngIf="!isCompassValid()"><n-a></n-a></span>
+				<span *ngIf="isCompassValid()">{{llbService.data[0]?.trc | number : '1.1-1'}}°</span>
+				<br>
+				<img id="compass" src="../../assets/img/compass.png" *ngIf="isCompassValid()">
 			</li>
 		</ul>
 	</div>
