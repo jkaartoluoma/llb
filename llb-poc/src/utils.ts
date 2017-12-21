@@ -1,3 +1,3 @@
 export function isNullOrUndefined(itm: any): boolean {
-  return (itm === null || itm === undefined || itm === 'na');
+  return (itm === null || itm === undefined || itm === 'na' || itm === 'NaN');
 }

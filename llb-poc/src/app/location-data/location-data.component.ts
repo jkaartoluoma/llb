@@ -12,6 +12,7 @@ export class LocationDataComponent implements OnInit {
 
   isNullOrUndefined = isNullOrUndefined;
   intervalLoop: any;
+  valueBefore: number;
 
   constructor(public llbService: LlbService, public loader: LoaderService) { 
     
@@ -38,13 +39,12 @@ export class LocationDataComponent implements OnInit {
       return 'unknown';
     }
   }
-  //rotates image every second if the image is in sight
+  //rotates image every 0.2 second if the image is in sight and value has changed
   rotateImage(): void {
     this.intervalLoop = setInterval (() => {
       if(this.llbService.isLiveData() && !isNullOrUndefined(this.llbService.data[0].trc) && document.getElementById("compass")) {
-        var valueBefore;
-        if(this.llbService.data[0].trc !== valueBefore) {
-          valueBefore = this.llbService.data[0].trc;
+        if(this.llbService.data[0].trc !== this.valueBefore) {
+          this.valueBefore = this.llbService.data[0].trc;
           document.getElementById("compass").style.transform = "rotate(" + (this.llbService.data[0].trc - 45) + "deg)";
         }
       } 

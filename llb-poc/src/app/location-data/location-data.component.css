@@ -41,3 +41,12 @@ ul {
   color: red;
   font-weight: bold;
 }
+
+@media screen and (max-width: 900px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 90%;
+  }
+}
