@@ -10,6 +10,5 @@ class Router(val handler: Handler) {
     fun routes() = router {
         OPTIONS("/GetData")
         GET("/GetData", handler::getData)
-        GET("/record/{id}", handler::recordData)
     }
 }
