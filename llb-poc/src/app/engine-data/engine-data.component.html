@@ -2,15 +2,27 @@
   <div class="container">
     <ul>
       <li>
-        <span>Electric motor rpm: {{llbService.data[0]?.can?.EEC1_MotorSpeed}} </span>
-          <mwl-gauge
-          [max]="100"
+        <span *ngIf="!isRpmValid()">Example Gauge, Math.Random values</span>
+        <mwl-gauge
+          *ngIf="!isRpmValid()"
+          [max]="10000"
           [dialStartAngle]="180"
           [dialEndAngle]="0"
           [value]="gaugeValue"
           [animated]="true"
           [animationDuration]="0.5">
-          </mwl-gauge>
+        </mwl-gauge>
+        <!-- Real gauge -->
+        <span>Electric motor rpm: {{llbService.data[0]?.can?.EEC1_MotorSpeed}} </span>
+        <mwl-gauge
+          *ngIf="isRpmValid()"
+          [max]="10000"
+          [dialStartAngle]="180"
+          [dialEndAngle]="0"
+          [value]="llbService.data[0]?.can?.EEC1_MotorSpeed"
+          [animated]="true"
+          [animationDuration]="0.5">
+        </mwl-gauge>
 	    </li>
 	  </ul>
   </div>
@@ -127,6 +139,6 @@
 
   </div>
   <div class="container">
-    
+
   </div>
 </div>
