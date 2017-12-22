@@ -1,122 +1,132 @@
 <div class="row">
   <div class="container">
     <ul>
-      <li> <!-- joku kierrosmittari tälle -->
-	  <span>Electric motor rpm: {{llbService.data[0]?.can?.EEC1_MotorSpeed}} </span>
-	  </li>
-	</ul>
+      <li>
+        <span>Electric motor rpm: {{llbService.data[0]?.can?.EEC1_MotorSpeed}} </span>
+          <mwl-gauge
+          [max]="100"
+          [dialStartAngle]="180"
+          [dialEndAngle]="0"
+          [value]="gaugeValue"
+          [animated]="true"
+          [animationDuration]="0.5">
+          </mwl-gauge>
+	    </li>
+	  </ul>
   </div>
   <div class="container">
     <ul>
-	  <li>
-	    <span class="header">Pressures (kPa):</span>
-	  </li>
       <li>
-	    <span>Air suspension supply: {{llbService.data[0]?.can?.AIR1_AirSuspensionSupplyPress}}</span>
-	  </li>
-      <li>
-	    <span>Compressed air tank: {{llbService.data[0]?.can?.AIR1_PneumaticSupplyPress}} </span>
-	  </li>
-      <li>
-	    <span>Parking brake circuit: {{llbService.data[0]?.can?.AIR1_ParkingAnd_OrTrailerAirPress}} </span>
-	  </li>
-      <li>
-	    <span>Rear axle brake circuit: {{llbService.data[0]?.can?.AIR1_ServiceBrakeAirPressCircuit1}} </span>
-	  </li>
-      <li>
-	    <span>Front axle brake circuit: {{llbService.data[0]?.can?.AIR1_ServiceBrakeAirPressCircuit2}}</span>
-	  </li>
-	</ul>
+        <span class="header">Pressures (kPa):</span>
+      </li>
+        <li>
+        <span>Air suspension supply: {{llbService.data[0]?.can?.AIR1_AirSuspensionSupplyPress}}</span>
+      </li>
+        <li>
+        <span>Compressed air tank: {{llbService.data[0]?.can?.AIR1_PneumaticSupplyPress}} </span>
+      </li>
+        <li>
+        <span>Parking brake circuit: {{llbService.data[0]?.can?.AIR1_ParkingAnd_OrTrailerAirPress}} </span>
+      </li>
+        <li>
+        <span>Rear axle brake circuit: {{llbService.data[0]?.can?.AIR1_ServiceBrakeAirPressCircuit1}} </span>
+      </li>
+        <li>
+        <span>Front axle brake circuit: {{llbService.data[0]?.can?.AIR1_ServiceBrakeAirPressCircuit2}}</span>
+      </li>
+    </ul>
   </div>
   <div class="container">
     <ul>
-	  <li>
-	    <span class="header">Temperatures (°C):</span>
-	  </li>
       <li>
-	    <span>Drive motor: {{llbService.data[0]?.can?.TEMPERATURE_DriveMotor}}</span>
-	  </li>
-      <li>
-	    <span>Drive inverter: {{llbService.data[0]?.can?.TEMPERATURE_DriveInverter}}</span>
-	  </li>
-      <li>
-	    <span>Motor coolant: {{llbService.data[0]?.can?.ET1_MotorCoolantTemp}}</span>
-	  </li>
-	</ul>
+        <span class="header">Temperatures (°C):</span>
+      </li>
+        <li>
+        <span>Drive motor: {{llbService.data[0]?.can?.TEMPERATURE_DriveMotor}}</span>
+      </li>
+        <li>
+        <span>Drive inverter: {{llbService.data[0]?.can?.TEMPERATURE_DriveInverter}}</span>
+      </li>
+        <li>
+        <span>Motor coolant: {{llbService.data[0]?.can?.ET1_MotorCoolantTemp}}</span>
+      </li>
+    </ul>
   </div>
 </div>
 <div class="row">
   <div class="container">
     <ul>
       <li>
-	    <span>Total hours of operation of the drive motor (h): {{llbService.data[0]?.can?.HOURS_MotorTotalHoursOfOperation}} </span>
-	  </li>
+        <span>Total hours of operation of the drive motor (h): {{llbService.data[0]?.can?.HOURS_MotorTotalHoursOfOperation}} </span>
+      </li>
       <li>
-	    <span>Motor acceleration limiter status: </span>
-	    <span *ngIf="llbService.data[0]?.can?.MOTOR_AccelerationLimit == 0" class="red">OFF</span>
-	    <span *ngIf="llbService.data[0]?.can?.MOTOR_AccelerationLimit == 1" class="green">ON</span>
-	    <span *ngIf="isNullOrUndefined(llbService.data[0]?.can?.MOTOR_AccelerationLimit)">
-	    <i class="fa fa-exclamation-triangle warning"></i> (n/a)</span>
-		<!-- //0 = limiter off, 1 = limiter active -->
-	  </li>
+        <span>Motor acceleration limiter status: </span>
+        <span *ngIf="llbService.data[0]?.can?.MOTOR_AccelerationLimit == 0" class="red">OFF</span>
+        <span *ngIf="llbService.data[0]?.can?.MOTOR_AccelerationLimit == 1" class="green">ON</span>
+        <span *ngIf="isNullOrUndefined(llbService.data[0]?.can?.MOTOR_AccelerationLimit)">
+        <i class="fa fa-exclamation-triangle warning"></i> (n/a)</span>
+      <!-- //0 = limiter off, 1 = limiter active -->
+      </li>
       <li>
-	    <span>Air compressor status: </span>
-	    <span *ngIf="llbService.data[0]?.can?.AIR1_AirCompressorStatus == 0" class="red">OFF</span>
-	    <span *ngIf="llbService.data[0]?.can?.AIR1_AirCompressorStatus == 1" class="green">ON</span>
-	    <span *ngIf="isNullOrUndefined(llbService.data[0]?.can?.AIR1_AirCompressorStatus)">
-	    <i class="fa fa-exclamation-triangle warning"></i> (n/a)</span>
-		<!-- //0=off and 1=running -->
-	  </li>
-	</ul>
-  </div>
-  <div class="container">
-    <ul>
-	  <li>
-	    <span class="header">Motor information:</span>
-	  </li>
-      <li>
-	    <span>Motor instantaneous torque (Nm): {{llbService.data[0]?.can?.MOTOR_MotorTorque}}</span>
-		<!-- //Range 3000...-3000 Nm -->
-	  </li>
-      <li>
-	    <span>Motor requested torque (Nm): {{llbService.data[0]?.can?.MOTOR_MotorTorqueReference}} </span>
-		<!-- //Range 3000...-3000 Nm -->
-	  </li>
-      <li>
-	    <span>Motor instantaneous power (kW): {{llbService.data[0]?.can?.MOTOR_Power}} </span>
-		<!-- //Range 300...-300 kW -->
-	  </li>
-	</ul>
+        <span>Air compressor status: </span>
+        <span *ngIf="llbService.data[0]?.can?.AIR1_AirCompressorStatus == 0" class="red">OFF</span>
+        <span *ngIf="llbService.data[0]?.can?.AIR1_AirCompressorStatus == 1" class="green">ON</span>
+        <span *ngIf="isNullOrUndefined(llbService.data[0]?.can?.AIR1_AirCompressorStatus)">
+        <i class="fa fa-exclamation-triangle warning"></i> (n/a)</span>
+      <!-- //0=off and 1=running -->
+      </li>
+    </ul>
   </div>
   <div class="container">
     <ul>
       <li>
-	    <span>Cabin interior temp (°C): {{llbService.data[0]?.can?.AMB_CabInteriorTemp}}</span>
-	  </li>
+        <span class="header">Motor information:</span>
+      </li>
       <li>
-	    <span>Ambient Air temp (°C): {{llbService.data[0]?.can?.AMB_AmbientAirTemp}} </span>
-	  </li>
-	</ul>
+        <span>Motor instantaneous torque (Nm): {{llbService.data[0]?.can?.MOTOR_MotorTorque}}</span>
+      <!-- //Range 3000...-3000 Nm -->
+      </li>
+      <li>
+        <span>Motor requested torque (Nm): {{llbService.data[0]?.can?.MOTOR_MotorTorqueReference}} </span>
+      <!-- //Range 3000...-3000 Nm -->
+      </li>
+      <li>
+        <span>Motor instantaneous power (kW): {{llbService.data[0]?.can?.MOTOR_Power}} </span>
+      <!-- //Range 300...-300 kW -->
+      </li>
+    </ul>
+  </div>
+  <div class="container">
+    <ul>
+      <li>
+	      <span>Cabin interior temp (°C): {{llbService.data[0]?.can?.AMB_CabInteriorTemp}}</span>
+	    </li>
+      <li>
+        <span>Ambient Air temp (°C): {{llbService.data[0]?.can?.AMB_AmbientAirTemp}} </span>
+      </li>
+    </ul>
   </div>
 </div>
 <div class="row">
   <div class="container">
     <ul>
       <li>
-	    <span>Slip limiter status: </span>
-	    <span *ngIf="llbService.data[0]?.can?.MOTOR_SlipLimit == 0" class="red">OFF</span>
-	    <span *ngIf="llbService.data[0]?.can?.MOTOR_SlipLimit == 1" class="green">ON</span>
-	    <span *ngIf="isNullOrUndefined(llbService.data[0]?.can?.MOTOR_SlipLimit)">
-	    <i class="fa fa-exclamation-triangle warning"></i> (n/a)</span>
-		<!-- //0 = off, 1 = active -->
-	  </li>
+        <span>Slip limiter status: </span>
+        <span *ngIf="llbService.data[0]?.can?.MOTOR_SlipLimit == 0" class="red">OFF</span>
+        <span *ngIf="llbService.data[0]?.can?.MOTOR_SlipLimit == 1" class="green">ON</span>
+        <span *ngIf="isNullOrUndefined(llbService.data[0]?.can?.MOTOR_SlipLimit)">
+        <i class="fa fa-exclamation-triangle warning"></i> (n/a)</span>
+      <!-- //0 = off, 1 = active -->
+      </li>
       <li>
-	    <span>Measured slip percentage (%): {{llbService.data[0]?.can?.MOTOR_SlipPercentage}}</span>
-	  </li>
-	</ul>
+        <span>Measured slip percentage (%): {{llbService.data[0]?.can?.MOTOR_SlipPercentage}}</span>
+      </li>
+    </ul>
   </div>
   <div class="container">
+
   </div>
   <div class="container">
+    
   </div>
 </div>

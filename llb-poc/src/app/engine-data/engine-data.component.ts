@@ -11,10 +11,17 @@ import {isNullOrUndefined} from '../../utils';
 export class EngineDataComponent implements OnInit {
 	
   isNullOrUndefined = isNullOrUndefined;
-  
+  gaugeValue:number;
+
   constructor(public llbService: LlbService, public loader: LoaderService) { }
 
   ngOnInit() {
+    this.randomRot();
   }
 
+  randomRot():void {
+    setInterval (() => {
+      this.gaugeValue = Math.random()*100
+    }, 1000);
+  }
 }

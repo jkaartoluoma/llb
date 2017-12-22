@@ -28,6 +28,7 @@ import {LoaderComponent} from './loader/loader.component';
 import { BatteryChartComponent } from './battery-chart/battery-chart.component';
 import { InfoComponent } from './info/info.component';
 import { NAChartComponent } from './n-a-chart/n-a-chart.component';
+import { GaugeModule } from 'angular-gauge';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { NAChartComponent } from './n-a-chart/n-a-chart.component';
     ChartsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBd3tmzegmPCnjxAuIHOF9ZNcGytvCL24E'
-    })
+    }),
+    GaugeModule.forRoot()
   ],
   providers: [LlbService, RestService, LoaderService],
   bootstrap: [AppComponent]
