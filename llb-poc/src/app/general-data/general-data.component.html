@@ -49,13 +49,18 @@
     </div>
     <div class="container">
         
-        <span class="header">Wheel chair access ramp status:</span>
+        <span class="header">Wheel chair access ramp status:
+            <span *ngIf="llbService.data[0]?.can?.DC1_Ramp_WheelChairLiftPos == 0">Ramp in the bus.</span>
+            <span *ngIf="llbService.data[0]?.can?.DC1_Ramp_WheelChairLiftPos == 1">Ramp out.</span>
+        </span>
         <!--
             //0 = ramp in the bus, 1 = ramp out
         -->
-        <span *ngIf="isNullOrUndefined(llbService.data[0]?.can?.DC1_Ramp_WheelChairLiftPos)"><n-a></n-a></span>
-        <span *ngIf="llbService.data[0]?.can?.DC1_Ramp_WheelChairLiftPos == 0">Ramp in the bus.</span>
-        <span *ngIf="llbService.data[0]?.can?.DC1_Ramp_WheelChairLiftPos == 1">Ramp out.</span>
+        
+        <span *ngIf="isNullOrUndefined(llbService.data[0]?.can?.DC1_Ramp_WheelChairLiftPos)"><n-a-chart></n-a-chart></span>
+        <img *ngIf="llbService.data[0]?.can?.DC1_Ramp_WheelChairLiftPos == 0" src="assets/img/rampInD.png" width="90%" alt="Ramp In The Bus" border="1">
+        <img *ngIf="llbService.data[0]?.can?.DC1_Ramp_WheelChairLiftPos == 1" src="assets/img/rampOutD.png" width="90%" alt="Ramp Out" border="1">
+
 
     </div>
 </div>
