@@ -59,36 +59,38 @@
     </ul>
   </div>
   <div class="container">
-    <ul>
-      <li>
-        <span class="header">Temperatures (°C):</span>
-      </li>
 
-      <li>
-        <span>Drive motor: </span>
-        <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.TEMPERATURE_DriveMotor)"><n-a></n-a></span>
+  </div>
+</div>
+<div class="row">
+    
+    <div class="container">
+        <span class="header" id="temps">Temperatures (°C):</span>
+        <span>Drive motor:</span>
+        <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.TEMPERATURE_DriveMotor)"><n-a-chart></n-a-chart></span>
         <span *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.TEMPERATURE_DriveMotor)">
             {{llbService.data[0]?.can?.TEMPERATURE_DriveMotor}}
-            <temp-chart [data]="50"></temp-chart>
+            <temp-chart [data]="llbService.data[0]?.can?.TEMPERATURE_DriveMotor"></temp-chart>
         </span>
-
-      </li>
-        <li>
-        <span>Drive inverter: </span>
-        <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.TEMPERATURE_DriveInverter)"><n-a></n-a></span>
+    </div>
+    <div class="container">
+        
+        <span>Drive inverter:</span>
+        <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.TEMPERATURE_DriveInverter)"><n-a-chart></n-a-chart></span>
         <span *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.TEMPERATURE_DriveInverter)">
             {{llbService.data[0]?.can?.TEMPERATURE_DriveInverter}}
+            <temp-chart [data]="llbService.data[0]?.can?.TEMPERATURE_DriveInverter"></temp-chart>
         </span>
-      </li>
-        <li>
+    </div>
+    <div class="container">
         <span>Motor coolant: </span>
-        <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.ET1_MotorCoolantTemp)"><n-a></n-a></span>
+        <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.ET1_MotorCoolantTemp)"><n-a-chart></n-a-chart></span>
         <span *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.ET1_MotorCoolantTemp)">
             {{llbService.data[0]?.can?.ET1_MotorCoolantTemp}}
+            <temp-chart [data]="llbService.data[0]?.can?.ET1_MotorCoolantTemp"></temp-chart>
         </span>
-      </li>
-    </ul>
-  </div>
+        
+    </div>
 </div>
 <div class="row">
   <div class="container">

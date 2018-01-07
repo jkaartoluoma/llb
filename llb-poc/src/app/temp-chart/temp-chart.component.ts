@@ -1,14 +1,11 @@
-import { Component, ElementRef, Input, OnChanges, OnInit, ViewChild} from '@angular/core';
+import { Component, Input, OnInit, } from '@angular/core';
 
 @Component({
   selector: 'temp-chart',
   templateUrl: './temp-chart.component.html',
   styleUrls: ['./temp-chart.component.css']
 })
-export class TempChartComponent implements OnInit, OnChanges {
-
-  @ViewChild('c') myCanvas: ElementRef;
-  public context: CanvasRenderingContext2D;
+export class TempChartComponent implements OnInit{
 
   @Input() data: number;
   @Input() name: string;
@@ -16,17 +13,6 @@ export class TempChartComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit() {
-    this.draw();
   }
 
-  ngOnChanges() {
-    this.draw();
-  }
-
-
-  draw(){
-
-    
-
-  }
 }
