@@ -168,6 +168,7 @@
         <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.AMB_CabInteriorTemp)"><n-a></n-a></span>
         <span *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.AMB_CabInteriorTemp)">
             {{llbService.data[0]?.can?.AMB_CabInteriorTemp}}
+            <out-temp-chart [data]="llbService.data[0]?.can?.AMB_CabInteriorTemp"></out-temp-chart>
         </span>
 	    </li>
       <li>
@@ -175,7 +176,9 @@
         <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.AMB_AmbientAirTemp)"><n-a></n-a></span>
         <span *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.AMB_AmbientAirTemp)">
             {{llbService.data[0]?.can?.AMB_AmbientAirTemp}}
+            <out-temp-chart [data]="llbService.data[0]?.can?.AMB_AmbientAirTemp"></out-temp-chart>
         </span>
+        
       </li>
     </ul>
   </div>
