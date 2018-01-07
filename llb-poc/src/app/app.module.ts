@@ -29,6 +29,8 @@ import { BatteryChartComponent } from './battery-chart/battery-chart.component';
 import { InfoComponent } from './info/info.component';
 import { NAChartComponent } from './n-a-chart/n-a-chart.component';
 import { GaugeModule } from 'angular-gauge';
+import {GaugesModule} from 'ng-canvas-gauges/lib';
+import { TempChartComponent } from './temp-chart/temp-chart.component';
 
 
 @NgModule({
@@ -51,7 +53,8 @@ import { GaugeModule } from 'angular-gauge';
     LoaderComponent,
     BatteryChartComponent,
     InfoComponent,
-    NAChartComponent
+    NAChartComponent,
+    TempChartComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import { GaugeModule } from 'angular-gauge';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBd3tmzegmPCnjxAuIHOF9ZNcGytvCL24E'
     }),
-    GaugeModule.forRoot()
+    GaugeModule.forRoot(),
+    GaugesModule
   ],
   providers: [LlbService, RestService, LoaderService],
   bootstrap: [AppComponent]

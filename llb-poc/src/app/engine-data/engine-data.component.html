@@ -63,12 +63,15 @@
       <li>
         <span class="header">Temperatures (°C):</span>
       </li>
+
       <li>
         <span>Drive motor: </span>
         <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.TEMPERATURE_DriveMotor)"><n-a></n-a></span>
         <span *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.TEMPERATURE_DriveMotor)">
             {{llbService.data[0]?.can?.TEMPERATURE_DriveMotor}}
+            <temp-chart [data]="50"></temp-chart>
         </span>
+
       </li>
         <li>
         <span>Drive inverter: </span>
