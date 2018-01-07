@@ -33,7 +33,11 @@ import { GaugesModule } from 'ng-canvas-gauges/lib';
 import { TempChartComponent } from './temp-chart/temp-chart.component';
 import { RadialGaugeComponent } from './radial-gauge/radial-gauge.component';
 import { RpmGaugeComponent } from './rpm-gauge/rpm-gauge.component';
+<<<<<<< HEAD
 import { CompassComponent } from './compass/compass.component';
+=======
+import { OutTempChartComponent } from './out-temp-chart/out-temp-chart.component';
+>>>>>>> 1529c8d1e0f4808e726399ea79e6351105f2e691
 
 
 @NgModule({
@@ -60,7 +64,11 @@ import { CompassComponent } from './compass/compass.component';
     TempChartComponent,
     RadialGaugeComponent,
     RpmGaugeComponent,
+<<<<<<< HEAD
     CompassComponent
+=======
+    OutTempChartComponent
+>>>>>>> 1529c8d1e0f4808e726399ea79e6351105f2e691
   ],
   imports: [
     BrowserModule,
