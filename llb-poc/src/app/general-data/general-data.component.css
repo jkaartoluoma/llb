@@ -1,27 +1,9 @@
-.row {
-  display: table;
-  width: 100%; /*Optional*/
-  table-layout: fixed; /*Optional*/
-  border-spacing: 10px; /*Optional*/
-}
-
-.container {
-  padding: 1em;
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.header {
-  font-weight: bold;
-  display: block;
-}
-
 ul {
   list-style: none;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
   display: table;
   width: 100%;
-  list-style-type: none;
-  padding: 0;
 }
 
 li {
@@ -34,8 +16,22 @@ li span {
   white-space: nowrap;
 }
 
-li span:nth-child(2) {
-  width: 100%;
+.header {
+  font-weight: bold;
+  display: block;
+}
+
+.row {
+  display: table;
+  width: 100%; /*Optional*/
+  table-layout: fixed; /*Optional*/
+  border-spacing: 10px; /*Optional*/
+}
+
+.container {
+  padding: 1em;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 @media screen and (max-width: 900px) {

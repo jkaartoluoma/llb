@@ -1,20 +1,13 @@
 ul {
   list-style: none;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
   display: table;
   width: 100%;
 }
 
 li {
   display: table-row;
-  width: 100%;
-}
-
-li span {
-  display: table-cell;
-  white-space: nowrap;
-}
-
-li span:nth-child(2) {
   width: 100%;
 }
 

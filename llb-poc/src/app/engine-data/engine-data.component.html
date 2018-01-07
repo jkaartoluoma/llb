@@ -2,27 +2,17 @@
   <div class="container">
     <ul>
       <li>
-        <span *ngIf="!isRpmValid()">Example Gauge, Math.Random values</span>
-        <mwl-gauge
-          *ngIf="!isRpmValid()"
-          [max]="10000"
-          [dialStartAngle]="180"
-          [dialEndAngle]="0"
-          [value]="gaugeValue || 0"
-          [animated]="true"
-          [animationDuration]="0.5">
-        </mwl-gauge>
-        <!-- Real gauge -->
-        <span>Electric motor rpm: {{llbService.data[0]?.can?.EEC1_MotorSpeed}} </span>
-        <mwl-gauge
-          *ngIf="isRpmValid()"
-          [max]="10000"
-          [dialStartAngle]="180"
-          [dialEndAngle]="0"
-          [value]="llbService.data[0]?.can?.EEC1_MotorSpeed"
-          [animated]="true"
-          [animationDuration]="0.5">
-        </mwl-gauge>
+          <!-- Real gauge -->
+          <span *ngIf="!isRpmValid()">Electric motor rpm: <n-a></n-a></span>
+          <span *ngIf="isRpmValid()">Electric motor rpm:</span>
+          <mwl-gauge
+            [max]="10000"
+            [dialStartAngle]="180"
+            [dialEndAngle]="0"
+            [value]="gaugeValue"
+            [animated]="true"
+            [animationDuration]="0.5">
+          </mwl-gauge>
 	    </li>
 	  </ul>
   </div>
@@ -123,6 +113,14 @@
         <n-a></n-a></span>
       <!-- //0=off and 1=running -->
       </li>
+      <li>
+        <span>Slip limiter status: </span>
+        <span *ngIf="llbService.isLiveData() && llbService.data[0]?.can?.MOTOR_SlipLimit == 0" class="red">OFF</span>
+        <span *ngIf="llbService.isLiveData() && llbService.data[0]?.can?.MOTOR_SlipLimit == 1" class="green">ON</span>
+        <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.MOTOR_SlipLimit)">
+        <n-a></n-a></span>
+      <!-- //0 = off, 1 = active -->
+      </li>
     </ul>
   </div>
   <div class="container">
@@ -174,23 +172,18 @@
 </div>
 <div class="row">
   <div class="container">
-    <ul>
-      <li>
-        <span>Slip limiter status: </span>
-        <span *ngIf="llbService.isLiveData() && llbService.data[0]?.can?.MOTOR_SlipLimit == 0" class="red">OFF</span>
-        <span *ngIf="llbService.isLiveData() && llbService.data[0]?.can?.MOTOR_SlipLimit == 1" class="green">ON</span>
-        <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.MOTOR_SlipLimit)">
-        <n-a></n-a></span>
-      <!-- //0 = off, 1 = active -->
-      </li>
-      <li>
-        <span>Measured slip percentage (%): </span>
-        <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.MOTOR_SlipPercentage)"><n-a></n-a></span>
-        <span *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.MOTOR_SlipPercentage)">
-            {{llbService.data[0]?.can?.MOTOR_SlipPercentage}}
-        </span>
-      </li>
-    </ul>
+    <span class="header" *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.MOTOR_SlipPercentage)">
+      Measured slip percentage (%):
+    </span>
+    <span class="header" *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.MOTOR_SlipPercentage)">
+      Measured slip percentage (%): {{llbService.data[0]?.can?.MOTOR_SlipPercentage}}
+    </span>
+    
+    <n-a-chart *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.MOTOR_SlipPercentage)">
+    </n-a-chart>
+    <ng-container *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.MOTOR_SlipPercentage)">
+      <app-linechart [data]="llbService.data[0]?.MOTOR_SlipPercentage" [min]="0" [max]="100"></app-linechart>     
+    </ng-container>
   </div>
   <div class="container">
 

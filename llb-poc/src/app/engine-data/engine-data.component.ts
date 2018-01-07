@@ -11,20 +11,13 @@ import {isNullOrUndefined} from '../../utils';
 export class EngineDataComponent implements OnInit {
 	
   isNullOrUndefined = isNullOrUndefined;
-  gaugeValue:number;
+  gaugeValue: number;
 
   constructor(public llbService: LlbService, public loader: LoaderService) { }
 
   ngOnInit() {
     // if we want to use this gauge change this to 
-    // this.MotorRPM();
-    this.randomRot();
-  }
-
-  randomRot():void {
-    setInterval (() => {
-      this.gaugeValue = Math.random()*10000
-    }, 1000);
+    this.motorRPM();
   }
 
   isRpmValid(): boolean {
@@ -37,7 +30,10 @@ export class EngineDataComponent implements OnInit {
         if(this.llbService.data[0].can.EEC1_MotorSpeed !== this.gaugeValue) {
           this.gaugeValue = this.llbService.data[0].can.EEC1_MotorSpeed;
         }
-      } 
+      } else {
+        // if no data set the gaugeValue to NaN
+        this.gaugeValue = NaN;
+      }
     }, 200);
   }
 }

@@ -22,17 +22,17 @@
 	<div class="container">
 		<span class="header">Climb rate</span>
 		<n-a-chart *ngIf="!isClimbRateValid() || !isAltitudeValid()"></n-a-chart>
-		<app-linechart *ngIf="isClimbRateValid() && isAltitudeValid()"
-			[data]="llbService.data[0]?.clm">
-		</app-linechart>
+        <ng-container *ngIf="isClimbRateValid() && isAltitudeValid()">
+			<app-linechart [data]="llbService.data[0]?.clm"></app-linechart>
+		</ng-container>
 	</div>
 	
 	<div class="container">
 		<span class="header">Altitude</span>
 		<n-a-chart *ngIf="!isAltitudeValid()"></n-a-chart>
-		<app-linechart *ngIf="isAltitudeValid()"
-			[data]="llbService.data[0]?.alt">
-		</app-linechart>
+        <ng-container *ngIf="isAltitudeValid()">
+			<app-linechart [data]="llbService.data[0]?.alt"></app-linechart>     
+		</ng-container>
 	</div>
 
 	<div class="container">
