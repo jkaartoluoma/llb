@@ -3,16 +3,21 @@
     <ul>
       <li>
           <!-- Real gauge -->
-          <span *ngIf="!isRpmValid()">Electric motor rpm: <n-a></n-a></span>
-          <span *ngIf="isRpmValid()">Electric motor rpm:</span>
-          <mwl-gauge
-            [max]="10000"
-            [dialStartAngle]="180"
-            [dialEndAngle]="0"
-            [value]="gaugeValue"
-            [animated]="true"
-            [animationDuration]="0.5">
-          </mwl-gauge>
+        <span class="header" *ngIf="!isRpmValid()">Electric motor rpm: <n-a></n-a></span>
+        <span class="header" *ngIf="isRpmValid()">Electric motor rpm:</span>
+        <rpm-gauge *ngIf="isRpmValid()" [data]='gaugeValue'></rpm-gauge>
+        <!-- Old Gauge for RPM
+        <span *ngIf="!isRpmValid()">Electric motor rpm: <n-a></n-a></span>
+        <span *ngIf="isRpmValid()">Electric motor rpm:</span>
+        <mwl-gauge
+          [max]="10000"
+          [dialStartAngle]="180"
+          [dialEndAngle]="0"
+          [value]="gaugeValue"
+          [animated]="true"
+          [animationDuration]="0.5">
+        </mwl-gauge>
+        -->
 	    </li>
 	  </ul>
   </div>

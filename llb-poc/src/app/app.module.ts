@@ -31,6 +31,8 @@ import { NAChartComponent } from './n-a-chart/n-a-chart.component';
 import { GaugeModule } from 'angular-gauge';
 import {GaugesModule} from 'ng-canvas-gauges/lib';
 import { TempChartComponent } from './temp-chart/temp-chart.component';
+import { RadialGaugeComponent } from './radial-gauge/radial-gauge.component';
+import { RpmGaugeComponent } from './rpm-gauge/rpm-gauge.component';
 
 
 @NgModule({
@@ -54,7 +56,9 @@ import { TempChartComponent } from './temp-chart/temp-chart.component';
     BatteryChartComponent,
     InfoComponent,
     NAChartComponent,
-    TempChartComponent
+    TempChartComponent,
+    RadialGaugeComponent,
+    RpmGaugeComponent
   ],
   imports: [
     BrowserModule,
