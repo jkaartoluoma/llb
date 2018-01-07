@@ -76,7 +76,7 @@
         <span *ngIf="llbService.data[0]?.can?.MOTOR_AccelerationLimit == 0" class="red">OFF</span>
         <span *ngIf="llbService.data[0]?.can?.MOTOR_AccelerationLimit == 1" class="green">ON</span>
         <span *ngIf="isNullOrUndefined(llbService.data[0]?.can?.MOTOR_AccelerationLimit)">
-        <i class="fa fa-exclamation-triangle warning"></i> (n/a)</span>
+        <n-a></n-a></span>
       <!-- //0 = limiter off, 1 = limiter active -->
       </li>
       <li>
@@ -84,7 +84,7 @@
         <span *ngIf="llbService.data[0]?.can?.AIR1_AirCompressorStatus == 0" class="red">OFF</span>
         <span *ngIf="llbService.data[0]?.can?.AIR1_AirCompressorStatus == 1" class="green">ON</span>
         <span *ngIf="isNullOrUndefined(llbService.data[0]?.can?.AIR1_AirCompressorStatus)">
-        <i class="fa fa-exclamation-triangle warning"></i> (n/a)</span>
+        <n-a></n-a></span>
       <!-- //0=off and 1=running -->
       </li>
     </ul>
@@ -127,7 +127,7 @@
         <span *ngIf="llbService.data[0]?.can?.MOTOR_SlipLimit == 0" class="red">OFF</span>
         <span *ngIf="llbService.data[0]?.can?.MOTOR_SlipLimit == 1" class="green">ON</span>
         <span *ngIf="isNullOrUndefined(llbService.data[0]?.can?.MOTOR_SlipLimit)">
-        <i class="fa fa-exclamation-triangle warning"></i> (n/a)</span>
+        <n-a></n-a></span>
       <!-- //0 = off, 1 = active -->
       </li>
       <li>
