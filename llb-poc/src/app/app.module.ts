@@ -29,10 +29,11 @@ import { BatteryChartComponent } from './battery-chart/battery-chart.component';
 import { InfoComponent } from './info/info.component';
 import { NAChartComponent } from './n-a-chart/n-a-chart.component';
 import { GaugeModule } from 'angular-gauge';
-import {GaugesModule} from 'ng-canvas-gauges/lib';
+import { GaugesModule } from 'ng-canvas-gauges/lib';
 import { TempChartComponent } from './temp-chart/temp-chart.component';
 import { RadialGaugeComponent } from './radial-gauge/radial-gauge.component';
 import { RpmGaugeComponent } from './rpm-gauge/rpm-gauge.component';
+import { CompassComponent } from './compass/compass.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { RpmGaugeComponent } from './rpm-gauge/rpm-gauge.component';
     NAChartComponent,
     TempChartComponent,
     RadialGaugeComponent,
-    RpmGaugeComponent
+    RpmGaugeComponent,
+    CompassComponent
   ],
   imports: [
     BrowserModule,

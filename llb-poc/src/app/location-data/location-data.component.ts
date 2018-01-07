@@ -19,7 +19,7 @@ export class LocationDataComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.rotateImage()
+    //this.rotateImage()
   }
   
   // 0=no mode value yet seen 1=no fix 2=2D 3=3D
@@ -40,16 +40,16 @@ export class LocationDataComponent implements OnInit {
     }
   }
   //rotates image every 0.2 second if the image is in sight and value has changed
-  rotateImage(): void {
-    this.intervalLoop = setInterval (() => {
-      if(this.llbService.isLiveData() && !isNullOrUndefined(this.llbService.data[0].trc) && document.getElementById("compass")) {
-        if(this.llbService.data[0].trc !== this.valueBefore) {
-          this.valueBefore = this.llbService.data[0].trc;
-          document.getElementById("compass").style.transform = "rotate(" + (this.llbService.data[0].trc - 45) + "deg)";
-        }
-      } 
-    }, 200);
-  }
+  // rotateImage(): void {
+  //   this.intervalLoop = setInterval (() => {
+  //     if(this.llbService.isLiveData() && !isNullOrUndefined(this.llbService.data[0].trc) && document.getElementById("compass")) {
+  //       if(this.llbService.data[0].trc !== this.valueBefore) {
+  //         this.valueBefore = this.llbService.data[0].trc;
+  //         document.getElementById("compass").style.transform = "rotate(" + (this.llbService.data[0].trc - 45) + "deg)";
+  //       }
+  //     } 
+  //   }, 200);
+  // }
 
   isLocationDataValid(): boolean {
     return this.llbService.isLiveData() && !isNullOrUndefined(this.llbService.data[0].lat) && !isNullOrUndefined(this.llbService.data[0].lon);

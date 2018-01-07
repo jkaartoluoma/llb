@@ -20,6 +20,11 @@ ul {
   color: darkred;
 }
 
+.header {
+  font-weight: bold;
+  display: block;
+}
+
 .row {
   display: table;
   width: 100%; /*Optional*/

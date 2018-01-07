@@ -37,11 +37,7 @@
 
 	<div class="container">
 		<ul>
-			<li>
-				<span>Altitude: </span>
-				<span *ngIf="!isAltitudeValid()"><n-a></n-a></span>
-				<span *ngIf="isAltitudeValid()">{{llbService.data[0]?.alt | number : '1.1-1'}}m</span>
-			</li>
+			<span class="header">Additional information</span>
 			<li>
 				<span>Estimated vertical error: </span>
 				<span *ngIf="!isVerticalErrorValid()"><n-a></n-a></span>
@@ -58,7 +54,10 @@
 				<span *ngIf="!isCompassValid()"><n-a></n-a></span>
 				<span *ngIf="isCompassValid()">{{llbService.data[0]?.trc | number : '1.1-1'}}°</span>
 				<br>
+				<app-compass *ngIf="isCompassValid()" [data]="llbService.data[0]?.trc"></app-compass>
+				<!-- Old Compass
 				<img id="compass" src="../../assets/img/compass.png" *ngIf="isCompassValid()">
+				-->
 			</li>
 		</ul>
 	</div>
