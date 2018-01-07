@@ -1,0 +1,25 @@
+<radial-gauge
+  width="250"
+  height="250"
+  units="rpm"
+  min-value="0"
+  max-value="10000"
+  major-ticks="0,1000,2000,3000,4000,5000,6000,7000,8000,9000,10000"
+  minor-ticks="2"
+  stroke-ticks="true"
+  highlights='[
+      {"from": 8000, "to": 10000, "color": "rgba(200, 50, 50, .75)"}
+  ]'
+  color-plate="#fff"
+  border-shadow-width="0"
+  borders="false"
+  needle-type="arrow"
+  needle-width="2"
+  needle-circle-size="7"
+  needle-circle-outer="true"
+  needle-circle-inner="false"
+  animation-duration="500"
+  animation-rule="linear"
+  [attr.value]="data"
+  >
+</radial-gauge>

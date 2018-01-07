@@ -29,9 +29,16 @@
   </div>
 
   <div class="container">
+    <span class="header" *ngIf="!llbService.isLiveData()">Speed of the vehicle (km/h): <n-a></n-a></span>
+    <span class="header" *ngIf="llbService.isLiveData()">Speed of the vehicle (km/h):</span>
+    <ng-container *ngIf="llbService.isLiveData()">
+      <app-radial-gauge *ngIf="true" [data]="llbService.data[0]?.spd*3.6"></app-radial-gauge>
+    </ng-container>
+    <!-- Old chart for Bus Speed
     <span class="header">Speed of the vehicle (km/h): {{llbService.data[0]?.spd*3.6 | number : '1.2-2'}}</span>
     <n-a-chart *ngIf="!llbService.isLiveData()"></n-a-chart>
     <app-linechart *ngIf="llbService.isLiveData()" [data]="llbService.data[0]?.spd*3.6" [history]="spd_ex"></app-linechart>
+    -->
   </div>
 
   <div class="container">
