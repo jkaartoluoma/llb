@@ -61,11 +61,8 @@ import { OutTempChartComponent } from './out-temp-chart/out-temp-chart.component
     TempChartComponent,
     RadialGaugeComponent,
     RpmGaugeComponent,
-<<<<<<< HEAD
-    CompassComponent
-=======
+    CompassComponent,
     OutTempChartComponent
->>>>>>> 1529c8d1e0f4808e726399ea79e6351105f2e691
   ],
   imports: [
     BrowserModule,
