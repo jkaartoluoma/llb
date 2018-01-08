@@ -35,6 +35,9 @@ object DataLoader {
             // Replace busid
             data = data.replace(Regex("\"BusId\":[0-9]*"), "\"BusId\":666")
 
+            // Replace can path
+            data = data.replace(Regex("bus/[0-9]*/can"), "bus/666/can")
+
             LoggerFactory.getLogger(this.javaClass.simpleName).info("Returning new json with modified tsl and BusId")
 
             return data
