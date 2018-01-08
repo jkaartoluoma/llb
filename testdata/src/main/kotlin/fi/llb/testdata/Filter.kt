@@ -14,6 +14,7 @@ class Filter : WebFilter {
         exchange!!
 
         exchange.response.headers.set("Access-Control-Allow-Headers", "Content-Type,Authorization,x-requested-with,x-xsrf-token")
+        exchange.response.headers.set("Access-Control-Allow-Origin", "*")
 
         return if (exchange.request.method == HttpMethod.OPTIONS) {
             exchange.response.statusCode = HttpStatus.OK
