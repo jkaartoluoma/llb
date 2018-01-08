@@ -3,9 +3,14 @@
     <ul>
       <li>
           <!-- Real gauge -->
-        <span class="header" *ngIf="!isRpmValid()">Electric motor rpm: <n-a></n-a></span>
-        <span class="header" *ngIf="isRpmValid()">Electric motor rpm:</span>
-        <rpm-gauge *ngIf="isRpmValid()" [data]='gaugeValue'></rpm-gauge>
+        <div *ngIf="!isRpmValid()">
+            <span class="header">Electric motor rpm: </span>
+            <n-a-gauge></n-a-gauge>
+        </div>
+        <div *ngIf="isRpmValid()">
+            <span class="header">Electric motor rpm:</span>
+            <rpm-gauge [data]='gaugeValue'></rpm-gauge>
+        </div>
         <!-- Old Gauge for RPM
         <span *ngIf="!isRpmValid()">Electric motor rpm: <n-a></n-a></span>
         <span *ngIf="isRpmValid()">Electric motor rpm:</span>

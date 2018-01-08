@@ -1,0 +1,10 @@
+div {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+  
+img{
+    width: 250px;
+    border: 1px;
+    border-color: black;
+}

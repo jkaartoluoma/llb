@@ -35,6 +35,7 @@ import { RadialGaugeComponent } from './radial-gauge/radial-gauge.component';
 import { RpmGaugeComponent } from './rpm-gauge/rpm-gauge.component';
 import { CompassComponent } from './compass/compass.component';
 import { OutTempChartComponent } from './out-temp-chart/out-temp-chart.component';
+import { NAGaugeComponent } from './n-a-gauge/n-a-gauge.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { OutTempChartComponent } from './out-temp-chart/out-temp-chart.component
     RadialGaugeComponent,
     RpmGaugeComponent,
     CompassComponent,
-    OutTempChartComponent
+    OutTempChartComponent,
+    NAGaugeComponent
   ],
   imports: [
     BrowserModule,
