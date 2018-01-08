@@ -1,9 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-	background-image: url("assets/img/tausta.png");
-	background-repeat: no-repeat;
-	background-size: 100%;
-
   font-family: Verdana, Geneva, sans-serif;
   font-size: 12px;
+}
+@media screen and (min-width: 901px) {
+	body {
+		background-image: url("assets/img/tausta.png");
+		background-repeat: no-repeat;
+		background-size: 100%;
+	}
+}
+@media screen and (max-width: 900px) {
+	body {
+		background: linear-gradient(225deg, #81d4fa, #0091ea);
+	}
 }

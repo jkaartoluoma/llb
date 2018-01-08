@@ -97,3 +97,6 @@
 #menu > ul > li > a:hover:after {
   background: #2479da;
 }
+#menu > ul {
+  background: inherit;
+}

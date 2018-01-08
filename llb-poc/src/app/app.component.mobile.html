@@ -1,6 +1,30 @@
 <header>
 	<img src="assets/img/logo.png" style="float: left;">
-	<span><p style="text-align: right;">Data last updated: {{llbService.data[0]?.tsl | date:'dd.MM.y, HH:mm:ss'}} </p></span>
+	<div id="selectbus">
+		<strong>Select Bus:</strong><br>
+		<select (change)="llbService.changeBusId($event.target.value)">
+			<option value="1612" selected>1612</option>
+			<option value="3008">3008</option>
+			<option value="3009">3009</option>
+			<option value="9999">9999</option>
+		</select>
+	</div>
+	<div id="businfo">
+    <ul>
+		<li>Following bus {{llbService._vehicleId}}</li>
+		<li>
+			<span>Last update: </span>
+			<span *ngIf="llbService.data[0]?.tsl == 'na'"><n-a></n-a></span>
+			<span *ngIf="llbService.data[0]?.tsl != 'na'">{{llbService.data[0]?.tsl | date:'dd.MM.y, HH:mm:ss'}}</span>
+		</li>
+		<li *ngIf="llbService.isLiveData() == false">
+			<i class="fa fa-exclamation-triangle warning"></i> Vehicle not online!
+		</li>
+		<li *ngIf="llbService.isLiveData() == true">
+			<i class="fa fa-check-circle success"></i> Vehicle online!
+		</li>
+    </ul>
+  </div>
 </header>
 
 <mobile-menu></mobile-menu>
