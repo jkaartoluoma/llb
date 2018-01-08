@@ -3,8 +3,6 @@ import {RestService} from './rest.service';
 import {Observable} from 'rxjs/Observable';
 import {VehicleData} from './model/VehicleData';
 
-const realTimeDataApiUrl = 'https://llb.cloud.tyk.io/llb-bus-api';
-
 // Length of the data kept in memory at the time (seconds)
 const dataLength = 60;
 
@@ -18,7 +16,7 @@ export class LlbService {
   intervalLoop: any;
 
   isLive: boolean;
-  
+
   set vehicleId(id: number) {
     this._vehicleId = id;
     this.data = [];
@@ -29,7 +27,8 @@ export class LlbService {
   }
 
   getRealTimeData(busId: number): Observable<any> {
-    return this.rest.get(realTimeDataApiUrl + '/GetData?busId=' + busId);
+    const apiUrl =  busId === 666 ? 'http://llb.g3kk3r.net:8080' : 'https://llb.cloud.tyk.io/llb-bus-api';
+    return this.rest.get(apiUrl + '/GetData?busId=' + busId);
   }
 
   start(): void {
@@ -60,12 +59,12 @@ export class LlbService {
           } else {
             this.isLive = false;
           }
-      
+
         });
       }
     }, 1000);
   }
-  
+
   isLiveData(): boolean {
     return this.isLive;
   }
