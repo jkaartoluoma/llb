@@ -12,10 +12,19 @@ import {LoaderService} from './service/loader.service';
 export class AppComponent implements OnInit {
   title = 'app works!';
 
+  vehicleIds:number[];
+
   constructor(public llbService: LlbService, public loader: LoaderService) {}
 
   ngOnInit() {
     this.llbService.start();
-    this.llbService.vehicleId = 1612;
+    this.getActiveVehicles();
+    this.llbService.vehicleId = this.vehicleIds[0];
+  }
+
+  getActiveVehicles() {
+    this.vehicleIds = [
+      1612,3008,3009,9999
+    ]
   }
 }

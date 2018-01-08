@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import {LlbService} from '../service/llb.service';
-import {LoaderService} from '../service/loader.service';
+import {LlbService} from '../../service/llb.service';
+import {LoaderService} from '../../service/loader.service';
 import {MENUBUTTONS} from './mock-menubuttons';
 import {MenuButton} from './menubutton';
 
 
 @Component({
-  selector: 'mobile-menu',
-  templateUrl: './mobile-menu.component.html',
-  styleUrls: ['./mobile-menu.component.css']
+  selector: 'menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.css']
 })
-export class MobileMenuComponent implements OnInit {
+export class MenuComponent implements OnInit {
   MenuButtons = MENUBUTTONS;
   selectedMenu: MenuButton;
   constructor(public llbService: LlbService, public loader: LoaderService) {
@@ -23,5 +23,6 @@ export class MobileMenuComponent implements OnInit {
 
   onSelect(menubutton: MenuButton): void {
     this.selectedMenu = menubutton;
+	
   }
 }

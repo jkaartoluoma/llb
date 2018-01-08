@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {LlbService} from '../service/llb.service';
-import {isNullOrUndefined} from '../../utils';
+import {LlbService} from '../../service/llb.service';
+import {isNullOrUndefined} from '../../../utils';
 
 @Component({
   selector: 'app-loader',

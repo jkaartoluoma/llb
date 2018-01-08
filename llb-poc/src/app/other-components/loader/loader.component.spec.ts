@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoaderComponent } from './loader.component';
-import {LoaderService} from '../service/loader.service';
+import {LoaderService} from '../../service/loader.service';
 
 describe('LoaderComponent', () => {
   let component: LoaderComponent;

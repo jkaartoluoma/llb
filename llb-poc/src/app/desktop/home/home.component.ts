@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {LlbService} from '../service/llb.service';
-import { ModalComponent } from 'app/modal/modal.component';
+import {LlbService} from '../../service/llb.service';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-home',

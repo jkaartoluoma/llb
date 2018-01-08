@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {LlbService} from '../service/llb.service';
-import {LoaderService} from '../service/loader.service';
+import {LlbService} from '../../service/llb.service';
+import {LoaderService} from '../../service/loader.service';
 @Component({
   selector: 'movement-data',
   templateUrl: './movement-data.component.html',

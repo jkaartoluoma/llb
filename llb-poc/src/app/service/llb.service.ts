@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {RestService} from './rest.service';
 import {Observable} from 'rxjs/Observable';
-import {VehicleData} from '../model/VehicleData';
+import {VehicleData} from './model/VehicleData';
 
 const realTimeDataApiUrl = 'https://llb.cloud.tyk.io/llb-bus-api';
 

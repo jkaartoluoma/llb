@@ -3,10 +3,7 @@
 	<div id="selectbus">
 		<strong>Select Bus:</strong><br>
 		<select (change)="llbService.changeBusId($event.target.value)">
-			<option value="1612" selected>1612</option>
-			<option value="3008">3008</option>
-			<option value="3009">3009</option>
-			<option value="9999">9999</option>
+      <option *ngFor="let busId of vehicleIds" [selected]="busId === llbService.vehicleId">{{busId}}</option>
 		</select>
 	</div>
 	<div id="businfo">
