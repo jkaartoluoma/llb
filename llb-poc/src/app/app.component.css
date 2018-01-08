@@ -36,23 +36,26 @@ ul {
 }
 
 #selectbus {
-  float: right;
-  margin-right: 2em;
+  float: left;
+  margin-left: 2em;
+  margin-top: 0.5em;
+}
+#selectbus > select {
+  margin-top: 0.5em
+}
+#selectbus > select > ul {
+  margin-top: 0.5em
 }
 
 @media screen and (max-width: 900px) {
-  #selectbus {
-    float: left;
-    margin-left: 2em;
-    margin-top: 0.5em;
-  }
   img {
-    width: 30%;
+    width: 220px;
+    float: left; 
+    height: 55px;
   }
-  select {
-    margin-top: 0.5em
-  }
-  ul {
-    margin-top: 0.5em
+}
+@media screen and (max-width: 580px) {
+  #businfo {
+    display: none;
   }
 }

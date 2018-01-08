@@ -1,5 +1,13 @@
 <header>
   <img src="assets/img/logo.png" style="float: left;">
+
+	<div id="selectbus">
+		<strong>Select Bus:</strong><br>
+		<select (change)="llbService.changeBusId($event.target.value)">
+      <option *ngFor="let busId of vehicleIds" [selected]="busId === llbService.vehicleId">{{busId}}</option>
+		</select>
+  </div>
+  
   <div id="businfo">
     <ul>
       <li>Following bus {{llbService._vehicleId}}</li>
@@ -15,11 +23,6 @@
         <i class="fa fa-check-circle success"></i> Vehicle online!
       </li>
     </ul>
-  </div>
-  <div id="selectbus">
-    <select (change)="llbService.changeBusId($event.target.value)">
-      <option *ngFor="let busId of vehicleIds" [selected]="busId === llbService.vehicleId">{{busId}}</option>
-    </select>
   </div>
 </header>
 
