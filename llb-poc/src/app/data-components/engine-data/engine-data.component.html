@@ -176,20 +176,22 @@
 <!--Tempratures-->
 <div class="row">
   <div class="container">
-	  <span>Cabin interior temp (°C): </span>
+	  <span>Cabin interior temp: </span>
     <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.AMB_CabInteriorTemp)"><n-a-chart></n-a-chart></span>
     <span *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.AMB_CabInteriorTemp)">
       {{llbService.data[0]?.can?.AMB_CabInteriorTemp}}°C
+      <br>
       <out-temp-chart [data]="llbService.data[0]?.can?.AMB_CabInteriorTemp"></out-temp-chart>
     </span>
   </div>
 
   <div class="container">
-    <span>Ambient Air temp (°C): </span>
+    <span>Ambient Air temp: </span>
     <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.AMB_AmbientAirTemp)"><n-a-chart></n-a-chart></span>
     <span *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.AMB_AmbientAirTemp)">
       {{llbService.data[0]?.can?.AMB_AmbientAirTemp}}°C
-        <out-temp-chart [data]="llbService.data[0]?.can?.AMB_AmbientAirTemp"></out-temp-chart>
+      <br>
+      <out-temp-chart [data]="llbService.data[0]?.can?.AMB_AmbientAirTemp"></out-temp-chart>
     </span>
   </div>
 </div>
