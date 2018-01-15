@@ -79,7 +79,7 @@
         <span class="header" id="temps">Temperatures (°C):</span>
         <span>Drive motor:</span>
         
-        <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.TEMPERATURE_DriveMotor)"><n-a-chart></n-a-chart></span>
+        <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.TEMPERATURE_DriveMotor)"><na-temp></na-temp></span>
         <span *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.TEMPERATURE_DriveMotor)">
             {{llbService.data[0]?.can?.TEMPERATURE_DriveMotor}}°C
             <br>
@@ -89,7 +89,7 @@
     <div class="container">
         
         <span>Drive inverter:</span>
-        <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.TEMPERATURE_DriveInverter)"><n-a-chart></n-a-chart></span>
+        <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.TEMPERATURE_DriveInverter)"><na-temp></na-temp></span>
         <span *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.TEMPERATURE_DriveInverter)">
             {{llbService.data[0]?.can?.TEMPERATURE_DriveInverter}}°C
             <br>
@@ -98,7 +98,7 @@
     </div>
     <div class="container">
         <span>Motor coolant: </span>
-        <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.ET1_MotorCoolantTemp)"><n-a-chart></n-a-chart></span>
+        <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.ET1_MotorCoolantTemp)"><na-temp></na-temp></span>
         <span *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.ET1_MotorCoolantTemp)">
             {{llbService.data[0]?.can?.ET1_MotorCoolantTemp}}°C
             <br>
@@ -109,7 +109,35 @@
 </div>
 <div class="row">
   <div class="container">
+	  <span>Cabin interior temp: </span>
+    <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.AMB_CabInteriorTemp)"><na-temp></na-temp></span>
+    <span *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.AMB_CabInteriorTemp)">
+      {{llbService.data[0]?.can?.AMB_CabInteriorTemp}}°C
+      <br>
+      <out-temp-chart [data]="llbService.data[0]?.can?.AMB_CabInteriorTemp"></out-temp-chart>
+    </span>
+  </div>
+
+  <div class="container">
+    <span>Ambient Air temp: </span>
+    <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.AMB_AmbientAirTemp)"><na-temp></na-temp></span>
+    <span *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.AMB_AmbientAirTemp)">
+      {{llbService.data[0]?.can?.AMB_AmbientAirTemp}}°C
+      <br>
+      <out-temp-chart [data]="llbService.data[0]?.can?.AMB_AmbientAirTemp"></out-temp-chart>
+    </span>
+  </div>
+  <div class="container">
+
+  </div>
+</div>
+<!--Tempratures end -->
+
+
+<div class="row">
+  <div class="container">
     <ul>
+      <span class="header">Motor information:</span>
       <li>
         <span>Total hours of operation of the drive motor (h): </span>
         <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.HOURS_MotorTotalHoursOfOperation)"><n-a></n-a></span>
@@ -171,30 +199,10 @@
       </li>
     </ul>
   </div>
-</div>
-
-<!--Tempratures-->
-<div class="row">
   <div class="container">
-	  <span>Cabin interior temp: </span>
-    <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.AMB_CabInteriorTemp)"><n-a-chart></n-a-chart></span>
-    <span *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.AMB_CabInteriorTemp)">
-      {{llbService.data[0]?.can?.AMB_CabInteriorTemp}}°C
-      <br>
-      <out-temp-chart [data]="llbService.data[0]?.can?.AMB_CabInteriorTemp"></out-temp-chart>
-    </span>
-  </div>
-
-  <div class="container">
-    <span>Ambient Air temp: </span>
-    <span *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.AMB_AmbientAirTemp)"><n-a-chart></n-a-chart></span>
-    <span *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.AMB_AmbientAirTemp)">
-      {{llbService.data[0]?.can?.AMB_AmbientAirTemp}}°C
-      <br>
-      <out-temp-chart [data]="llbService.data[0]?.can?.AMB_AmbientAirTemp"></out-temp-chart>
-    </span>
   </div>
 </div>
+
 
 <div class="row">
   <div class="container">
@@ -211,9 +219,11 @@
       <app-linechart [data]="llbService.data[0]?.MOTOR_SlipPercentage" [min]="0" [max]="100"></app-linechart>     
     </ng-container>
   </div>
+  
   <div class="container">
 
   </div>
+
   <div class="container">
 
   </div>

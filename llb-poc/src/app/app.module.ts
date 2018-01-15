@@ -48,7 +48,7 @@ import { OutTempChartComponent } from './charts/out-temp-chart/out-temp-chart.co
 import { NAComponent } from './charts/na-charts/n-a/n-a.component';
 import { NAChartComponent } from './charts/na-charts/n-a-chart/n-a-chart.component';
 import { NAGaugeComponent } from './charts/na-charts/n-a-gauge/n-a-gauge.component';
-
+import { NaTempComponent } from './charts/na-charts/na-temp/na-temp.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +77,8 @@ import { NAGaugeComponent } from './charts/na-charts/n-a-gauge/n-a-gauge.compone
     CompassComponent,
     OutTempChartComponent,
     NAGaugeComponent,
-    RawDataComponent
+    RawDataComponent,
+    NaTempComponent
   ],
   imports: [
     BrowserModule,
