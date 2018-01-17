@@ -10,6 +10,7 @@
   line-height: 1;
   display: block;
   position: relative;
+  text-align: center;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -30,7 +31,9 @@
   line-height: 1;
 }
 #menu ul {
-  background: /*#ffffff*/ #0277BD;
+  background: #0277BD;
+  width: 100%;
+  margin: 0 auto;
 }
 #menu > ul > li {
   float: left;
@@ -59,7 +62,7 @@
   font-weight: 400;
   text-decoration: none;
   text-align: center;
-  color: /*#444444*/ black;
+  color: black;
   -webkit-transition: all .2s ease;
   -moz-transition: all .2s ease;
   -ms-transition: all .2s ease;
@@ -96,5 +99,5 @@
 #menu > ul > li.active > a:after,
 #menu > ul > li:hover > a:after,
 #menu > ul > li > a:hover:after {
-  background: /*#2479da*/ #00B0FF;
+  background: #00B0FF;
 }

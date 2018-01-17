@@ -1,14 +1,6 @@
-#default {
-	width:150px;
-	height:150px;
-
-}
-
-#location {
-	width:95px;
-	height:95px;
-	position:relative;
-	left:85%;
+#bus_images {
+	height: 630px;
+	position: relative;
 }
 .button {
 	width: 100px;
@@ -17,4 +9,43 @@
 }
 .button:hover {
     border-color: black;
+}
+
+#bus {
+	position: absolute;
+	left: 50px;
+	bottom: 0;
+}
+
+#default {
+	position: absolute;
+	left: 620px;
+	top: 160px;
+}
+#location {
+	position: absolute;
+	left: 431px;
+	top: 190px;
+}
+
+#motor {
+	position: absolute;
+	left: 251px;
+	top: 150px;
+}
+
+#driver {
+	position: absolute;
+	left: 798px;
+	top: 200px;
+}
+
+#battery {
+	position: absolute;
+	left: 62px;
+	top: 200px;
+}
+
+.modal-body > button {
+	float: right;
 }
