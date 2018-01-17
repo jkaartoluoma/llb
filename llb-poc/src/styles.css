@@ -3,13 +3,23 @@ body {
   font-family: Verdana, Geneva, sans-serif;
   font-size: 12px;
 }
+
 @media screen and (min-width: 901px) {
 	body {
 		background-image: url("assets/img/tausta.png");
-		background-repeat: no-repeat;
-		background-size: 100%;
+		background-repeat: repeat-x;
+		background-color: #4cb050;
+	}
+	@keyframes animatedBackground {
+		from {
+			background-position: 0 0;
+		}
+		to {
+			background-position: 100% 0;
+		}
 	}
 }
+
 @media screen and (max-width: 900px) {
 	body {
 		background: linear-gradient(225deg, #81d4fa, #0091ea);

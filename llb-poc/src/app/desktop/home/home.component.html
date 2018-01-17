@@ -1,10 +1,14 @@
-<div><!-- 3008 3009-->
-	<a (click)="showModal(modal1, 1)"><img class="button" src="../../assets/img/default.png"></a>
-	<a (click)="showModal(modal2, 2)"><img class="button" src="../../assets/img/location.png"></a>
-	<a (click)="showModal(modal3, 3)"><img class="button" src="../../assets/img/battery.png"></a>
-	<a (click)="showModal(modal4, 4)"><img class="button" src="../../assets/img/driver.png"></a>
-	<a (click)="showModal(modal5, 5)"><img class="button" src="../../assets/img/battery.png"></a>
+<div id="bus_images">
+  <img id ="bus" src="assets/img/bussi1.png">
+  <div><!-- 3008 3009-->
+  	<a (click)="showModal(modal1, 1)"><img id="default" class="button" src="../../assets/img/default.png"></a>
+  	<a (click)="showModal(modal2, 2)"><img id="location" class="button" src="../../assets/img/location.png"></a>
+  	<a (click)="showModal(modal3, 3)"><img id="motor" class="button" src="../../assets/img/motor.png"></a>
+  	<a (click)="showModal(modal4, 4)"><img id="driver" class="button" src="../../assets/img/driver.png"></a>
+  	<a (click)="showModal(modal5, 5)"><img id="battery" class="button" src="../../assets/img/battery.png"></a>
+  </div>
 </div>
+
 <div>
   <app-modal #modal1>
   <div class="modal-body">
