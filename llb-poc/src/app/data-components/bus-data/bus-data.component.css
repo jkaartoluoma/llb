@@ -11,6 +11,11 @@ li {
   width: 100%;
 }
 
+li span {
+  display: table-cell;
+  white-space: nowrap;
+}
+
 .padtop {
   padding-top: 2em;
 }

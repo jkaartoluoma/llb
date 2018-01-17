@@ -6,12 +6,14 @@ ul {
   width: 100%;
 }
 
-.padtop {
-  padding-top: 2em;
+li {
+  display: table-row;
+  width: 100%;
 }
 
-.padbtm {
-  padding-bottom: 2em;
+li span {
+  display: table-cell;
+  white-space: nowrap;
 }
 
 .warning {
@@ -40,16 +42,6 @@ ul {
   color: red;
   font-weight: bold;
 }
-
-.busicon {
-  width: 150px;
-  margin: 2em;
-}
-
-.middle {
-  text-align: center;
-}
-
 
 .header {
   font-weight: bold;

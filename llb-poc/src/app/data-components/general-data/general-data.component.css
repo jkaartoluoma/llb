@@ -29,9 +29,9 @@ li span {
 }
 
 .container {
-  padding: 1em;
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: top;
+  width: 33%;
 }
 
 @media screen and (max-width: 900px) {
