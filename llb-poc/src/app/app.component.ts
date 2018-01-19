@@ -21,8 +21,10 @@ export class AppComponent implements OnInit {
     this.llbService.start();
     this.getActiveVehicles();
     this.llbService.vehicleId = this.vehicleIds[0];
-    this.body = document.getElementById('body');
-    this.animateBackground();
+    if (window.screen.width > 900) {
+      this.body = document.getElementById('body');
+      this.animateBackground();
+    } 
   }
 
   getActiveVehicles() {

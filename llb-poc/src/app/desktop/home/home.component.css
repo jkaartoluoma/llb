@@ -46,6 +46,6 @@
 	top: 200px;
 }
 
-.modal-body > button {
+.modal-body > a {
 	float: right;
 }
