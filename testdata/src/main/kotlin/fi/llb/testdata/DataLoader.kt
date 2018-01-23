@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 object DataLoader {
-    val dataFileName = "data/testdata.dat"
+    var dataFileName = "testdata.dat"
 
     private var curline = 0
     private var data: List<String> = listOf()
@@ -42,8 +42,8 @@ object DataLoader {
 
             return data
         } catch (e: Exception) {
-            LoggerFactory.getLogger(this.javaClass.simpleName).error("Could not return data. DataLoader file (or parts of it) might be corrupted.")
-            e.printStackTrace()
+            LoggerFactory.getLogger(this.javaClass.simpleName).error("Could not return data. Please check that file esists" +
+                    " in location: ${dataFileName}. If the file exists, it (or parts of it) might be corrupted.")
             return ""
         }
     }
