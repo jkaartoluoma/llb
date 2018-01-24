@@ -15,8 +15,8 @@ export class AppComponent implements OnInit {
   vehicleIds:number[];
   body:HTMLElement;
 
-  selectedMenuMobile: number;
-
+  //menu items form mobile mode
+  selectedMenuMobile: number = 0;
   menuItems: any[] = [ 
     { id: 0, title: "Home" },
     { id: 1, title: "Raw Data" },
@@ -30,7 +30,6 @@ export class AppComponent implements OnInit {
     this.llbService.start();
     this.getActiveVehicles();
     this.llbService.vehicleId = this.vehicleIds[0];
-    this.selectedMenuMobile = 0;
     // start animating background if desktop mode
     if (window.screen.width > 900) {
       this.body = document.getElementById('body');

@@ -21,13 +21,13 @@ export class FeedbackComponent implements OnInit {
   }
 
   sendFeedback(): void {
-    console.log(this.feedbackData);
     if(isNullOrEmpty(this.feedbackData) || isNullOrEmpty(this.feedbackData.Email) || isNullOrEmpty(this.feedbackData.Subject) || isNullOrEmpty(this.feedbackData.Feedback)) {
       // data is invalid
       this.infoValid = false;
     } else {
       //data is valid and can be sent forward
       this.infoValid = true;
+      console.log(this.feedbackData);
     }
   }
 }
