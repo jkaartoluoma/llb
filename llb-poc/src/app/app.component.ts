@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   title = 'app works!';
 
   vehicleIds:number[];
-  body:HTMLElement;
+  body:HTMLElement = document.getElementById('body');
 
   //menu items form mobile mode
   selectedMenuMobile: number = 0;
@@ -32,7 +32,6 @@ export class AppComponent implements OnInit {
     this.llbService.vehicleId = this.vehicleIds[0];
     // start animating background if desktop mode
     if (window.screen.width > 900) {
-      this.body = document.getElementById('body');
       this.animateBackground();
     } 
   }
