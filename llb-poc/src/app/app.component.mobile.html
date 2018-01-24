@@ -1,27 +1,31 @@
 <header>
-	<img src="assets/img/logo.png">
-	<div id="selectbus">
-		<strong>Select Bus:</strong><br>
-		<select (change)="llbService.changeBusId($event.target.value)">
-      <option *ngFor="let busId of vehicleIds" [selected]="busId === llbService.vehicleId">{{busId}}</option>
-		</select>
+	<div class="header-first">
+		<img src="assets/img/logo.png">
 	</div>
-	<div id="businfo">
-    <ul>
-		<li>Following bus {{llbService._vehicleId}}</li>
-		<li>
-			<span>Last update: </span>
-			<span *ngIf="llbService.data[0]?.tsl == 'na'"><n-a></n-a></span>
-			<span *ngIf="llbService.data[0]?.tsl != 'na'">{{llbService.data[0]?.tsl | date:'dd.MM.y, HH:mm:ss'}}</span>
-		</li>
-		<li *ngIf="llbService.isLiveData() == false">
-			<i class="fa fa-exclamation-triangle warning"></i> Vehicle not online!
-		</li>
-		<li *ngIf="llbService.isLiveData() == true">
-			<i class="fa fa-check-circle success"></i> Vehicle online!
-		</li>
-    </ul>
-  </div>
+	<div class="header-second">
+		<div id="selectbus">
+			<strong>Select Bus:</strong><br>
+			<select (change)="llbService.changeBusId($event.target.value)">
+				<option *ngFor="let busId of vehicleIds" [selected]="busId === llbService.vehicleId">{{busId}}</option>
+			</select>
+		</div>
+		<div id="businfo">
+			<ul>
+			<li>Following bus {{llbService._vehicleId}}</li>
+			<li>
+				<span>Last update: </span>
+				<span *ngIf="llbService.data[0]?.tsl == 'na'"><n-a></n-a></span>
+				<span *ngIf="llbService.data[0]?.tsl != 'na'">{{llbService.data[0]?.tsl | date:'dd.MM.y, HH:mm:ss'}}</span>
+			</li>
+			<li *ngIf="llbService.isLiveData() == false">
+				<i class="fa fa-exclamation-triangle warning"></i> Vehicle not online!
+			</li>
+			<li *ngIf="llbService.isLiveData() == true">
+				<i class="fa fa-check-circle success"></i> Vehicle online!
+			</li>
+			</ul>
+		</div>
+	</div>
 </header>
 
 <mobile-menu></mobile-menu>

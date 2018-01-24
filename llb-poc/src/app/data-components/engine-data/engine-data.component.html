@@ -9,7 +9,7 @@
         </div>
         <div *ngIf="isRpmValid()">
             <span class="header">Electric motor rpm:</span>
-            <rpm-gauge [data]='gaugeValue'></rpm-gauge>
+            <rpm-gauge [data]='llbService.data[0]?.can?.EEC1_MotorSpeed'></rpm-gauge>
         </div>
         <!-- Old Gauge for RPM
         <span *ngIf="!isRpmValid()">Electric motor rpm: <n-a></n-a></span>
@@ -69,17 +69,13 @@
     </ul>
   </div>
   <div class="container">
-    <span class="header" *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.MOTOR_SlipPercentage)">
+    <span class="header">
       Measured slip percentage (%):
-    </span>
-    <span class="header" *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.MOTOR_SlipPercentage)">
-      Measured slip percentage (%): {{llbService.data[0]?.can?.MOTOR_SlipPercentage}}
-    </span>
-    
+    </span>    
     <n-a-gauge *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.MOTOR_SlipPercentage)">
     </n-a-gauge>
     <ng-container *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.MOTOR_SlipPercentage)">
-      <slip-gauge [data]="slipPercent"></slip-gauge>
+      <slip-gauge [data]="llbService.data[0]?.can?.MOTOR_SlipPercentage"></slip-gauge>
     </ng-container>
   </div>
 </div>

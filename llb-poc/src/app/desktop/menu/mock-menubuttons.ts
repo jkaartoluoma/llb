@@ -1,10 +1,8 @@
 import { MenuButton } from './menubutton';
 
 export const MENUBUTTONS: MenuButton[] = [
-	{ id: 0, title: 'Home'},
-	{ id: 1, title: 'General Data'},
-	{ id: 2, title: 'Location Data'},
-	{ id: 3, title: 'Engine Data' },
-	{ id: 4, title: 'Bus Data' },
-	{ id: 5, title: 'Battery Data' }
+	{ id: 0, title: 'Home', alias: '/' },
+	{ id: 1, title: 'Raw Data', alias: '/rawdata' },
+	{ id: 2, title: 'Info', alias: '/info' },
+	{ id: 3, title: 'Feedback', alias: '/feedback' }
 ];
