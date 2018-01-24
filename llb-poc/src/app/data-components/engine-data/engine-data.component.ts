@@ -12,28 +12,16 @@ export class EngineDataComponent implements OnInit {
 	
   isNullOrUndefined = isNullOrUndefined;
   gaugeValue: number;
+  slipPercent: number;
 
   constructor(public llbService: LlbService, public loader: LoaderService) { }
 
   ngOnInit() {
-    // if we want to use this gauge change this to 
-    this.motorRPM();
   }
 
+  // boolean check if the rom is defined
   isRpmValid(): boolean {
     return this.llbService.isLiveData() && !isNullOrUndefined(this.llbService.data[0].can.EEC1_MotorSpeed)
   }
-
-  motorRPM(): void {
-    setInterval (() => {
-      if(this.llbService.isLiveData() && !isNullOrUndefined(this.llbService.data[0].can.EEC1_MotorSpeed)) {
-        if(this.llbService.data[0].can.EEC1_MotorSpeed !== this.gaugeValue) {
-          this.gaugeValue = this.llbService.data[0].can.EEC1_MotorSpeed;
-        }
-      } else {
-        // if no data set the gaugeValue to NaN
-        this.gaugeValue = NaN;
-      }
-    }, 200);
-  }
+  
 }

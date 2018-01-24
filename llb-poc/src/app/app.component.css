@@ -48,14 +48,21 @@ ul {
 }
 
 @media screen and (max-width: 900px) {
+  header {
+    height: 140px;
+  }
+  .header-second {
+    height: 70px;
+  }
+  .header-second {
+    height: 70px;
+  }
+  #selectbus {
+    float: left;
+  }
   img {
     width: 220px;
-    float: left; 
+    float: right; 
     height: 55px;
-  }
-}
-@media screen and (max-width: 580px) {
-  #businfo {
-    display: none;
   }
 }

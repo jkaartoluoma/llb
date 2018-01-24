@@ -27,6 +27,7 @@ export class BusDataComponent implements OnInit {
     document.getElementById("busicon").style.transform = "rotate(7deg)";
   }
 
+  // movement status funciton
   getMovenmentStatus(): string {
     try {
       return '' + (this.llbService.data[0].can.TCO1_VehicleMotion === 1 ? 'moving' : 'in place');
@@ -35,6 +36,7 @@ export class BusDataComponent implements OnInit {
     }
   }
 
+  // which direction bus is going
   getDirection(): string {
     try {
       return '' + (this.llbService.data[0].can.TCO1_DirectionIndicator === 0 ? 'forward' : 'backwards');
@@ -43,6 +45,7 @@ export class BusDataComponent implements OnInit {
     }
   }
 
+  // which gear bus has on
   getGear(): string {
     try {
       const val = this.llbService.data[0].can.ETC2_TransCurrentGear;

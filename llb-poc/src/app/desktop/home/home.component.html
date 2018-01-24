@@ -1,3 +1,27 @@
+<!-- These need css, remove "&& false" form next ngIf to show charts -->
+<div id="frontpage_charts" *ngIf="llbService.isLiveData() && false">
+	<!-- Speed -->
+	<ng-container *ngIf="!isNullOrUndefined(llbService.data[0]?.spd)">
+		<strong>Speed </strong>
+		<app-radial-gauge [data]="llbService.data[0]?.spd*3.6 < llbService.data[0]?.eps ? 0 : llbService.data[0]?.spd*3.6"></app-radial-gauge>
+	</ng-container>
+	<!-- Battery -->
+    <ng-container *ngIf="!isNullOrUndefined(llbService.data[0]?.can?.DD_BatteryLevel)">
+		<strong>Battery </strong>
+		<app-battery-chart [data]="llbService.data[0]?.can?.DD_BatteryLevel" [name]="Battery"></app-battery-chart>
+	</ng-container>
+	<!-- Inside Temperature -->
+    <ng-container *ngIf="!isNullOrUndefined(llbService.data[0]?.can?.AMB_CabInteriorTemp)">
+		<strong>Inside Temperature </strong>
+		<out-temp-chart [data]="llbService.data[0]?.can?.AMB_CabInteriorTemp"></out-temp-chart>
+    </ng-container>
+	<!-- Outside Temperature -->
+    <ng-container *ngIf="!isNullOrUndefined(llbService.data[0]?.can?.AMB_AmbientAirTemp)">
+		<strong>Outside Temperature </strong>
+		<out-temp-chart [data]="llbService.data[0]?.can?.AMB_AmbientAirTemp"></out-temp-chart>
+    </ng-container>
+</div>
+
 <div id="bus_images">
   <img id ="bus" src="assets/img/bussi1.png">
   <div>
@@ -12,36 +36,36 @@
 <div>
   <app-modal #modal1>
   <div class="modal-body">
-    <a href="#" (click)="hideModal(modal1)"><i class="fa fa-window-close fa-2x" style="color:#bf4141"></i></a>
-    <general-data *ngIf="_selectedModal == 1"></general-data>
+	<a href="#" (click)="hideModal(modal1)"><i class="fa fa-window-close fa-2x" style="color:#bf4141"></i></a>
+	<general-data *ngIf="_selectedModal == 1"></general-data>
   </div>
   </app-modal>
 
   <app-modal #modal2>
   <div class="modal-body">
-    <a href="#" (click)="hideModal(modal2)"><i class="fa fa-window-close fa-2x" style="color:#bf4141"></i></a>
-    <location-data *ngIf="_selectedModal == 2"></location-data>
+	<a href="#" (click)="hideModal(modal2)"><i class="fa fa-window-close fa-2x" style="color:#bf4141"></i></a>
+	<location-data *ngIf="_selectedModal == 2"></location-data>
   </div>
   </app-modal>
 
   <app-modal #modal3>
   <div class="modal-body">
-    <a href="#" (click)="hideModal(modal3)"><i class="fa fa-window-close fa-2x" style="color:#bf4141"></i></a>
-    <engine-data *ngIf="_selectedModal == 3"> </engine-data>
+	<a href="#" (click)="hideModal(modal3)"><i class="fa fa-window-close fa-2x" style="color:#bf4141"></i></a>
+	<engine-data *ngIf="_selectedModal == 3"> </engine-data>
   </div>
   </app-modal>
 
   <app-modal #modal4>
   <div class="modal-body">
-    <a href="#" (click)="hideModal(modal4)"><i class="fa fa-window-close fa-2x" style="color:#bf4141"></i></a>
-    <bus-data *ngIf="_selectedModal == 4"> </bus-data>
+	<a href="#" (click)="hideModal(modal4)"><i class="fa fa-window-close fa-2x" style="color:#bf4141"></i></a>
+	<bus-data *ngIf="_selectedModal == 4"> </bus-data>
   </div>
   </app-modal>
 
   <app-modal #modal5>
   <div class="modal-body">
-    <a href="#" (click)="hideModal(modal5)"><i class="fa fa-window-close fa-2x" style="color:#bf4141"></i></a>
-    <battery-data *ngIf="_selectedModal == 5"> </battery-data>
+	<a href="#" (click)="hideModal(modal5)"><i class="fa fa-window-close fa-2x" style="color:#bf4141"></i></a>
+	<battery-data *ngIf="_selectedModal == 5"> </battery-data>
   </div>
   </app-modal>
 </div>

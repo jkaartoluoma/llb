@@ -13,7 +13,16 @@ export class AppComponent implements OnInit {
   title = 'app works!';
 
   vehicleIds:number[];
-  body:HTMLElement;
+  body:HTMLElement = document.getElementById('body');
+
+  //menu items form mobile mode
+  selectedMenuMobile: number = 0;
+  menuItems: any[] = [ 
+    { id: 0, title: "Home" },
+    { id: 1, title: "Raw Data" },
+    { id: 2, title: "Info" },
+    { id: 3, title: "Feedback" }
+  ]
 
   constructor(public llbService: LlbService, public loader: LoaderService) {}
 
@@ -21,18 +30,20 @@ export class AppComponent implements OnInit {
     this.llbService.start();
     this.getActiveVehicles();
     this.llbService.vehicleId = this.vehicleIds[0];
+    // start animating background if desktop mode
     if (window.screen.width > 900) {
-      this.body = document.getElementById('body');
       this.animateBackground();
     } 
   }
 
+  // Vehicle ID list for app
   getActiveVehicles() {
     this.vehicleIds = [
       1612,3008,3009,9999
     ]
   }
 
+  // Background animations for desktop
   animateBackground() {
     setInterval(() => {
       if (this.llbService.isLiveData()) {
@@ -49,4 +60,14 @@ export class AppComponent implements OnInit {
       }
     }, 500);
   }
+
+  onMenuClose(){
+  }
+  onMenuOpen() {
+  }
+  onItemSelect(item:any) {
+    this.selectedMenuMobile = Number.parseInt(item.id);
+    console.log(item);
+  }
+
 }

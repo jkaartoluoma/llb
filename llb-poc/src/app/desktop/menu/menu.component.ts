@@ -13,6 +13,7 @@ import {MenuButton} from './menubutton';
 export class MenuComponent implements OnInit {
   MenuButtons = MENUBUTTONS;
   selectedMenu: MenuButton;
+
   constructor(public llbService: LlbService, public loader: LoaderService) {
 
   }
@@ -23,6 +24,5 @@ export class MenuComponent implements OnInit {
 
   onSelect(menubutton: MenuButton): void {
     this.selectedMenu = menubutton;
-	
   }
 }

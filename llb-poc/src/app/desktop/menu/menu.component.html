@@ -1,16 +1,14 @@
-<div id='menu' class="align-center">
+<div id='menu' class="menu align-center">
   <ul>
-    <li>
-        <a href="#">Home</a>
-    </li>
-    <li>
-        <a href="#">Raw Data</a>
-    </li>
-    <li>
-        <a href="#">Info</a>
-    </li>
-    <li>
-        <a href="#">Feedback</a>
+    <li *ngFor="let menubutton of MenuButtons;" [class.active]="selectedMenu.id == menubutton.id">
+      <a id="menuButton" (click)="onSelect(menubutton)">
+        {{menubutton.title}}
+      </a>
     </li>
   </ul>
 </div>
+
+<app-home *ngIf="selectedMenu.id == 0"></app-home>
+<app-raw-data *ngIf="selectedMenu.id == 1"></app-raw-data>
+<app-info *ngIf="selectedMenu.id == 2"></app-info>
+<app-feedback *ngIf="selectedMenu.id == 3"></app-feedback>

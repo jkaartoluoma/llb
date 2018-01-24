@@ -6,6 +6,7 @@ import { ChartsModule } from 'ng2-charts';
 import { AgmCoreModule } from '@agm/core';
 import { GaugeModule } from 'angular-gauge';
 import { GaugesModule } from 'ng-canvas-gauges/lib';
+import { SlideMenuModule } from 'cuppa-ng2-slidemenu/cuppa-ng2-slidemenu';
 
 //services
 import {LlbService} from './service/llb.service';
@@ -44,11 +45,14 @@ import { RadialGaugeComponent } from './charts/radial-gauge/radial-gauge.compone
 import { RpmGaugeComponent } from './charts/rpm-gauge/rpm-gauge.component';
 import { CompassComponent } from './charts/compass/compass.component';
 import { OutTempChartComponent } from './charts/out-temp-chart/out-temp-chart.component';
+import { SlipGaugeComponent } from './charts/slip-gauge/slip-gauge.component';
 //n-a-charts
 import { NAComponent } from './charts/na-charts/n-a/n-a.component';
 import { NAChartComponent } from './charts/na-charts/n-a-chart/n-a-chart.component';
 import { NAGaugeComponent } from './charts/na-charts/n-a-gauge/n-a-gauge.component';
 import { NaTempComponent } from './charts/na-charts/na-temp/na-temp.component';
+import { FeedbackComponent } from './other-components/feedback/feedback.component';
+
 
 @NgModule({
   declarations: [
@@ -78,7 +82,9 @@ import { NaTempComponent } from './charts/na-charts/na-temp/na-temp.component';
     OutTempChartComponent,
     NAGaugeComponent,
     RawDataComponent,
-    NaTempComponent
+    NaTempComponent,
+    SlipGaugeComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
@@ -89,7 +95,8 @@ import { NaTempComponent } from './charts/na-charts/na-temp/na-temp.component';
       apiKey: 'AIzaSyBd3tmzegmPCnjxAuIHOF9ZNcGytvCL24E'
     }),
     GaugeModule.forRoot(),
-    GaugesModule
+    GaugesModule,
+    SlideMenuModule
   ],
   providers: [LlbService, RestService, LoaderService],
   bootstrap: [AppComponent]
