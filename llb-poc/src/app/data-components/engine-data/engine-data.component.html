@@ -76,10 +76,10 @@
       Measured slip percentage (%): {{llbService.data[0]?.can?.MOTOR_SlipPercentage}}
     </span>
     
-    <n-a-chart *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.MOTOR_SlipPercentage)">
-    </n-a-chart>
+    <n-a-gauge *ngIf="!llbService.isLiveData() || isNullOrUndefined(llbService.data[0]?.can?.MOTOR_SlipPercentage)">
+    </n-a-gauge>
     <ng-container *ngIf="llbService.isLiveData() && !isNullOrUndefined(llbService.data[0]?.can?.MOTOR_SlipPercentage)">
-      <app-linechart [data]="llbService.data[0]?.MOTOR_SlipPercentage" [min]="0" [max]="100"></app-linechart>     
+      <slip-gauge [data]="slipPercent"></slip-gauge>
     </ng-container>
   </div>
 </div>

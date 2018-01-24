@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {LlbService} from '../../service/llb.service';
 import { ModalComponent } from '../modal/modal.component';
+import {LoaderService} from '../../service/loader.service';
+import {isNullOrUndefined} from '../../../utils';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +12,15 @@ import { ModalComponent } from '../modal/modal.component';
 
 export class HomeComponent implements OnInit {
 
+  isNullOrUndefined = isNullOrUndefined;
   _selectedModal: number;
-  constructor(public service: LlbService) { }
+
+  constructor(public llbService: LlbService, public loader: LoaderService) { }
 
   ngOnInit() {
   }
 
+  // modal function to show and hode modals
   showModal(modal: ModalComponent, id: number) {
     modal.show();
     this._selectedModal = id;

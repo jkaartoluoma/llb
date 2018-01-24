@@ -21,18 +21,21 @@ export class AppComponent implements OnInit {
     this.llbService.start();
     this.getActiveVehicles();
     this.llbService.vehicleId = this.vehicleIds[0];
+    // start animating background if desktop mode
     if (window.screen.width > 900) {
       this.body = document.getElementById('body');
       this.animateBackground();
     } 
   }
 
+  // Vehicle ID list for app
   getActiveVehicles() {
     this.vehicleIds = [
       1612,3008,3009,9999
     ]
   }
 
+  // Background animations for desktop
   animateBackground() {
     setInterval(() => {
       if (this.llbService.isLiveData()) {

@@ -39,18 +39,8 @@ export class LocationDataComponent implements OnInit {
       return 'unknown';
     }
   }
-  //rotates image every 0.2 second if the image is in sight and value has changed
-  // rotateImage(): void {
-  //   this.intervalLoop = setInterval (() => {
-  //     if(this.llbService.isLiveData() && !isNullOrUndefined(this.llbService.data[0].trc) && document.getElementById("compass")) {
-  //       if(this.llbService.data[0].trc !== this.valueBefore) {
-  //         this.valueBefore = this.llbService.data[0].trc;
-  //         document.getElementById("compass").style.transform = "rotate(" + (this.llbService.data[0].trc - 45) + "deg)";
-  //       }
-  //     } 
-  //   }, 200);
-  // }
 
+  // boolean function to check if values are valid - easier html code
   isLocationDataValid(): boolean {
     return this.llbService.isLiveData() && !isNullOrUndefined(this.llbService.data[0].lat) && !isNullOrUndefined(this.llbService.data[0].lon);
   }

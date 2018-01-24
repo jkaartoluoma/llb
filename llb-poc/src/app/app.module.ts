@@ -44,6 +44,7 @@ import { RadialGaugeComponent } from './charts/radial-gauge/radial-gauge.compone
 import { RpmGaugeComponent } from './charts/rpm-gauge/rpm-gauge.component';
 import { CompassComponent } from './charts/compass/compass.component';
 import { OutTempChartComponent } from './charts/out-temp-chart/out-temp-chart.component';
+import { SlipGaugeComponent } from './charts/slip-gauge/slip-gauge.component';
 //n-a-charts
 import { NAComponent } from './charts/na-charts/n-a/n-a.component';
 import { NAChartComponent } from './charts/na-charts/n-a-chart/n-a-chart.component';
@@ -78,7 +79,8 @@ import { NaTempComponent } from './charts/na-charts/na-temp/na-temp.component';
     OutTempChartComponent,
     NAGaugeComponent,
     RawDataComponent,
-    NaTempComponent
+    NaTempComponent,
+    SlipGaugeComponent
   ],
   imports: [
     BrowserModule,
