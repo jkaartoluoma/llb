@@ -15,12 +15,22 @@ export class AppComponent implements OnInit {
   vehicleIds:number[];
   body:HTMLElement;
 
+  selectedMenuMobile: number;
+
+  menuItems: any[] = [ 
+    { id: 0, title: "Home" },
+    { id: 1, title: "Raw Data" },
+    { id: 2, title: "Info" },
+    { id: 3, title: "Feedback" }
+  ]
+
   constructor(public llbService: LlbService, public loader: LoaderService) {}
 
   ngOnInit() {
     this.llbService.start();
     this.getActiveVehicles();
     this.llbService.vehicleId = this.vehicleIds[0];
+    this.selectedMenuMobile = 0;
     // start animating background if desktop mode
     if (window.screen.width > 900) {
       this.body = document.getElementById('body');
@@ -52,4 +62,14 @@ export class AppComponent implements OnInit {
       }
     }, 500);
   }
+
+  onMenuClose(){
+  }
+  onMenuOpen() {
+  }
+  onItemSelect(item:any) {
+    this.selectedMenuMobile = Number.parseInt(item.id);
+    console.log(item);
+  }
+
 }

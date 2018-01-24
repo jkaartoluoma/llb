@@ -6,6 +6,7 @@ import { ChartsModule } from 'ng2-charts';
 import { AgmCoreModule } from '@agm/core';
 import { GaugeModule } from 'angular-gauge';
 import { GaugesModule } from 'ng-canvas-gauges/lib';
+import { SlideMenuModule } from 'cuppa-ng2-slidemenu/cuppa-ng2-slidemenu';
 
 //services
 import {LlbService} from './service/llb.service';
@@ -94,7 +95,8 @@ import { FeedbackComponent } from './other-components/feedback/feedback.componen
       apiKey: 'AIzaSyBd3tmzegmPCnjxAuIHOF9ZNcGytvCL24E'
     }),
     GaugeModule.forRoot(),
-    GaugesModule
+    GaugesModule,
+    SlideMenuModule
   ],
   providers: [LlbService, RestService, LoaderService],
   bootstrap: [AppComponent]

@@ -13,11 +13,11 @@
                 <span>Gw Id:</span>
                 <span>{{llbService.data[0]?.GwId}}</span>
             </li>
-            
-            <li>
+            <!-- THIS NEEDS TO BE FIXED, gives invalid time on 1612 which breaks everything -->
+            <!-- <li>
                 <span>Position timestamp:</span>
-                <span>{{llbService.data[0]?.tsp | date:'d.MM.yyyy, HH:mm:ss'}}</span> 
-            </li>
+                <span>{{llbService.data[0]?.tsp | date:'d.MM.yyyy, HH:mm:ss'}}</span>
+            </li> -->
 
             <li>Vehicle total driven distance (m):
                 <span *ngIf="isNullOrUndefined(llbService.data[1]?.can?.VDHR_HghRslutionTotalVehicleDistance); else totalVehicleDistance"><n-a></n-a></span>
@@ -96,7 +96,7 @@
         </ng-container>
     </div>
     <div class="container"> 
-        <span class="header">Gross Combination Weight: {{llbService.data[0]?.can.CVW_GrossCombinationVehicleWeight}}kg</span>
+        <span class="header">Gross Combination Weight: {{llbService.data[0]?.can?.CVW_GrossCombinationVehicleWeight}}kg</span>
         <n-a-chart *ngIf="isNullOrUndefined(llbService.data[0]?.can?.CVW_GrossCombinationVehicleWeight)"></n-a-chart>
         <ng-container *ngIf="!isNullOrUndefined(llbService.data[0]?.can?.CVW_GrossCombinationVehicleWeight)">                
             <app-linechart [data]="llbService.data[0]?.can?.CVW_GrossCombinationVehicleWeight/1000"></app-linechart>  

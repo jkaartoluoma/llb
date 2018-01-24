@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {LlbService} from '../../service/llb.service';
 import {LoaderService} from '../../service/loader.service';
 import {isNullOrUndefined} from '../../../utils';
+import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
   selector: 'general-data',
@@ -10,12 +11,15 @@ import {isNullOrUndefined} from '../../../utils';
 })
 
 
-export class GeneralDataComponent implements OnInit {
+export class GeneralDataComponent implements OnInit, OnChanges {
   isNullOrUndefined = isNullOrUndefined;
 
   constructor(public llbService: LlbService, public loader: LoaderService) { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
   }
 
 }

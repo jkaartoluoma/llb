@@ -1,7 +1,10 @@
 <header>
 	<div class="header-first">
 		<img src="assets/img/logo.png">
+		<cuppa-slidemenu [menulist]="menuItems" (open)="onMenuOpen()" (close)="onMenuClose()" (onItemSelect)="onItemSelect($event)">
+		</cuppa-slidemenu>
 	</div>
+	<br>
 	<div class="header-second">
 		<div id="selectbus">
 			<strong>Select Bus:</strong><br>
@@ -28,4 +31,7 @@
 	</div>
 </header>
 
-<mobile-menu></mobile-menu>
+<mobile-menu *ngIf="selectedMenuMobile === 0"></mobile-menu>
+<app-raw-data *ngIf="selectedMenuMobile === 1"></app-raw-data>
+<app-info *ngIf="selectedMenuMobile === 2"></app-info>
+<app-feedback *ngIf="selectedMenuMobile === 3"></app-feedback>
