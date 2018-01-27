@@ -1,14 +1,21 @@
+span {
+	font-weight: bold;
+}
+
+#frontpage_charts {
+	z-index: 1;
+	position: absolute;
+}
+
 #bus_images {
+	z-index: 2;
 	height: 630px;
-	position: relative;
+	position: absolute;
 }
 .button {
 	width: 100px;
 	height: 100px;
 	border: solid 2px transparent;
-}
-.button:hover {
-    border-color: black;
 }
 
 #bus {

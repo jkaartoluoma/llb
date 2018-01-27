@@ -5,7 +5,7 @@ import {LoaderService} from '../../service/loader.service';
 @Component({
   selector: 'sensor-data',
   templateUrl: './sensor-data.component.html',
-  styleUrls: ['./sensor-data.component.css']
+  styleUrls: ['./sensor-data.component.css', '../data-components.component.css']
 })
 export class SensorDataComponent implements OnInit {
 

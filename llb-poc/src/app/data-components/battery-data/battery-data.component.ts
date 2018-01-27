@@ -6,7 +6,7 @@ import {isNullOrUndefined} from '../../../utils';
 @Component({
   selector: 'battery-data',
   templateUrl: './battery-data.component.html',
-  styleUrls: ['./battery-data.component.css']
+  styleUrls: ['./battery-data.component.css', '../data-components.component.css']
 })
 export class BatteryDataComponent implements OnInit {
   // Historical data for total electricity consumed

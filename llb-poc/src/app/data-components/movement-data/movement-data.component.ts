@@ -4,7 +4,7 @@ import {LoaderService} from '../../service/loader.service';
 @Component({
   selector: 'movement-data',
   templateUrl: './movement-data.component.html',
-  styleUrls: ['./movement-data.component.css']
+  styleUrls: ['./movement-data.component.css', '../data-components.component.css']
 })
 export class MovementDataComponent implements OnInit {
 

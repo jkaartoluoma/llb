@@ -6,7 +6,7 @@ import {isNullOrUndefined} from '../../../utils';
 @Component({
   selector: 'engine-data',
   templateUrl: './engine-data.component.html',
-  styleUrls: ['./engine-data.component.css']
+  styleUrls: ['./engine-data.component.css', '../data-components.component.css']
 })
 export class EngineDataComponent implements OnInit {
 	
