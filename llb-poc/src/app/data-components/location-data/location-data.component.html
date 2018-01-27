@@ -48,7 +48,6 @@
 				<span *ngIf="getNmeaMode() === 'unknown'"><n-a></n-a></span>
 				<span *ngIf="getNmeaMode() !== 'unknown'">{{getNmeaMode()}}</span>
 			</li>
-			<li><br></li>
 			<li>
 				<span>Course over true north: </span>
 				<span *ngIf="!isCompassValid()"><n-a></n-a></span>

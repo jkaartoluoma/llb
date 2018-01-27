@@ -6,7 +6,7 @@ import {isNullOrUndefined} from '../../../utils';
 @Component({
   selector: 'bus-data',
   templateUrl: './bus-data.component.html',
-  styleUrls: ['./bus-data.component.css']
+  styleUrls: ['./bus-data.component.css', '../data-components.component.css']
 })
 export class BusDataComponent implements OnInit {
   // Historical data for speed

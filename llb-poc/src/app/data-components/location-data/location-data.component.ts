@@ -6,7 +6,7 @@ import {isNullOrUndefined} from '../../../utils';
 @Component({
   selector: 'location-data',
   templateUrl: './location-data.component.html',
-  styleUrls: ['./location-data.component.css']
+  styleUrls: ['./location-data.component.css', '../data-components.component.css']
 })
 export class LocationDataComponent implements OnInit {
 

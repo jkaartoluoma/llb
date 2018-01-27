@@ -1,10 +1,10 @@
 <!-- These need css, remove "&& false" form next ngIf to show charts -->
 <div id="frontpage_charts" *ngIf="llbService.isLiveData() && false">
 	<!-- Speed -->
-	<ng-container *ngIf="!isNullOrUndefined(llbService.data[0]?.spd)">
-		<strong>Speed </strong>
-		<app-radial-gauge [data]="llbService.data[0]?.spd*3.6 < llbService.data[0]?.eps ? 0 : llbService.data[0]?.spd*3.6"></app-radial-gauge>
-	</ng-container>
+    <span>Speed:</span>
+  	<ng-container *ngIf="!isNullOrUndefined(llbService.data[0]?.spd)">
+  		<app-radial-gauge id="speed" [data]="llbService.data[0]?.spd*3.6 < llbService.data[0]?.eps ? 0 : llbService.data[0]?.spd*3.6"></app-radial-gauge>
+  	</ng-container>
 	<!-- Battery -->
     <ng-container *ngIf="!isNullOrUndefined(llbService.data[0]?.can?.DD_BatteryLevel)">
 		<strong>Battery </strong>
@@ -25,11 +25,11 @@
 <div id="bus_images">
   <img id ="bus" src="assets/img/bussi1.png">
   <div>
-  	<a (click)="showModal(modal1, 1)"><img id="default" class="button" src="../../assets/img/default.png"></a>
-  	<a (click)="showModal(modal2, 2)"><img id="location" class="button" src="../../assets/img/location.png"></a>
-  	<a (click)="showModal(modal3, 3)"><img id="motor" class="button" src="../../assets/img/motor.png"></a>
-  	<a (click)="showModal(modal4, 4)"><img id="driver" class="button" src="../../assets/img/driver.png"></a>
-  	<a (click)="showModal(modal5, 5)"><img id="battery" class="button" src="../../assets/img/battery.png"></a>
+  	<a (click)="showModal(modal1, 1)"><img id="default" class="button" src="../../assets/img/default.png" onmouseover="this.src='../../assets/img/default-hover.png';" onmouseout="this.src='../../assets/img/default.png';"></a>
+  	<a (click)="showModal(modal2, 2)"><img id="location" class="button" src="../../assets/img/location.png" onmouseover="this.src='../../assets/img/location-hover.png';" onmouseout="this.src='../../assets/img/location.png';"></a>
+  	<a (click)="showModal(modal3, 3)"><img id="motor" class="button" src="../../assets/img/motor.png" onmouseover="this.src='../../assets/img/motor-hover.png';" onmouseout="this.src='../../assets/img/motor.png';"></a>
+  	<a (click)="showModal(modal4, 4)"><img id="driver" class="button" src="../../assets/img/driver.png" onmouseover="this.src='../../assets/img/driver-hover.png';" onmouseout="this.src='../../assets/img/driver.png';"></a>
+  	<a (click)="showModal(modal5, 5)"><img id="battery" class="button" src="../../assets/img/battery.png" onmouseover="this.src='../../assets/img/battery-hover.png';" onmouseout="this.src='../../assets/img/battery.png';"></a>
   </div>
 </div>
 

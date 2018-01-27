@@ -11,18 +11,6 @@
             <span class="header">Electric motor rpm:</span>
             <rpm-gauge [data]='llbService.data[0]?.can?.EEC1_MotorSpeed'></rpm-gauge>
         </div>
-        <!-- Old Gauge for RPM
-        <span *ngIf="!isRpmValid()">Electric motor rpm: <n-a></n-a></span>
-        <span *ngIf="isRpmValid()">Electric motor rpm:</span>
-        <mwl-gauge
-          [max]="10000"
-          [dialStartAngle]="180"
-          [dialEndAngle]="0"
-          [value]="gaugeValue"
-          [animated]="true"
-          [animationDuration]="0.5">
-        </mwl-gauge>
-        -->
 	    </li>
 	  </ul>
   </div>

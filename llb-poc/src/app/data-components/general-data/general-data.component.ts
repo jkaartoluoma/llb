@@ -7,7 +7,7 @@ import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 @Component({
   selector: 'general-data',
   templateUrl: './general-data.component.html',
-  styleUrls: ['./general-data.component.css']
+  styleUrls: ['./general-data.component.css', '../data-components.component.css']
 })
 
 
