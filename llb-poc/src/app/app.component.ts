@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LlbService} from './service/llb.service';
 import {LoaderService} from './service/loader.service';
 
-@Component({
+@Component({ 
   selector: 'app-root',
   templateUrl: "./" + (window.screen.width > 900 ?
     "app.component.html" :
