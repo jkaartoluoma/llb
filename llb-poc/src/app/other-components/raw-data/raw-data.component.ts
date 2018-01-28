@@ -12,13 +12,11 @@ export class RawDataComponent implements OnInit {
 
   constructor(public llbService: LlbService, public loader: LoaderService) { }
 
-  data: HTMLElement;
+  //data: HTMLElement;
   
   ngOnInit() {
 	  // this.data = document.getElementById("rawdata");
 	  // let x = JSON.stringify(this.llbService.data[0], null, '  ')
-	  // .replace(/ /g, '&nbsp;')
-	  // .replace(/\\n/g, '&lt;br&gt;');
   }
 
 }
