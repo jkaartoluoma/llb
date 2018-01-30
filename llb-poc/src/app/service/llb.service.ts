@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {RestService} from './rest.service';
 import {Observable} from 'rxjs/Observable';
 import {VehicleData} from './model/VehicleData';
+import {environment} from '../../environments/environment';
 
 // Length of the data kept in memory at the time (seconds)
 const dataLength = 60;
@@ -28,7 +29,7 @@ export class LlbService {
   }
 
   getRealTimeData(busId: number): Observable<any> {
-    const apiUrl =  busId === 666 ? 'http://localhost:8080' : 'https://llb.cloud.tyk.io/llb-bus-api';
+    const apiUrl =  busId === 666 ? environment.testApiUrl : environment.realApiUrl;
     return this.rest.get(apiUrl + '/GetData?busId=' + busId, () => { this.loading = false; });
   }
 
@@ -76,5 +77,6 @@ export class LlbService {
     this.data = [];
     this._vehicleId = id;
     this.loading = true;
+    this.isLive = false;
   }
 }

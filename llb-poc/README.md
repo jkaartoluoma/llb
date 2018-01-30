@@ -1,10 +1,13 @@
-#Using local server for testdata
+# Build app
 
-Start server:
-cd testdata
-./gradlew bootRun
+ng build
 
-Change data url:
-llbservice -> realTimeDataApiUrl = 'http://localhost:8080'
 
-Note! You may also want to hardcore llbservice.isLiveData() funtion to return true.
+# Run in dev mode
+
+ng serve
+
+
+# Change api key & url
+
+See environment.ts

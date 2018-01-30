@@ -4,8 +4,7 @@ import {Http, RequestOptions, Headers, ResponseContentType} from '@angular/http'
 import {LoaderService} from './loader.service';
 
 import 'rxjs/add/operator/finally';
-
-const api_key = '5a07a2f986f30e00015b3cb106cfd0ff4f0f4949bf1ee95ef3e3a930';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class RestService {
@@ -25,7 +24,7 @@ export class RestService {
       url,
       new RequestOptions({
         headers: new Headers({
-          'Authorization': 'Bearer ' + api_key
+          'Authorization': 'Bearer ' + environment.api_key
         }),
         responseType: responseType
       }))
