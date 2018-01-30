@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LlbService} from './service/llb.service';
 import {LoaderService} from './service/loader.service';
 
-@Component({ 
+@Component({
   selector: 'app-root',
   templateUrl: "./" + (window.screen.width > 900 ?
     "app.component.html" :
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
 
   //menu items form mobile mode
   selectedMenuMobile: number = 0;
-  menuItems: any[] = [ 
+  menuItems: any[] = [
     { id: 0, title: "Home" },
     { id: 1, title: "Raw Data" },
     { id: 2, title: "Info" },
@@ -33,13 +33,13 @@ export class AppComponent implements OnInit {
     // start animating background if desktop mode
     if (window.screen.width > 900) {
       this.animateBackground();
-    } 
+    }
   }
 
   // Vehicle ID list for app
   getActiveVehicles() {
     this.vehicleIds = [
-      1612,3008,3009,9999
+      666,1612,3008,3009,9999
     ]
   }
 

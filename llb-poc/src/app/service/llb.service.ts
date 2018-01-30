@@ -27,7 +27,7 @@ export class LlbService {
   }
 
   getRealTimeData(busId: number): Observable<any> {
-    const apiUrl = 'https://llb.cloud.tyk.io/llb-bus-api';
+    const apiUrl =  busId === 666 ? 'http://localhost:8080' : 'https://llb.cloud.tyk.io/llb-bus-api';
     return this.rest.get(apiUrl + '/GetData?busId=' + busId);
   }
 

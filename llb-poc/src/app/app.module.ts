@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { ChartsModule } from 'ng2-charts';
 import { AgmCoreModule } from '@agm/core';
 import { GaugeModule } from 'angular-gauge';
-import { GaugesModule } from 'ng-canvas-gauges/lib';
+import { GaugesModule } from 'ng-canvas-gauges/src';
 import { SlideMenuModule } from 'cuppa-ng2-slidemenu/cuppa-ng2-slidemenu';
 
 //services
