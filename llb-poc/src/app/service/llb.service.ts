@@ -8,6 +8,7 @@ const dataLength = 60;
 
 @Injectable()
 export class LlbService {
+  loading = true;
   _vehicleId: number;
 
   // Up-to-date vehicle data, index 0 containing the most recent data
@@ -28,7 +29,7 @@ export class LlbService {
 
   getRealTimeData(busId: number): Observable<any> {
     const apiUrl =  busId === 666 ? 'http://localhost:8080' : 'https://llb.cloud.tyk.io/llb-bus-api';
-    return this.rest.get(apiUrl + '/GetData?busId=' + busId);
+    return this.rest.get(apiUrl + '/GetData?busId=' + busId, () => { this.loading = false; });
   }
 
   start(): void {
@@ -60,7 +61,7 @@ export class LlbService {
             this.isLive = false;
           }
 
-        });
+          });
       }
     }, 1000);
   }
@@ -74,5 +75,6 @@ export class LlbService {
   changeBusId(id: number) {
     this.data = [];
     this._vehicleId = id;
+    this.loading = true;
   }
 }

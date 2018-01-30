@@ -18,7 +18,7 @@ export class RestService {
    * @param {ResponseContentType} responseType
    * @returns {Observable<any>}
    */
-  get(url: string, responseType = ResponseContentType.Json): Observable<any> {
+  get(url: string, doFinally: () => void = () => {}, responseType = ResponseContentType.Json): Observable<any> {
     this.loader.addTask();
 
     return this.http.get(
@@ -31,6 +31,7 @@ export class RestService {
       }))
       .finally(() => {
         this.loader.removeTask();
+        doFinally();
       });
   }
 }
