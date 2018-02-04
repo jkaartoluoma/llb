@@ -93,7 +93,6 @@ import { FeedbackComponent } from './other-components/feedback/feedback.componen
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBd3tmzegmPCnjxAuIHOF9ZNcGytvCL24E'
     }),
-    GaugeModule.forRoot(),
     GaugesModule,
     SlideMenuModule
   ],
