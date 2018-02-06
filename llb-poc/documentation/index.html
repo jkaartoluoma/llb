@@ -1,0 +1,902 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>llb-poc documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	    <link rel="stylesheet" href="./styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">llb-poc documentation</a>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="./index.html">llb-poc documentation</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./index.html"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a 
+                                        
+                                         href="./overview.html" 
+                                         href="./overview.html" 
+                                        >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                                <li class="link">
+                                  <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./modules.html" >
+                            <div class="menu-toggler linked" data-toggle="collapse"
+                                    data-target="#xs-modules-links"
+                            >
+                                <span class="fa fa-archive"></span>
+                                <span class="link-name">Modules</span>
+                                <span class="fa fa-angle-down"></span>
+                            </div>
+                        </a>
+                        <ul class="links collapse "
+                                id="xs-modules-links"
+                            >
+                                <li class="link">
+                                    <a href="./modules/AppModule.html" >AppModule</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-components-links"
+                            >
+                            <span class="fa fa-cogs"></span>
+                            <span>Components</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-components-links"
+                            >
+                                <li class="link">
+                                    <a href="./components/AppComponent.html" >AppComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/BatteryChartComponent.html" >BatteryChartComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/BatteryDataComponent.html" >BatteryDataComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/BusDataComponent.html" >BusDataComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/CompassComponent.html" >CompassComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/EngineDataComponent.html" >EngineDataComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/FeedbackComponent.html" >FeedbackComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/GeneralDataComponent.html" >GeneralDataComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/HomeComponent.html" >HomeComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/InfoComponent.html" >InfoComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/LinechartComponent.html" >LinechartComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/LoaderComponent.html" >LoaderComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/LocationDataComponent.html" >LocationDataComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/MenuComponent.html" >MenuComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/MobileMenuComponent.html" >MobileMenuComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/ModalComponent.html" >ModalComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/MovementDataComponent.html" >MovementDataComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/NAChartComponent.html" >NAChartComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/NAComponent.html" >NAComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/NAGaugeComponent.html" >NAGaugeComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/NaTempComponent.html" >NaTempComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/OutTempChartComponent.html" >OutTempChartComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/PedalChartComponent.html" >PedalChartComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/RadialGaugeComponent.html" >RadialGaugeComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/RawDataComponent.html" >RawDataComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/RpmGaugeComponent.html" >RpmGaugeComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/SensorDataComponent.html" >SensorDataComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/SlipGaugeComponent.html" >SlipGaugeComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/TempChartComponent.html" >TempChartComponent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-classes-links"
+                            >
+                            <span class="fa fa-file-code-o"></span>
+                            <span>Classes</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-classes-links"
+                            >
+                                <li class="link">
+                                    <a href="./classes/FeedbackData.html" >FeedbackData</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/LlbPocPage.html" >LlbPocPage</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/MenuButton.html" >MenuButton</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./classes/MenuButton.html" >MenuButton</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-injectables-links"
+                            >
+                            <span class="fa fa-long-arrow-down"></span>
+                            <span>Injectables</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-injectables-links"
+                            >
+                                <li class="link">
+                                    <a href="./injectables/LlbService.html" >LlbService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./injectables/LoaderService.html" >LoaderService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./injectables/RestService.html" >RestService</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-interfaces-links"
+                            >
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="./interfaces/AccelerationStruct.html" >AccelerationStruct</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./interfaces/CanData.html" >CanData</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./interfaces/GyroscopeStruct.html" >GyroscopeStruct</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./interfaces/InclinationStruct.html" >InclinationStruct</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./interfaces/MagnetometerStruct.html" >MagnetometerStruct</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./interfaces/RotationStruct.html" >RotationStruct</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./interfaces/VehicleData.html" >VehicleData</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-miscellaneous-links"
+                            >
+                            <span class="fa fa-cubes"></span>
+                            <span>Miscellaneous</span>
+                            <span class="fa fa-angle-down"></span>
+                        </div>
+                        <ul class="links collapse "
+                                id="xs-miscellaneous-links"
+                            >
+                                <li class="link">
+                                  <a href="./miscellaneous/functions.html" data-type="entity-link" >Functions</a>
+                                </li>
+                                <li class="link">
+                                  <a href="./miscellaneous/variables.html" data-type="entity-link" >Variables</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                    </li>
+            
+                    <li class="divider"></li>
+                    <li class="copyright">
+                            Documentation generated using <a href="https://compodoc.github.io/website/" target="_blank">
+                                        <img src=".//images/compodoc-vectorise.svg" class="img-responsive">
+                            </a>
+                    </li>
+            
+                </ul>
+            
+            </nav>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="./index.html">llb-poc documentation</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./index.html"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a 
+                                               
+                                                href="./overview.html" 
+                                                href="./overview.html" 
+                                               >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./modules.html" >
+                                   <div class="menu-toggler linked" data-toggle="collapse"
+                                           data-target="#modules-links"
+                                   >
+                                       <span class="fa fa-archive"></span>
+                                       <span class="link-name">Modules</span>
+                                       <span class="fa fa-angle-down"></span>
+                                   </div>
+                               </a>
+                               <ul class="links collapse "
+                                       id="modules-links"
+                   >
+                                       <li class="link">
+                                           <a href="./modules/AppModule.html" >AppModule</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#components-links"
+                   >
+                                   <span class="fa fa-cogs"></span>
+                                   <span>Components</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="components-links"
+                   >
+                                       <li class="link">
+                                           <a href="./components/AppComponent.html" >AppComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/BatteryChartComponent.html" >BatteryChartComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/BatteryDataComponent.html" >BatteryDataComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/BusDataComponent.html" >BusDataComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/CompassComponent.html" >CompassComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/EngineDataComponent.html" >EngineDataComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/FeedbackComponent.html" >FeedbackComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/GeneralDataComponent.html" >GeneralDataComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/HomeComponent.html" >HomeComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/InfoComponent.html" >InfoComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/LinechartComponent.html" >LinechartComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/LoaderComponent.html" >LoaderComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/LocationDataComponent.html" >LocationDataComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/MenuComponent.html" >MenuComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/MobileMenuComponent.html" >MobileMenuComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/ModalComponent.html" >ModalComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/MovementDataComponent.html" >MovementDataComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/NAChartComponent.html" >NAChartComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/NAComponent.html" >NAComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/NAGaugeComponent.html" >NAGaugeComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/NaTempComponent.html" >NaTempComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/OutTempChartComponent.html" >OutTempChartComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/PedalChartComponent.html" >PedalChartComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/RadialGaugeComponent.html" >RadialGaugeComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/RawDataComponent.html" >RawDataComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/RpmGaugeComponent.html" >RpmGaugeComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/SensorDataComponent.html" >SensorDataComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/SlipGaugeComponent.html" >SlipGaugeComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/TempChartComponent.html" >TempChartComponent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#classes-links"
+                   >
+                                   <span class="fa fa-file-code-o"></span>
+                                   <span>Classes</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="classes-links"
+                   >
+                                       <li class="link">
+                                           <a href="./classes/FeedbackData.html" >FeedbackData</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/LlbPocPage.html" >LlbPocPage</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/MenuButton.html" >MenuButton</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./classes/MenuButton.html" >MenuButton</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#injectables-links"
+                   >
+                                   <span class="fa fa-long-arrow-down"></span>
+                                   <span>Injectables</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="injectables-links"
+                   >
+                                       <li class="link">
+                                           <a href="./injectables/LlbService.html" >LlbService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./injectables/LoaderService.html" >LoaderService</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./injectables/RestService.html" >RestService</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#interfaces-links"
+                   >
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="./interfaces/AccelerationStruct.html" >AccelerationStruct</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./interfaces/CanData.html" >CanData</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./interfaces/GyroscopeStruct.html" >GyroscopeStruct</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./interfaces/InclinationStruct.html" >InclinationStruct</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./interfaces/MagnetometerStruct.html" >MagnetometerStruct</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./interfaces/RotationStruct.html" >RotationStruct</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./interfaces/VehicleData.html" >VehicleData</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#miscellaneous-links"
+                   >
+                                   <span class="fa fa-cubes"></span>
+                                   <span>Miscellaneous</span>
+                                   <span class="fa fa-angle-down"></span>
+                               </div>
+                               <ul class="links collapse "
+                                       id="miscellaneous-links"
+                   >
+                                       <li class="link">
+                                         <a href="./miscellaneous/functions.html" data-type="entity-link" >Functions</a>
+                                       </li>
+                                       <li class="link">
+                                         <a href="./miscellaneous/variables.html" data-type="entity-link" >Variables</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                           <li class="copyright">
+                                   Documentation generated using <a href="https://compodoc.github.io/website/" target="_blank">
+                                               <img src=".//images/compodoc-vectorise.svg" class="img-responsive">
+                                   </a>
+                           </li>
+                   
+                       </ul>
+                   
+                   </nav>
+               </div>
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<p>﻿</p>
+<h1 id="documentation-for-llb-data-visualization-application-">Documentation for LLB-data visualization application.</h1>
+<h2 id="table-of-contents">Table of contents</h2>
+<ul>
+<li><a href="#how-to-run">How to run</a><br></li>
+<li><a href="#developer-guidelines">Dev guidelines</a><br></li>
+<li><a href="#structure">Structure</a><br></li>
+<li><a href="#api">Api</a><br></li>
+<li><a href="#how-to-use-and-create-charts">How to use and create charts</a><br></li>
+<li><a href="#how-to-use-test-data">How to use test data</a><br></li>
+<li><a href="#tl-dr">tl;dr</a></li>
+</ul>
+<h2 id="application">Application</h2>
+<p>Applications purpose is to show users and developers what kind of data, is available from the buses through rest-api.
+Our goal has been to visualized the data, so that users get some idea how to use the data. App provides different kind of charts and gauges to deliver.
+Application is web-based and the main technology is angular 4.0.0</p>
+<p>If you&#39;re not familiar with Angular 2 (v. 4.0.0) we recommend you to take tutorial at: <a href="https://angular.io/tutorial">https://angular.io/tutorial</a></p>
+<hr>
+<h3 id="how-to-run-">How to run:</h3>
+<p>Requirements for running the application in dev environment:</p>
+<h4 id="1-required-tools">1. Required tools</h4>
+<ul>
+<li>angular-cli (<a href="https://github.com/angular/angular-cli">https://github.com/angular/angular-cli</a>)</li>
+<li>nodejs (<a href="https://docs.npmjs.com/getting-started/installing-node">https://docs.npmjs.com/getting-started/installing-node</a>)</li>
+</ul>
+<h4 id="2-clone-repo-">2. Clone repo:</h4>
+<ul>
+<li><code>git clone https://akselip@bitbucket.org/kaj_torrkulla/llb.git</code></li>
+</ul>
+<h3 id="running-application-inside-development-kit-">Running application inside development kit:</h3>
+<h4 id="1-run-development-kit">1. Run development-kit</h4>
+<ul>
+<li><code>cd development-kit</code></li>
+<li>(<code>npm install</code>) --- You must use the &quot;npm install&quot; command at the first time to install all the dependencies.</li>
+<li><code>npm start</code></li>
+</ul>
+<h4 id="2-run-angular-app">2. Run angular app</h4>
+<ul>
+<li><code>cd llb-poc</code></li>
+<li><code>ng build --watch</code></li>
+</ul>
+<h3 id="running-application-without-development-kit-">Running application without development kit:</h3>
+<h4 id="1-run-angular-app">1. Run angular app</h4>
+<ul>
+<li><code>cd llb-poc</code></li>
+<li><code>ng serve</code></li>
+</ul>
+<p>The application should be running at: 127.0.0.1:4200</p>
+<h3 id="circumventing-cors-">Circumventing CORS:</h3>
+<ul>
+<li>On firefox, install &quot;Cors everywhere&quot; -plugin</li>
+<li>On chrome, run chrome with following command (note: kill all open chrome processes first): <ul>
+<li>Windows: chromium-browser --disable-web-security --user-data-dir</li>
+<li>Os.X: open -a Google\ Chrome --args --disable-web-security --user-data-dir</li>
+<li>Linux: google-chrome --disable-web-security</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="developer-guidelines">Developer guidelines</h2>
+<h4 id="1-use-angular-cli-to-generate-classes-">1. Use angular-cli to generate classes:</h4>
+<ul>
+<li>Component: <code>ng generate component [name]</code></li>
+<li>Service: <code>ng generate service [name]</code></li>
+<li>etc.</li>
+<li>Read: <a href="https://github.com/angular/angular-cli#usage">https://github.com/angular/angular-cli#usage</a></li>
+</ul>
+<h4 id="2-use-correct-directory-structure">2. Use correct directory structure</h4>
+<ul>
+<li>Components should be in their own directory, under &quot;component&quot; -root directory</li>
+<li>Services should be under &quot;service&quot; -directory</li>
+<li>Chart-components should be under “charts” -directory</li>
+<li>All components that display data, should be under “data-components” directory.</li>
+<li>Components that handle desktop and mobile view, can be found in their own directories “mobile” and “desktop”</li>
+<li>Secondary components (ex. raw-data), should be under “other-components” -directory</li>
+<li>All images should be under “./assets/img/” -directory</li>
+</ul>
+<hr>
+<h2 id="structure">Structure</h2>
+<p>├───app<br>
+│   ├───charts<br>
+│   │   ├───battery-chart<br>
+│   │   ├───compass<br>
+│   │   ├───linechart<br>
+│   │   ├───na-charts<br>
+│   │   │   ├───n-a<br>
+│   │   │   ├───n-a-chart<br>
+│   │   │   ├───n-a-gauge<br>
+│   │   │   └───na-temp<br>
+│   │   ├───out-temp-chart<br>
+│   │   ├───pedal-chart<br>
+│   │   ├───radial-gauge<br>
+│   │   ├───rpm-gauge<br>
+│   │   ├───slip-gauge<br>
+│   │   └───temp-chart<br>
+│   ├───data-components<br>
+│   │   ├───battery-data<br>
+│   │   ├───bus-data<br>
+│   │   ├───engine-data<br>
+│   │   ├───general-data<br>
+│   │   ├───location-data<br>
+│   │   ├───movement-data<br>
+│   │   └───sensor-data<br>
+│   ├───desktop<br>
+│   │   ├───home<br>
+│   │   ├───menu<br>
+│   │   └───modal<br>
+│   ├───mobile<br>
+│   │   └───mobile-menu<br>
+│   ├───other-components<br>
+│   │   ├───feedback<br>
+│   │   ├───info<br>
+│   │   ├───loader<br>
+│   │   └───raw-data<br>
+│   └───service<br>
+│       └───model<br>
+├───assets<br>
+│   └───img<br>
+└───environments</p>
+<h3 id="app-component">App component</h3>
+<p>App component handles showing the menu components (desktop and mobile). Mobile is used if clients device screen width is below 900px. </p>
+<h3 id="desktop">Desktop</h3>
+<p>The desktop directory holds home, menu and modal -component. </p>
+<ul>
+<li><p>Home -component handles showing the modal windows where the data components are displayed. It also show few visualizations and works as landing page for application.</p>
+</li>
+<li><p>Menu -component handles navigation bar buttons.</p>
+</li>
+<li><p>Modal -component handles modal window logic.</p>
+</li>
+</ul>
+<h3 id="mobile">Mobile</h3>
+<p>Under mobile directory, you can find mobile-menu component, which handles the menu in mobile view.</p>
+<h3 id="environment">Environment</h3>
+<p>From environment.ts you can find api key and api url.</p>
+<h3 id="service">Service</h3>
+<p>llb.service.ts handles get request and fetches the data from the rest. It also maps the data by implementing ./model/VehicleData.ts interface.</p>
+<hr>
+<h2 id="api">Api</h2>
+<p>The rest api is provided by <a href="http://livinglabbus.fi/">VTT</a>. Updates at 1hz frequency and provides all the data from the bus.
+App first maps the data. After mapping, the data is usable by calling the mapped variable. Example of mapped variables: llbService.data[0].spd (speed) and for can-data: llbService.data[0].can?.DD_BatteryLevel.
+ApiUrl  and apiKeyis located ./service/llb.service.ts</p>
+<hr>
+<h2 id="how-to-use-and-create-charts">How to use and create charts</h2>
+<p>Example from battery-data component:</p>
+<pre class="line-numbers"><code class="language-javascript">  &lt;div class=&quot;container&quot;&gt; &lt;!-- MIT battery chart --&gt;
+    &lt;n-a-chart *ngIf=&quot;isNullOrUndefined(llbService.data[0]?.can?.DD_BatteryLevel)&quot;&gt;&lt;/n-a-chart&gt;
+    &lt;ng-container *ngIf=&quot;!isNullOrUndefined(llbService.data[0]?.can?.DD_BatteryLevel)&quot;&gt;
+     &lt;app-battery-chart [data]=&quot;llbService.data[0]?.can?.DD_BatteryLevel&quot; [name]=&quot;Battery&quot;&gt;&lt;/app-battery-chart&gt;
+   &lt;!-- &lt;li&gt;&lt;span&gt;Battery level (%): {{llbService.data[0]?.can?.DD_BatteryLevel}}&lt;/span&gt;&lt;/li&gt; --&gt;
+    &lt;!-- //Resolution 0.4% --&gt;
+  &lt;/ng-container&gt;
+  &lt;/div&gt;</code></pre><ul>
+<li>All the displayed data should be checked with:<pre class="line-numbers"><code class="language-javascript">  isNullOrUndefined([data])</code></pre>function checks if the bus is not giving the data. If there is no data coming the function returns true, and then the n/a -data should be handled by showing n-a-component. There is currently four different n-a-components:</li>
+<li>“n-a” for text visualization</li>
+<li>“n-a-chart” for chart visualization</li>
+<li>“n-a-gauge” for gauge visualization</li>
+<li>“n-a-temp” for temp-meter visualization</li>
+</ul>
+<p>If the bus is sending data, then the real visualization is showed in the example battery-chart -component. To use the chart you have to give it the data what you want it to show, here we’re giving battery-chart the name “Battery” and battery level data from the bus:</p>
+<p><app-battery-chart [data]="llbService.data[0]?.can?.DD_BatteryLevel" [name]="Battery"></app-battery-chart></p>
+<p>The battery-chart -component then uses the data to draw the chart (in battery-chart.component.ts):</p>
+<pre class="line-numbers"><code class="language-javascript">draw() {
+    const charge = this.data;
+    //https://github.com/bencevans/canvas-battery
+    // Canvas
+    this.context = (&lt;HTMLCanvasElement&gt;this.myCanvas.nativeElement).getContext(&#39;2d&#39;);
+
+    //Battery outlines
+    this.context.beginPath();
+    this.context.rect(5, 5, 180, 90);
+    this.context.lineWidth = 10;
+    this.context.strokeStyle = &#39;black&#39;;
+    this.context.stroke();
+
+    this.context.beginPath();
+    this.context.rect(190, 40, 10, 20);
+    this.context.fillStyle = &#39;black&#39;;
+    this.context.fill();
+    this.context.stroke();
+
+    //Battery fill
+    this.context.beginPath();
+    this.context.rect(10, 10, 170 * (charge/100), 80);
+    this.context.fillStyle = &#39;rgb(&#39;+ Math.floor((1-(charge/100))*255) + &#39;,&#39; + Math.floor((charge/100)*255) + &#39;,0)&#39;;
+    this.context.fill();
+
+    //Number
+    this.context.font = &#39;3em Arial&#39;;
+    this.context.fillStyle = &#39;black&#39;;
+    this.context.fillText(Math.round(this.data) + &quot;%&quot;, 70, 60);
+  }</code></pre><p>For creating new charts, you can use the existing ones if they suit the data you’re visualizing or you can create own by creating a new component and for example implementing something from ng-gauges-charts what is being used in many of the applications gauges. <a href="https://canvas-gauges.com/">https://canvas-gauges.com/</a></p>
+<hr>
+<h3 id="how-to-use-test-data">How to use test data</h3>
+<h4 id="testdata-server-for-llb-applications-">TestData server for LLB applications.</h4>
+<ul>
+<li><p>Server mimics a live llb rest server, and returns valid bus data.</p>
+</li>
+<li><p>Returned data ALWAYS has a busId 666, regardless which bus was recorder. Timestamp is also always fresh.</p>
+</li>
+<li><p>Prebuilt application and recorded data file can be found in ./jar directory.</p>
+</li>
+</ul>
+<h4 id="requirements">Requirements</h4>
+<ul>
+<li>JRE8</li>
+</ul>
+<h4 id="build-server-">Build server:</h4>
+<ol>
+<li><p><code>gradlew build</code></p>
+</li>
+<li><p>Jar will be built into following location: ./build/libs/</p>
+</li>
+</ol>
+<h4 id="run-server-">Run server:</h4>
+<ol>
+<li><p><code>java -jar testdata-0.0.1-SNAPSHOT.jar [optional testdata filename]</code></p>
+<ul>
+<li>If no arguments is provided, a valid datafile is expected to be found from ./testdata.dat</li>
+</ul>
+</li>
+</ol>
+<h4 id="run-in-record-mode-">Run in record mode:</h4>
+<ol>
+<li><p><code>java -jar testdata-0.0.1-SNAPSHOT.jar record [busid] [output file name]</code></p>
+<ul>
+<li>Example: java -jar testdata-0.0.1-SNAPSHOT.jar record 9999 &quot;output.dat&quot;</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="tl-dr">tl;dr</h3>
+<h4 id="build-app">Build app</h4>
+<ul>
+<li><code>ng build</code></li>
+</ul>
+<h4 id="run-in-dev-mode">Run in dev mode</h4>
+<ul>
+<li><code>ng serve</code></li>
+</ul>
+<h4 id="change-api-key-url">Change api key &amp; url</h4>
+<ul>
+<li>See environment.ts</li>
+</ul>
+<hr>
+<h3 id="info-licenses">Info &amp; Licenses</h3>
+<p>App made by: Kaj Torrkulla, Toni Linnusmäki, Valtteri Pohjola, Akseli Piilola, Tuomas Kaartoluoma and Joonas Kaartoluoma</p>
+<h3 id="licenses">Licenses</h3>
+<h5 id="compass-icon">Compass icon</h5>
+<p>Icons made by <a href="https://www.flaticon.com/authors/pixel-buddha">Pixel buddha</a> from <a href="https://www.flaticon.com/">https://www.flaticon.com/</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/">CC 3.0 BY</a></p>
+<h5 id="ramp-icon-n-a-chart-component-na-icon-in-img-nacharts-png">ramp icon, n-a-chart component na-icon in img nacharts.png</h5>
+<p>Icons made by <a href="http://www.freepik.com">Freepik</a> from <a href="https://www.flaticon.com/">https://www.flaticon.com/</a>  is licensed by <a href="http://creativecommons.org/licenses/by/3.0/">CC 3.0 BY</a></p>
+<h4 id="battery-canvas">Battery Canvas</h4>
+<p><a href="https://github.com/bencevans/canvas-battery">Canvas Battery Charge Gauge</a> is licensed by MIT</p>
+<h5 id="ng-gauges">ng-gauges</h5>
+<p>The MIT License (MIT) Copyright (c) 2016 Mykhailo Stadnyk mikhus@gmail.com</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+<br>
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+<br>
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+           </div>
+       </div>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script>var COMPODOC_CURRENT_PAGE_DEPTH = 0;</script>
+
+       <script src="./js/search/search.js"></script>
+       <script src="./js/search/lunr.min.js"></script>
+       <script src="./js/search/search-lunr.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+       <script src="./js/search/search_index.js"></script>
+
+    </body>
+</html>
