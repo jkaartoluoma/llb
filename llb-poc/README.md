@@ -9,7 +9,8 @@
 - [Api](#api)<br>
 - [How to use and create charts](#how-to-use-and-create-charts)<br>
 - [How to use test data](#how-to-use-test-data)<br>
-- [tl;dr](#tl-dr)
+- [tl;dr](#tl-dr)<br>
+- [Info & Licenses](#info-licenses)
 
 
 
