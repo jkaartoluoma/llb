@@ -63,7 +63,7 @@ export class LlbService {
 
           // Update datatable
           this.data = tempArray;
-          if (new Date(this.data[0].tsl).getTime() > (new Date().getTime() - 10000)) {
+          if (new Date(this.data[0].tsl).getTime() > (new Date().getTime() - 20000)) {
             this.isLive = true;
           } else {
             this.isLive = false;

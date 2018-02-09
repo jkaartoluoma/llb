@@ -102,7 +102,7 @@ const gapiClientConfig: NgGapiClientConfig = {
     HttpModule,
     ChartsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBd3tmzegmPCnjxAuIHOF9ZNcGytvCL24E'
+      apiKey: 'AIzaSyAefh_tEDnkdQWLlW38ciF9N-ZRuFTEVFY'
     }),
     GoogleApiModule.forRoot({
       provide: NG_GAPI_CONFIG,
