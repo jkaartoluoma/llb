@@ -29,12 +29,19 @@ export class LlbService {
   }
 
   getRealTimeData(busId: number): Observable<any> {
-    const apiUrl =  busId === 666 ? environment.testApiUrl : environment.realApiUrl;
-    return this.rest.get(apiUrl + '/GetData?busId=' + busId, () => { this.loading = false; });
+    return this.rest.get((busId == 666
+      ? environment.testApiUrl
+      : environment.realApiUrl)
+      + '/GetData?busId='
+      + busId,
+      () => {
+        this.loading = false;
+      });
   }
 
   start(): void {
     this.intervalLoop = setInterval (() => {
+
       if (this._vehicleId != null) {
 
         // Get new data

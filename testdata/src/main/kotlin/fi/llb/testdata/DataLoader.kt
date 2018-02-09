@@ -28,7 +28,7 @@ object DataLoader {
 
             // Replace timestamp
             val regex = Regex("\"tsl\":\"[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}Z\"")
-            val dateStr = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'.000Z'").format(Date())
+            val dateStr = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'.002Z'").format(Date())
             val replacement = "\"tsl\":\"$dateStr\""
             data = data.replace(regex, replacement)
 
