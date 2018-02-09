@@ -7,5 +7,7 @@ export const environment = {
   production: false,
   api_key: '5a07a2f986f30e00015b3cb106cfd0ff4f0f4949bf1ee95ef3e3a930',
   testApiUrl: 'http://localhost:8080',
-  realApiUrl: 'https://llb.cloud.tyk.io/llb-bus-api'
+  realApiUrl: 'https://llb.cloud.tyk.io/llb-bus-api',
+  gmailClientId: 'xxx',
+  gmailApiKey: 'xxx'
 };

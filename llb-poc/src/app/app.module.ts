@@ -51,7 +51,18 @@ import { NAChartComponent } from './charts/na-charts/n-a-chart/n-a-chart.compone
 import { NAGaugeComponent } from './charts/na-charts/n-a-gauge/n-a-gauge.component';
 import { NaTempComponent } from './charts/na-charts/na-temp/na-temp.component';
 import { FeedbackComponent } from './other-components/feedback/feedback.component';
+import {EmailService} from './service/email.service';
+import {GoogleApiModule, NG_GAPI_CONFIG, NgGapiClientConfig} from 'ng-gapi';
+import {environment} from '../environments/environment';
 
+const gapiClientConfig: NgGapiClientConfig = {
+  client_id: environment.gmailClientId,
+  discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest'],
+  scope: [
+    'https://www.googleapis.com/auth/gmail.readonly',
+    'https://www.googleapis.com/auth/gmail.send'
+  ].join(' ')
+};
 
 @NgModule({
   declarations: [
@@ -93,10 +104,14 @@ import { FeedbackComponent } from './other-components/feedback/feedback.componen
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBd3tmzegmPCnjxAuIHOF9ZNcGytvCL24E'
     }),
+    GoogleApiModule.forRoot({
+      provide: NG_GAPI_CONFIG,
+      useValue: gapiClientConfig
+    }),
     GaugesModule,
     SlideMenuModule
   ],
-  providers: [LlbService, RestService, LoaderService],
+  providers: [LlbService, RestService, LoaderService, EmailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

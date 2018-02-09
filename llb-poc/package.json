@@ -25,6 +25,7 @@
     "core-js": "^2.4.1",
     "cuppa-ng2-slidemenu": "^2.0.0",
     "ng-canvas-gauges": "^2.0.3",
+    "ng-gapi": "0.0.45",
     "ng2-charts": "^1.6.0",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
@@ -46,6 +47,6 @@
     "protractor": "~5.1.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
-    "typescript": "~2.2.0"
+    "typescript": "~2.4.0"
   }
 }
