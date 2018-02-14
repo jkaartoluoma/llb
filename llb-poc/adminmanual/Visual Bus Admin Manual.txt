@@ -1,0 +1,125 @@
+Visual Bus Administration Manual
+version: 0.2
+author: Kaj Torrkulla (torrkulla@gmail.com)
+
+1. Introduction
+
+Visual Bus is an Angular application that displays data collected from busses
+running in Helsinki. This manual describes how to install the app on a server
+and configure it for use. Also included are instructions for using the
+data recording and playback feature made for testing and demonstration
+purposes.
+
+2. Visual Bus Installation
+
+Visual Bus will run on any system capable of running Angular
+applications. This manual assumes that the system is running Ubuntu Linux
+16.04. Adjust as necessary when running on another operating system.
+
+2.1 Prerequisites
+
+Excluding other services, the Angular application will run on a system
+with 768 MiB RAM and a Core2Duo class processor. Using a faster processor will
+enable quicker starting of the application on the server. The application
+requires 300 MiB storage on the filesystem.
+
+2.2 Installation
+
+Install curl
+$ sudo apt install curl
+
+Install node.js and npm
+$ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+$ sudo apt install nodejs
+
+Test node and npm
+$ node -v
+$ npm -v
+
+Install angular-cli
+$ npm install angular-cli
+
+Install git
+$ sudo apt install git
+
+cd to a directory for the application.
+
+Clone the application from Bitbucket
+$ git clone https://bitbucket.org/kaj_torrkulla/llb.git
+
+cd to llb-poc
+$ cd llb/llb-poc/
+
+Install required packages using npm
+$ sudo apt install build-essential
+$ sudo npm install -g @angular/cli@latest
+$ npm install
+
+Test running the app
+$ ng serve
+The app will now build.
+
+2.3 Testing
+
+If the app completed building in section 2.2 and no parameters were passed to
+ng serve, the front page of the app should be accessible on
+http://localhost:4200/ . A bus can be selected using the drop down
+menu. Different categories of data can be viewed by clicking on the icons
+above the bus.
+
+2.4 Production Environment
+
+Currently building a production package by using 'ng build --prod' does not
+work. A workaround is to run the app in development testing mode.
+
+By default, starting the application using 'ng serve', the application listens
+on port 4200 of localhost. To make the application accessible to the public,
+one may utilise a reverse proxy. It may also be necessary to bind the
+application to another ip address.
+
+2.4.1 Binding to a specific address
+
+Use the --host paramerter to bind to a specific host on the server. Below is
+an example of how to bind to address 192.168.1.13 .
+$ ng serve --host 192.168.1.13
+
+2.4.2 Reverse proxy configuration
+
+Below is an excerpt example configuration for an Nginx reverse proxy that
+forwards requests to llb.example.net to 192.168.1.13. Modify the domain and ip
+address as needed.
+
+    server {
+        server_name llb.example.net;
+        listen 80;
+        location / {
+            proxy_pass http://192.168.1.13:4200;
+            proxy_http_version 1.1;
+            proxy_set_header Host $host;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_set_header X-Forwarded-For $remote_addr;
+            proxy_set_header X-Forwarded-Port $server_port;
+            proxy_set_header X-Forwarded-Host $host;
+            proxy_set_header X-Forwarded-URI $request_uri;
+            proxy_set_header X-Request-Start $msec;
+        }
+    }
+
+2.4.3 Email configuration
+
+The public may provide feedback on the application by using a feedback
+form. It is necessary to configure the email settings of the application. A
+Gmail account that is enabled with a JavaScript API from Google is
+required. API ClientId and ApiKey are set in the file
+llb/llb-poc/src/environments/environment.ts .
+
+3. Data Recording And Playback
+
+3.1 Prerequisites
+
+JRE 8 is required to run the precompiled jar. For building OpenJDK 8 including
+a devel package will be necessary in addition to gradle.
+
+3.2  Running
+
+Follow the instructions in llb/testdata/README.md .
