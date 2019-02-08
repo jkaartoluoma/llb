@@ -4,7 +4,7 @@ angular-cli (https://github.com/angular/angular-cli)
 nodejs (https://docs.npmjs.com/getting-started/installing-node)
 
 2. Clone repo:
-git clone https://akselip@bitbucket.org/kaj_torrkulla/llb.git
+git clone https://github.com/jkaartoluoma/llb.git
 
 
 Running application inside development kit:
